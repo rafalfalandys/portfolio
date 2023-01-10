@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+
+.header {
+  display: flex;
+  padding: 0rem 10%;
+  box-shadow: 0px 4px 4px $color-shadow;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-white;
+  height: $height-header;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+
+  a {
+    height: 100%;
+  }
+}
+
+.logo {
+  font-size: $font-large-very;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+    height: 300%;
+    object-fit: contain;
+  }
+
+  &--text {
+    font-size: $font-large-very;
+    color: $color-grey-dark;
+  }
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  gap: 2rem;
+  font-size: $font-medium;
+  width: 22rem;
+}

@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+.link {
+  text-decoration: none;
+  color: black;
+  color: $color-grey-dark;
+}
+
+.active {
+  font-weight: 700;
+}

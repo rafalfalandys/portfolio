@@ -1,0 +1,31 @@
+@import "../styles/variables";
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+  margin-top: 10rem;
+  overflow: hidden;
+
+  img {
+    height: 34rem;
+  }
+
+  .logo--text {
+    font-size: $font-large-very;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 10rem auto;
+  text-align: center;
+  font-size: $font-large;
+
+  li:hover {
+    transition: all 0.1s;
+    font-weight: 700;
+  }
+}

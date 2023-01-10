@@ -1,0 +1,17 @@
+@import "../styles/variables";
+
+.tiles {
+  margin-top: $height-header;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media (max-width: $break-phone) {
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: $break-tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  gap: 1rem;
+  padding: 1rem;
+}

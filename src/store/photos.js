@@ -1,0 +1,18 @@
+export const photosData = [
+  { img: "abstrakt.jpg" },
+  { img: "cien.jpg" },
+  { img: "grass.jpg" },
+  { img: "jacht.jpg" },
+  { img: "jacht2.jpg" },
+  { img: "kot.jpg" },
+  { img: "milicja.jpg" },
+  { img: "potoczek1.jpg" },
+  { img: "potoczek2.jpg" },
+  { img: "refleks.jpg" },
+  { img: "szklo.jpg" },
+  { img: "tatry.jpg" },
+  { img: "tatry2.jpg" },
+  { img: "tatry3.jpg" },
+  { img: "tram.jpg" },
+  { img: "tram2.jpg" },
+];
