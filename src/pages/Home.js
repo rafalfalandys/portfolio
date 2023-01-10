@@ -1,6 +1,5 @@
 import { Fragment } from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header/Header";
+import Footer from "../components/UI/Footer";
 import NavItem from "../components/Header/NavItem";
 import logo from "../img/logo.png";
 

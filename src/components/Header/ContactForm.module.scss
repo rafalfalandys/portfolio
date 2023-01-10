@@ -1,0 +1,54 @@
+@import "../../styles/variables";
+
+.form {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+  font-size: $font-medium;
+  gap: 1rem;
+
+  input {
+    width: 50rem;
+    padding: 0.7rem;
+    border-radius: 3px;
+    border: 1px solid $color-grey;
+    background: none;
+  }
+
+  button {
+    grid-column: 1/3;
+    justify-self: center;
+
+    font-size: $font-large;
+    font-weight: 700;
+    color: $color-grey-light-very;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: $color-grey;
+    border: 1px solid $color-grey;
+    cursor: pointer;
+
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:disabled {
+      display: none;
+      //   cursor: auto;
+      //   color: $color-grey-light;
+      //   border: 1px solid $color-grey-light;
+      //   background-color: $color-grey-light-very;
+
+      //   &:hover {
+      //     transform: scale(1);
+      //   }
+    }
+  }
+}
+
+.msg {
+  min-height: 20rem;
+}

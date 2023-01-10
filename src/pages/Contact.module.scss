@@ -1,0 +1,17 @@
+@import "../styles/variables";
+
+.main {
+  min-height: calc(100vh - $height-footer);
+  padding-top: $height-header;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: $font-medium;
+}
+
+.title {
+  font-size: $font-large;
+  margin: 3rem auto;
+}

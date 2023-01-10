@@ -1,18 +1,28 @@
 import { Fragment } from "react";
-import Footer from "../components/Footer";
+import Footer from "../components/UI/Footer";
 import Header from "../components/Header/Header";
 import styles from "./About.module.scss";
+
+import IconsLinks from "../components/UI/IconsLinks";
 
 function About() {
   return (
     <Fragment>
       <Header />
-      <div className={styles.main}>
-        <div className={styles.text}></div>
+      <main className={styles.main}>
+        <div className={styles.text}>
+          <p>
+            <strong>Rafał Falandys</strong> <br /> Master of Architecture,
+            Alghorhythmic Design Specialist, Frontend developer and Senior
+            Designer
+          </p>
+          <IconsLinks height="3rem" />
+        </div>
         <figure className={styles.photo}>
           <img src={require("../img/about-photo.png")} />
         </figure>
-      </div>
+      </main>
+      <Footer />
     </Fragment>
   );
 }

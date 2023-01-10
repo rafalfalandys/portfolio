@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Footer from "../components/Footer";
+import Footer from "../components/UI/Footer";
 import Header from "../components/Header/Header";
 import SingleItem from "../components/portfolio/SingleItem";
 import styles from "./Portfolio.module.scss";

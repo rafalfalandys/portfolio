@@ -1,0 +1,18 @@
+@import "../../styles/variables";
+
+.icons {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-self: end;
+  height: 100%;
+
+  a {
+    height: 100%;
+  }
+
+  svg {
+    height: 100%;
+    fill: $color-grey-dark;
+  }
+}
