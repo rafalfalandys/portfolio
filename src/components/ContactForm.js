@@ -56,7 +56,7 @@ function ContactForm() {
 
     try {
       await fetch(
-        "https://portfolio-f338a-default-rtdb.europe-west1.firebasedatabase.app/messages.jsson",
+        "https://portfolio-f338a-default-rtdb.europe-west1.firebasedatabase.app/messages.json",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

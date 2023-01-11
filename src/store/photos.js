@@ -1,9 +1,5 @@
 export const photosData = [
   {
-    img: "abstrakt.jpg",
-    url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/photos%2Fabstrakt.jpg?alt=media&token=74c74d1d-25a0-4c8d-a1e0-27151c03d281",
-  },
-  {
     img: "cien.jpg",
     url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/photos%2Fcien.jpg?alt=media&token=5efbe1c4-84e3-4fab-b470-5675339b927d",
   },

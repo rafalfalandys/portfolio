@@ -4,14 +4,17 @@ const defaultState = {
   isNavVisible: false,
   isModalVisible: false,
   curImg: "",
+  photosData: [],
 
   toggleNav: () => {},
   hideNav: () => {},
 
-  toggleModal: () => {},
+  showModal: () => {},
   hideModal: () => {},
 
   setCurImgHandler: () => {},
+  nextImg: () => {},
+  prevImg: () => {},
 };
 
 const Context = React.createContext(defaultState);

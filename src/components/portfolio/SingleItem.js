@@ -6,8 +6,8 @@ function SingleItem(props) {
   const ctx = useContext(Context);
 
   const onClickHandler = () => {
-    ctx.setCurImgHandler(props.url);
-    ctx.toggleModal();
+    ctx.setCurImgHandler(props.no);
+    ctx.showModal();
   };
 
   return (
