@@ -1,0 +1,21 @@
+@import "../../../styles/variables";
+
+.contact {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 100%;
+
+  svg {
+    height: 100%;
+    fill: $color-grey-dark;
+
+    @media (max-width: $break-phone) {
+      height: 2.5rem;
+    }
+  }
+
+  & p {
+    white-space: nowrap;
+  }
+}

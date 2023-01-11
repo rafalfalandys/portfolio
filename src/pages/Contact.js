@@ -1,20 +1,24 @@
 import { Fragment } from "react";
 import Footer from "../components/UI/Footer";
-import Header from "../components/Header/Header";
+import Header from "../components/Header";
 
 import styles from "./Contact.module.scss";
-import ContactForm from "../components/Header/ContactForm";
-import ContactData from "../components/UI/ContactData";
+import ContactForm from "../components/ContactForm";
+import Phone from "../components/UI/ContactData/Phone";
+import Email from "../components/UI/ContactData/Email";
 
 function Contact() {
   return (
     <Fragment>
       <Header />
       <main className={styles.main}>
-        <h1 className={styles.title}>Get in touch!</h1>
+        <h1>Get in touch!</h1>
         <ContactForm />
-        <h1 className={styles.title}>Or reach me at:</h1>
-        <ContactData height="3.5rem" />
+        <h2>Or reach me at:</h2>
+        <div className={styles.contact}>
+          <Phone />
+          <Email />
+        </div>
       </main>
       <Footer />
     </Fragment>

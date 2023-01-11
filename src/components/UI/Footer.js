@@ -1,7 +1,7 @@
 import styles from "./Footer.module.scss";
-import { Call, Mail } from "@swiftcarrot/react-ionicons";
 import IconsLinks from "./IconsLinks";
-import ContactData from "./ContactData";
+import Phone from "./ContactData/Phone";
+import Email from "./ContactData/Email";
 
 function Footer(props) {
   return (
@@ -12,8 +12,13 @@ function Footer(props) {
           Alghorhythmic Design Specialist, Frontend developer and Senior
           Designer
         </p>
-        <ContactData height="2.5rem" />
-        <IconsLinks height="2.5rem" />
+        <div className={styles.contact}>
+          <Phone />
+          <Email />
+        </div>
+        <div className={styles.icons}>
+          <IconsLinks />
+        </div>
       </div>
     </footer>
   );

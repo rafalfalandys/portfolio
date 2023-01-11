@@ -1,24 +1,24 @@
-import { Fragment } from "react";
 import Footer from "../components/UI/Footer";
-import NavItem from "../components/Header/NavItem";
 import logo from "../img/logo.png";
 
 import styles from "./Home.module.scss";
+import { Fragment } from "react";
+import NavElements from "../components/UI/Navigation/NavElements";
 
 function Home() {
   return (
     <Fragment>
-      <div className={styles.content}>
-        <img src={logo} />
-        <h1 className={styles["logo--text"]}>rafa</h1>
-      </div>
-      <ul className={styles.list}>
-        <NavItem linkTo="/about">About me</NavItem>
-        <NavItem linkTo="/portfolio">Porfolio</NavItem>
-        <NavItem linkTo="/contact">Contact</NavItem>
-      </ul>
-      <div className={styles.container}>{/* <Logo /> */}</div>
-      <Footer fixed />
+      <main className={styles.main}>
+        <div className={styles.logo}>
+          <img src={logo} alt="logo" />
+          <h1 className={styles["logo--text"]}>rafa</h1>
+        </div>
+        <nav className={styles.nav}>
+          <NavElements />
+        </nav>
+        <div className={styles.container}>{/* <Logo /> */}</div>
+      </main>
+      <Footer />
     </Fragment>
   );
 }

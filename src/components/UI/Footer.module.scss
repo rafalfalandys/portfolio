@@ -3,16 +3,10 @@
 .footer {
   width: 100%;
   background-color: $color-white;
-
-  svg {
-    height: 2.5rem;
-    fill: $color-grey-dark;
-  }
 }
 
 .container {
   height: $height-footer;
-  min-height: 5rem;
   font-size: 1rem;
   max-width: 150rem;
   margin: auto;
@@ -25,19 +19,47 @@
   font-size: $font-small;
 
   max-width: 150rem;
+
+  @media (max-width: $break-phone) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 2rem;
+  }
 }
 
 .text {
   max-width: 50rem;
+
+  @media (max-width: $break-phone) {
+    display: none;
+  }
 }
 
 .contact {
-  min-width: 32rem;
-  display: grid;
-  grid-template-columns: 3rem 1fr 3rem 1fr;
-  justify-items: start;
-  align-items: center;
-  row-gap: 1rem;
+  display: flex;
+  height: 2.5rem;
+  gap: 2rem;
+
+  @media (max-width: $break-phone) {
+    flex-direction: column;
+    align-items: center;
+    font-size: $font-medium;
+    height: 6rem;
+
+    svg {
+      height: 2.5rem;
+    }
+  }
+}
+
+.icons {
+  height: 2.5rem;
+
+  @media (max-width: $break-phone) {
+    margin: 3rem auto;
+    height: 4rem;
+  }
 }
 
 .fixed {

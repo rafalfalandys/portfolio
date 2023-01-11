@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Footer from "../components/UI/Footer";
-import Header from "../components/Header/Header";
+import Header from "../components/Header";
 import styles from "./About.module.scss";
 
 import IconsLinks from "../components/UI/IconsLinks";
@@ -19,7 +19,7 @@ function About() {
           <IconsLinks height="3rem" />
         </div>
         <figure className={styles.photo}>
-          <img src={require("../img/about-photo.png")} />
+          <img src={require("../img/about-photo.png")} alt="person" />
         </figure>
       </main>
       <Footer />

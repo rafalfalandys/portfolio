@@ -6,6 +6,10 @@
   overflow: hidden;
   position: relative;
 
+  @media (max-width: $break-phone) {
+    height: 15rem;
+  }
+
   &::after {
     content: "";
     display: block;

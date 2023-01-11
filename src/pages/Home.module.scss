@@ -1,11 +1,22 @@
 @import "../styles/variables";
 
-.content {
+.main {
+  min-height: calc(100vh - $height-footer);
+  padding-top: 10rem;
+
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $break-phone) {
+    height: 100vh;
+  }
+}
+
+.logo {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 15rem;
-  margin-top: 10rem;
   overflow: hidden;
 
   img {
@@ -17,12 +28,18 @@
   }
 }
 
-.list {
+.nav {
   display: flex;
-  flex-direction: column;
   margin: 10rem auto;
   text-align: center;
-  font-size: $font-large;
+
+  & ul {
+    font-size: $font-large;
+    flex-direction: column;
+    @media (max-width: $break-phone) {
+      gap: 4rem;
+    }
+  }
 
   li:hover {
     transition: all 0.1s;

@@ -3,15 +3,36 @@
 .main {
   min-height: calc(100vh - $height-footer);
   padding-top: $height-header;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   font-size: $font-medium;
+
+  & h1 {
+    font-size: $font-large;
+    margin: 3rem auto;
+    font-weight: 700;
+  }
+  & h2 {
+    font-size: $font-large;
+    margin: 3rem auto;
+    font-weight: 300;
+
+    @media (max-width: $break-phone) {
+      margin: 3rem auto 0 auto;
+    }
+  }
 }
 
-.title {
-  font-size: $font-large;
-  margin: 3rem auto;
+.contact {
+  height: 2.5rem;
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: $break-phone) {
+    display: none;
+  }
 }

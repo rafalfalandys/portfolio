@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: $color-shadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: all 0.3s;
+}
+
+.modal {
+  //   width: 90vw;
+  //   height: 90vh;
+
+  margin: auto;
+  background-color: $color-grey-light-very;
+  padding: 1rem 1rem 6rem 1rem;
+  max-width: 95%;
+  max-height: 95%;
+  .container {
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}

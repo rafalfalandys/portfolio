@@ -1,11 +1,14 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import Context from "../../../store/context";
 import styles from "./NavItem.module.scss";
 
 function NavItem(props) {
-  // const linkClass = `${styles.link} ${(navData) =>
-  //   navData.isActive ? styles.active : ""}`;
+  const ctx = useContext(Context);
+  const clickHandler = () => ctx.hideNav();
+
   return (
-    <li>
+    <li onClick={clickHandler}>
       <NavLink
         to={props.linkTo}
         className={(navData) =>

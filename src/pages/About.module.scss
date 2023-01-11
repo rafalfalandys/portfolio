@@ -1,16 +1,30 @@
 @import "../styles/variables";
 
 .main {
+  overflow: hidden;
 }
 
 .text {
-  margin-left: 10%;
   position: absolute;
   margin: 15rem 50vw 0 10%;
   z-index: 1;
-  font-size: $font-large;
+  font-size: $font-medium;
+
   p {
     margin-bottom: 3rem;
+  }
+
+  @media (max-width: $break-phone) {
+    margin: 15rem 30vw 0 10%;
+  }
+}
+
+.nav {
+  margin-top: 6rem;
+  & ul {
+    display: flex;
+    flex-direction: column;
+    font-size: $font-large;
   }
 }
 
@@ -24,6 +38,10 @@
     position: absolute;
     right: 0;
     height: 100%;
+  }
+
+  @media (max-width: $break-phone) {
+    transform: translateX(20rem);
   }
 }
 
