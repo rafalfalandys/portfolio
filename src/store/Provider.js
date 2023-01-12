@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Context from "./context";
 import { photosData } from "./photos";
 
@@ -13,7 +13,38 @@ function Provider(props) {
   const toggleNav = () => setIsNavVisible((prevState) => !prevState);
   const hideNav = () => setIsNavVisible(false);
 
-  const showModal = () => setIsModalVisible(true);
+  /////////////////// Event listener functions //////////////////
+
+  const arrowHandler = useCallback((e) => {
+    if (e.key === "ArrowRight") nextImg();
+    if (e.key === "ArrowLeft") prevImg();
+  }, []);
+
+  const escHandler = useCallback((e) => {
+    if (e.key === "Escape") {
+      console.log("czesc");
+      hideModal();
+    }
+  });
+
+  useEffect(() => {
+    if (isModalVisible) {
+      console.log("listener added");
+      document.addEventListener("keydown", escHandler);
+      document.addEventListener("keydown", arrowHandler);
+    }
+    if (!isModalVisible) {
+      console.log("listener removed");
+      document.removeEventListener("keydown", escHandler);
+      document.removeEventListener("keydown", arrowHandler);
+    }
+  }, [isModalVisible]);
+  /////////////////// Event listener functions //////////////////
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
   const hideModal = () => {
     setIsModalVisible(false);
   };
@@ -29,7 +60,7 @@ function Provider(props) {
     });
 
     setBumpRight(true);
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setBumpRight(false);
     }, 300);
   };
@@ -41,8 +72,7 @@ function Provider(props) {
     });
 
     setBumpLeft(true);
-    console.log("siemandero");
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setBumpLeft(false);
     }, 300);
   };

@@ -1,6 +1,6 @@
 import { Fragment, useContext } from "react";
 import { createPortal } from "react-dom";
-import useKey from "../../../hooks/use-key";
+// import useKey from "../../../hooks/use-key";
 import Context from "../../../store/context";
 
 import styles from "./Modal.module.scss";
@@ -11,7 +11,7 @@ import Overlay from "./Overlay";
 
 function Modal() {
   const ctx = useContext(Context);
-  useKey();
+  // useKey();
 
   //   if (ctx.isModalVisible) document.body.style.overflow = "hidden";
   //   if (!ctx.isModalVisible) document.body.style.overflow = "unset";

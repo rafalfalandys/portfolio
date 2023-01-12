@@ -1,8 +1,23 @@
 @import "../../../styles/variables";
 
+.dots {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  color: $color-white;
+  font-size: $font-medium;
+}
+
+.close {
+  top: 10%;
+  right: 3%;
+}
+
 .btn {
   position: fixed;
-  top: 50%;
+
   transform: translateY(-50%) scale(1);
   height: 6rem;
   width: 6rem;
@@ -15,6 +30,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.arrows {
+  top: 50%;
+
+  @media (max-width: $break-phone) {
+    top: auto;
+    bottom: 5%;
+  }
 }
 
 ion-icon {

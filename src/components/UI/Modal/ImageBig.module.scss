@@ -4,14 +4,16 @@
   position: fixed;
   left: 50%;
   top: 4rem;
-  transform: translateX(-50%);
+  transform: translate(-50%);
   background-color: $color-grey-light-very;
-  padding: 1rem 1rem 7rem 1rem;
+  padding: 1rem;
   width: max-content;
   margin-bottom: 4rem;
 
   @media (max-width: $break-phone) {
-    top: 30%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
   }
 
   img {
@@ -20,5 +22,10 @@
     max-width: 90vw;
     max-height: 80vh;
     object-fit: contain;
+
+    @media (max-width: $break-phone) {
+      max-width: 92vw;
+      max-height: 80vh;
+    }
   }
 }
