@@ -1,8 +1,7 @@
 import { Fragment } from "react";
 import Footer from "../components/UI/Footer";
-import Header from "../components/Header";
 import styles from "./About.module.scss";
-
+import Header from "../components/Header/Header";
 import IconsLinks from "../components/UI/IconsLinks";
 
 function About() {

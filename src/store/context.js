@@ -5,6 +5,8 @@ const defaultState = {
   isModalVisible: false,
   curImg: "",
   photosData: [],
+  bumpLeft: false,
+  bumpRight: false,
 
   toggleNav: () => {},
   hideNav: () => {},

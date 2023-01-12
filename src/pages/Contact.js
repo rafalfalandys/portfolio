@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Footer from "../components/UI/Footer";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 
 import styles from "./Contact.module.scss";
 import ContactForm from "../components/ContactForm";

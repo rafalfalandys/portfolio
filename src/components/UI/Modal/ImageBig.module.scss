@@ -1,19 +1,4 @@
-@import "../../styles/variables";
-
-.overlay {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-
-  background-color: $color-shadow;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  transition: all 0.3s;
-}
+@import "../../../styles/variables";
 
 .modal {
   position: fixed;
@@ -23,7 +8,7 @@
   background-color: $color-grey-light-very;
   padding: 1rem 1rem 7rem 1rem;
   width: max-content;
-  z-index: 11;
+  margin-bottom: 4rem;
 
   @media (max-width: $break-phone) {
     top: 30%;
@@ -36,9 +21,4 @@
     max-height: 80vh;
     object-fit: contain;
   }
-}
-
-.hidden {
-  visibility: hidden;
-  opacity: 0;
 }

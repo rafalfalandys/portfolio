@@ -1,9 +1,9 @@
 import styles from "./Header.module.scss";
-import logo from "../img/logo.png";
+import logo from "../../img/logo.png";
 import { Link } from "react-router-dom";
 import { Fragment, useContext } from "react";
-import Context from "../store/context";
-import NavElements from "./UI/Navigation/NavElements";
+import Context from "../../store/context";
+import NavElements from "../UI/Navigation/NavElements";
 
 function Header() {
   const ctx = useContext(Context);
