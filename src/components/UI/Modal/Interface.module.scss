@@ -2,12 +2,14 @@
 
 .dots {
   position: fixed;
-  bottom: 5%;
+  bottom: 4%;
   left: 50%;
   transform: translate(-50%);
   display: flex;
+  justify-content: center;
   color: $color-white;
   font-size: $font-medium;
+  width: 85%;
 }
 
 .close {
@@ -45,7 +47,7 @@
 
   @media (max-width: $break-phone) {
     top: auto;
-    bottom: 5%;
+    bottom: 10%;
   }
 }
 

@@ -9,7 +9,7 @@ function ImageBig(props) {
   const url = ctx.photosData[props.imgNo].url;
 
   return (
-    <div className={styles.modal}>
+    <div className={styles.container}>
       <img src={url} alt="big" />
     </div>
   );
