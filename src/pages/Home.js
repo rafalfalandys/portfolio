@@ -16,7 +16,6 @@ function Home() {
         <nav className={styles.nav}>
           <NavElements />
         </nav>
-        <div className={styles.container}>{/* <Logo /> */}</div>
       </main>
       <Footer />
     </Fragment>

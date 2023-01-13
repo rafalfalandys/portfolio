@@ -7,6 +7,7 @@ const defaultState = {
   photosData: [],
   bumpLeft: false,
   bumpRight: false,
+  isDropDownVisible: false,
 
   toggleNav: () => {},
   hideNav: () => {},
@@ -17,6 +18,9 @@ const defaultState = {
   setCurImgHandler: () => {},
   nextImg: () => {},
   prevImg: () => {},
+
+  showDropDown: () => {},
+  hideDropDown: () => {},
 };
 
 const Context = React.createContext(defaultState);

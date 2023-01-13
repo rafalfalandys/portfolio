@@ -1,6 +1,13 @@
 @import "../../../styles/variables";
 
+.item {
+  position: relative;
+  height: 100%;
+}
+
 .link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: black;
   color: $color-grey-dark;

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import Context from "./context";
 import { photosData } from "./photos";
 
@@ -6,52 +6,18 @@ function Provider(props) {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [curImg, setCurImg] = useState(0);
-
   const [bumpLeft, setBumpLeft] = useState(false);
   const [bumpRight, setBumpRight] = useState(false);
+  const [isDropDownVisible, setIsDropDownVisible] = useState(false);
 
   const toggleNav = () => setIsNavVisible((prevState) => !prevState);
   const hideNav = () => setIsNavVisible(false);
 
-  /////////////////// Event listener functions //////////////////
+  const showModal = () => setIsModalVisible(true);
 
-  const arrowHandler = useCallback((e) => {
-    if (e.key === "ArrowRight") nextImg();
-    if (e.key === "ArrowLeft") prevImg();
-  }, []);
+  const hideModal = () => setIsModalVisible(false);
 
-  const escHandler = useCallback((e) => {
-    if (e.key === "Escape") {
-      console.log("czesc");
-      hideModal();
-    }
-  });
-
-  useEffect(() => {
-    if (isModalVisible) {
-      console.log("listener added");
-      document.addEventListener("keydown", escHandler);
-      document.addEventListener("keydown", arrowHandler);
-    }
-    if (!isModalVisible) {
-      console.log("listener removed");
-      document.removeEventListener("keydown", escHandler);
-      document.removeEventListener("keydown", arrowHandler);
-    }
-  }, [isModalVisible]);
-  /////////////////// Event listener functions //////////////////
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const hideModal = () => {
-    setIsModalVisible(false);
-  };
-
-  const setCurImgHandler = (no) => {
-    setCurImg(no);
-  };
+  const setCurImgHandler = (no) => setCurImg(no);
 
   const nextImg = () => {
     setCurImg((prev) => {
@@ -77,14 +43,8 @@ function Provider(props) {
     }, 300);
   };
 
-  // useEffect(() => {
-  //   setBump(true);
-  //   const timer = setTimeout(() => {
-  //     setBump(false);
-  //   }, 300);
-
-  //   return () => clearTimeout(timer);
-  // }, [ctx.curImg]);
+  const showDropDown = () => setIsDropDownVisible(true);
+  const hideDropDown = () => setIsDropDownVisible(false);
 
   const context = {
     isNavVisible,
@@ -93,6 +53,7 @@ function Provider(props) {
     photosData,
     bumpLeft,
     bumpRight,
+    isDropDownVisible,
 
     toggleNav,
     hideNav,
@@ -103,6 +64,9 @@ function Provider(props) {
     setCurImgHandler,
     nextImg,
     prevImg,
+
+    hideDropDown,
+    showDropDown,
   };
 
   return <Context.Provider value={context}>{props.children}</Context.Provider>;

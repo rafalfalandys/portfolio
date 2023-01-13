@@ -46,3 +46,12 @@
     font-weight: 700;
   }
 }
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  gap: 2rem;
+  font-size: $font-medium;
+  width: 22rem;
+}

@@ -1,0 +1,19 @@
+@import "../../../styles/variables";
+
+.dropdown {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $color-white;
+  z-index: -1;
+
+  color: $color-grey-dark;
+  padding: 3rem 5rem;
+
+  & ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import Context from "../../../store/context";
+import Context from "../../store/context";
 import styles from "./Overlay.module.scss";
 
 function Overlay() {

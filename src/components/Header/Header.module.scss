@@ -1,5 +1,12 @@
 @import "../../styles/variables";
 
+.wrapper {
+  z-index: 3;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
 .header {
   display: flex;
   padding: 0rem 10%;
@@ -8,10 +15,10 @@
   align-items: center;
   background-color: $color-white;
   height: $height-header;
-  position: fixed;
+
+  position: relative;
   width: 100%;
   top: 0;
-  z-index: 3;
 
   a {
     height: 100%;
@@ -23,6 +30,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
+  z-index: 3;
 
   img {
     height: 300%;
@@ -36,19 +44,32 @@
 }
 
 .nav {
+  height: 100%;
   @media (max-width: $break-phone) {
     display: none;
   }
 }
 
-.menu {
-  &--icon {
-    display: none;
-    z-index: -2;
+.hovered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  visibility: hidden;
+  opacity: 0;
 
-    @media (max-width: $break-phone) {
-      display: block;
-    }
+  &:hover,
+  .link:hover + & {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.menu--icon {
+  display: none;
+  z-index: 3;
+
+  @media (max-width: $break-phone) {
+    display: block;
   }
 }
 

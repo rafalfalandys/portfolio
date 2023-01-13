@@ -18,7 +18,7 @@ function Header() {
   );
 
   return (
-    <Fragment>
+    <div className={styles.wrapper}>
       <header className={styles.header}>
         {logoEl}
         <nav className={styles.nav}>
@@ -37,9 +37,9 @@ function Header() {
           ctx.isNavVisible ? "" : styles.hidden
         }`}
       >
-        <NavElements />
+        <NavElements mobile />
       </nav>
-    </Fragment>
+    </div>
   );
 }
 
