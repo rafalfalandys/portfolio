@@ -1,7 +1,7 @@
 import { Fragment, useContext } from "react";
 import Footer from "../../components/UI/Footer";
 import SingleItem from "../../components/portfolio/SingleItem";
-import styles from "./Portfolio.module.scss";
+import styles from "./Photography.module.scss";
 import { photosData } from "../../store/photos";
 import Modal from "../../components/Modal/Modal";
 import Header from "../../components/Header/Header";

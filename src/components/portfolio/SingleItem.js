@@ -6,8 +6,10 @@ function SingleItem(props) {
   const ctx = useContext(Context);
 
   const onClickHandler = () => {
-    ctx.setCurImgHandler(props.no);
-    ctx.showModal();
+    if (props.no !== undefined) {
+      ctx.setCurImgHandler(props.no);
+      ctx.showModal();
+    }
   };
 
   return (

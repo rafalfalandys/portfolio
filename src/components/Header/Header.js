@@ -1,7 +1,7 @@
 import styles from "./Header.module.scss";
 import logo from "../../img/logo.png";
 import { Link } from "react-router-dom";
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import Context from "../../store/context";
 import NavElements from "../UI/Navigation/NavElements";
 
@@ -22,7 +22,7 @@ function Header() {
       <header className={styles.header}>
         {logoEl}
         <nav className={styles.nav}>
-          <NavElements />
+          <NavElements hover />
         </nav>
         <div className={styles["menu--icon"]} onClick={toggleNavHandler}>
           <ion-icon

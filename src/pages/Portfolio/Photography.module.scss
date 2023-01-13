@@ -5,8 +5,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
+  grid-auto-rows: 27rem;
+
   @media (max-width: $break-phone) {
     grid-template-columns: 1fr;
+    grid-auto-rows: 10rem;
   }
   @media (max-width: $break-tablet) {
     grid-template-columns: 1fr 1fr 1fr;

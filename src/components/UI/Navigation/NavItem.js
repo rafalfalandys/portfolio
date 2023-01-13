@@ -34,7 +34,7 @@ function NavItem(props) {
       >
         {props.children}
       </NavLink>
-      {ctx.isDropDownVisible && props.hover && <DropDown />}
+      {ctx.isDropDownVisible && props.hover && !props.mobile && <DropDown />}
     </li>
   );
 }

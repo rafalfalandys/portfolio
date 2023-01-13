@@ -16,4 +16,8 @@
     flex-direction: column;
     gap: 3rem;
   }
+
+  @media (max-width: $break-phone) {
+    display: none;
+  }
 }

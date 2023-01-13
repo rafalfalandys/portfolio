@@ -7,7 +7,7 @@ function NavElements(props) {
       <NavItem mobile={props.mobile} linkTo="/about">
         About
       </NavItem>
-      <NavItem mobile={props.mobile} linkTo="/portfolio" hover>
+      <NavItem mobile={props.mobile} linkTo="/portfolio" hover={props.hover}>
         Porfolio
       </NavItem>
       <NavItem mobile={props.mobile} linkTo="/contact">
