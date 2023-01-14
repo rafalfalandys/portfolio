@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import Architecture from "./pages/Portfolio/Architecture";
 import Photography from "./pages/Portfolio/Photography";
+import DetailedProject from "./pages/Portfolio/DetailedProject";
 import Provider from "./store/Provider";
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio/architecture" element={<Architecture />} />
+        <Route
+          path="/portfolio/architecture/:projectId"
+          element={<DetailedProject />}
+        />
         <Route path="/portfolio/photography" element={<Photography />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

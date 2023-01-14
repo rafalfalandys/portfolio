@@ -3,8 +3,9 @@ import React from "react";
 const defaultState = {
   isNavVisible: false,
   isModalVisible: false,
+  curImages: [],
   curImg: "",
-  photosData: [],
+  projectsData: [],
   bumpLeft: false,
   bumpRight: false,
   isDropDownVisible: false,
@@ -15,7 +16,8 @@ const defaultState = {
   showModal: () => {},
   hideModal: () => {},
 
-  setCurImgHandler: () => {},
+  curImagesHandler: () => {},
+  curImgHandler: () => {},
   nextImg: () => {},
   prevImg: () => {},
 

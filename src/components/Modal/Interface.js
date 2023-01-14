@@ -5,7 +5,7 @@ import styles from "./Interface.module.scss";
 function Interface() {
   const ctx = useContext(Context);
 
-  const dotEls = ctx.photosData.map((name, i) => {
+  const dotEls = ctx.curImages.map((name, i) => {
     const isActive = i === ctx.curImg;
     return (
       <ion-icon

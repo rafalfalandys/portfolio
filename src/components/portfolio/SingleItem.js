@@ -7,7 +7,8 @@ function SingleItem(props) {
 
   const onClickHandler = () => {
     if (props.no !== undefined) {
-      ctx.setCurImgHandler(props.no);
+      ctx.curImagesHandler(props.imagesArr);
+      ctx.curImgHandler(props.no);
       ctx.showModal();
     }
   };

@@ -1,6 +1,5 @@
 import { Fragment, useContext } from "react";
 import { createPortal } from "react-dom";
-// import useKey from "../../../hooks/use-key";
 import Context from "../../store/context";
 
 import styles from "./Modal.module.scss";

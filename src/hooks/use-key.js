@@ -3,20 +3,27 @@ import Context from "../store/context";
 
 function useKey() {
   const ctx = useContext(Context);
-  const { isModalVisible } = ctx;
-  const arrowHandler = useCallback((e) => {
-    if (e.key === "ArrowRight") ctx.nextImg();
-    if (e.key === "ArrowLeft") ctx.prevImg();
-  }, []);
-  const escHandler = useCallback((e) => {
-    if (e.key === "Escape") {
-      ctx.hideModal();
-    }
-  }, []);
+  const { isModalVisible, nextImg, prevImg, hideModal } = ctx;
+
+  const arrowHandler = useCallback(
+    (e) => {
+      if (e.key === "ArrowRight") nextImg();
+      if (e.key === "ArrowLeft") prevImg();
+    },
+    [nextImg, prevImg]
+  );
+
+  const escHandler = useCallback(
+    (e) => {
+      if (e.key === "Escape") {
+        hideModal();
+      }
+    },
+    [hideModal]
+  );
+
   useEffect(() => {
-    console.log(isModalVisible);
     if (isModalVisible) {
-      console.log("added");
       document.addEventListener("keydown", escHandler);
       document.addEventListener("keydown", arrowHandler);
     }

@@ -1,0 +1,37 @@
+@import "../../styles/variables";
+
+.main {
+  padding-top: $height-header;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  max-width: 110rem;
+
+  & h1 {
+    margin: 3rem;
+    font-size: $font-large;
+  }
+}
+
+.content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 2rem;
+
+  & p {
+    font-size: $font-medium;
+  }
+}
+
+.images {
+  display: grid;
+  height: min-content;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: $grid-gap;
+
+  @media (max-width: $break-tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+}

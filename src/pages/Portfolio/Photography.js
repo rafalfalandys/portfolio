@@ -13,7 +13,13 @@ function Photography() {
   useKey();
 
   const photos = photosData.map((photo, i) => (
-    <SingleItem url={photo.url} name={photo.img} key={photo.img} no={i} />
+    <SingleItem
+      url={photo.url}
+      name={photo.img}
+      key={photo.img}
+      no={i}
+      imagesArr={photosData}
+    />
   ));
 
   return (

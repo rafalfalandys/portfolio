@@ -6,7 +6,7 @@ import styles from "./ImageBig.module.scss";
 function ImageBig(props) {
   const ctx = useContext(Context);
 
-  const url = ctx.photosData[props.imgNo].url;
+  const url = ctx.curImages[props.imgNo].url;
 
   return (
     <div className={styles.container}>
