@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 function Architecture() {
   const ctx = useContext(Context);
 
+  const zero = 0;
+
   const projects = ctx.projectsData.map((project, i) => {
     return (
       <div key={project.title}>

@@ -35,8 +35,17 @@ function DetailedProject(props) {
       <main className={styles.main}>
         <h1>{project.title}</h1>
         <div className={styles.content}>
-          <div className={styles.images}>{images}</div>
-          <p>{project.description}</p>
+          <div className={styles.row}>
+            <div className={styles["image-big"]}>
+              <img src={project.images[ctx.curImg].url} />
+            </div>
+            {/* <SingleItem url={project.images[ctx.curImg].url} no={ctx.curImg} /> */}
+            <p>{project.description}</p>
+          </div>
+          <div className={styles.row}>
+            <div className={styles.images}>{images}</div>
+            <p>{project.description}</p>
+          </div>
         </div>
       </main>
       ;

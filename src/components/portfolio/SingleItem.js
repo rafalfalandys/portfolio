@@ -6,16 +6,26 @@ function SingleItem(props) {
   const ctx = useContext(Context);
 
   const onClickHandler = () => {
+    ctx.curImagesHandler(props.imagesArr);
+    ctx.curImgHandler(0);
     if (props.no !== undefined) {
-      ctx.curImagesHandler(props.imagesArr);
       ctx.curImgHandler(props.no);
       ctx.showModal();
     }
   };
 
+  const onMouseOverHandler = () => {
+    ctx.curImgHandler(props.no);
+  };
+
   return (
     <div className={styles.container}>
-      <img src={props.url} alt={props.name} onClick={onClickHandler} />
+      <img
+        src={props.url}
+        alt={props.name}
+        onClick={onClickHandler}
+        onMouseOver={onMouseOverHandler}
+      />
     </div>
   );
 }
