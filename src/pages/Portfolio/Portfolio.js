@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header";
 import Context from "../../store/context";
 import { Link } from "react-router-dom";
 import SingleItem from "../../components/portfolio/SingleItem";
+import { photosData } from "../../store/photos";
 
 function Portfolio() {
   const ctx = useContext(Context);
@@ -16,13 +17,13 @@ function Portfolio() {
         <div className={styles.card}>
           <h1>Architecture</h1>
           <Link to="architecture">
-            <SingleItem url={ctx.photosData[1].url} />
+            <SingleItem url={photosData[1].url} />
           </Link>
         </div>
         <div className={styles.card}>
           <h1>Photography</h1>
           <Link to="photography" className={styles.card}>
-            <SingleItem url={ctx.photosData[10].url} />
+            <SingleItem url={photosData[10].url} />
           </Link>
         </div>
       </main>
