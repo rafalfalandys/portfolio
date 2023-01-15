@@ -42,7 +42,7 @@ function Architecture() {
 
   return (
     <Fragment>
-      <Header />
+      <Header fixed />
       <main className={styles.main}>
         <div className={styles.tiles}>{projects}</div>
       </main>

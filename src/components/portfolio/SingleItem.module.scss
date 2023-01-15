@@ -35,6 +35,10 @@
 
     &:hover {
       transform: scale(1.05);
+
+      @media (max-width: $break-tablet) {
+        transform: scale(1);
+      }
     }
   }
 }

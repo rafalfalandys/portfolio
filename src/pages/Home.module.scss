@@ -8,6 +8,7 @@
   flex-direction: column;
 
   @media (max-width: $break-phone) {
+    padding-top: 0;
     height: 100vh;
   }
 }
@@ -19,24 +20,39 @@
   height: 15rem;
   overflow: hidden;
 
-  img {
-    height: 34rem;
+  @media (max-width: $break-phone) {
+    height: 11rem;
+    // background-color: $color-white;
+    justify-content: space-between;
   }
 
-  .logo--text {
-    font-size: $font-large-very;
+  img {
+    height: 34rem;
+
+    @media (max-width: $break-phone) {
+      height: 28rem;
+    }
+  }
+
+  &--text {
+    font-size: 6rem;
+
+    @media (max-width: $break-phone) {
+      margin-right: 1.5rem;
+    }
   }
 }
 
 .nav {
-  display: flex;
-  margin: 10rem auto;
-  text-align: center;
-
+  margin: auto;
+  transform: translateY(-50%);
   & ul {
-    font-size: $font-large;
+    font-size: $font-large-very;
     flex-direction: column;
+
     @media (max-width: $break-phone) {
+      height: 100%;
+      flex-grow: 1;
       gap: 4rem;
     }
   }

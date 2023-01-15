@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Context from "../../store/context";
 import NavElements from "../UI/Navigation/NavElements";
 
-function Header() {
+function Header(props) {
   const ctx = useContext(Context);
 
   const toggleNavHandler = () => ctx.toggleNav();
@@ -18,13 +18,13 @@ function Header() {
   );
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${props.fixed ? styles.fixed : ""}`}>
       <header className={styles.header}>
         {logoEl}
         <nav className={styles.nav}>
           <NavElements hover />
         </nav>
-        <div className={styles["menu--icon"]} onClick={toggleNavHandler}>
+        <div className={styles["menu__icon"]} onClick={toggleNavHandler}>
           <ion-icon
             name={`${ctx.isNavVisible ? "close" : "menu"}`}
             size="large"
@@ -38,6 +38,9 @@ function Header() {
         }`}
       >
         <NavElements mobile />
+        <div className={styles["menu__icon--extra"]} onClick={toggleNavHandler}>
+          <ion-icon name="chevron-up" size="large"></ion-icon>
+        </div>
       </nav>
     </div>
   );

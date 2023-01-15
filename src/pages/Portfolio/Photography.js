@@ -25,7 +25,7 @@ function Photography() {
   return (
     <Fragment>
       {ctx.isModalVisible && <Modal />}
-      <Header />
+      <Header fixed />
       <main className={styles.tiles}>{photos}</main>
       <Footer />
     </Fragment>

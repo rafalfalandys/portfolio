@@ -10,7 +10,7 @@ import Email from "../components/UI/ContactData/Email";
 function Contact() {
   return (
     <Fragment>
-      <Header />
+      <Header fixed />
       <main className={styles.main}>
         <h1>Get in touch!</h1>
         <ContactForm />

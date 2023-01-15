@@ -20,21 +20,24 @@ function DetailedProject(props) {
     ];
 
   const images = project.images.map((image, i) => (
-    <SingleItem
-      url={image.url}
-      no={i}
-      key={image.url}
-      imagesArr={project.images}
-      curImgOnHover
-    />
+    <div className={styles.wrapper}>
+      <SingleItem
+        url={image.url}
+        no={i}
+        key={image.url}
+        imagesArr={project.images}
+        curImgOnHover
+      />
+    </div>
   ));
 
   return (
     <Fragment>
       {ctx.isModalVisible && <Modal />}
-      <Header />
+      <Header fixed />
       <main className={styles.main}>
-        <h1>{project.title}</h1>
+        <h1>{`${project.location} - ${project.title}`}</h1>
+
         <div className={styles.content}>
           <div className={styles.images}>
             <div className={styles["image-big"]}>
@@ -42,11 +45,18 @@ function DetailedProject(props) {
             </div>
             <div className={styles.thumbnails}>{images}</div>
           </div>
-          <p>{project.description}</p>
+
+          <div className={styles["image-big--mobile"]}>
+            <img src={project.images[0].url} alt="architecture" />
+          </div>
+
+          <div className={styles.text}>
+            <p>{project.description}</p>
+          </div>
         </div>
       </main>
-      ;
-      <Footer fixed />
+
+      <Footer />
     </Fragment>
   );
 }

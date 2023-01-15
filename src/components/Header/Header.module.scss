@@ -2,8 +2,11 @@
 
 .wrapper {
   z-index: 3;
-  position: fixed;
   width: 100%;
+}
+
+.fixed {
+  position: fixed;
   top: 0;
 }
 
@@ -65,17 +68,23 @@
   }
 }
 
-.menu--icon {
+.menu__icon {
   display: none;
   z-index: 3;
 
   @media (max-width: $break-phone) {
     display: block;
   }
+
+  &--extra {
+    margin: auto;
+    width: 4rem;
+    height: 4rem;
+  }
 }
 
 .nav--hideable {
-  position: fixed;
+  position: absolute;
   top: $height-header;
   right: 0;
   background-color: $color-white;

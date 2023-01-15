@@ -7,7 +7,7 @@ import IconsLinks from "../components/UI/IconsLinks";
 function About() {
   return (
     <Fragment>
-      <Header />
+      <Header fixed />
       <main className={styles.main}>
         <div className={styles.text}>
           <p>

@@ -2,30 +2,61 @@
 
 .main {
   padding-top: $height-header;
+  width: 100%;
+  min-height: calc(100vh - $height-footer);
   display: flex;
   margin: auto;
   flex-direction: column;
   align-items: center;
   max-width: $width-main;
+  position: relative;
 
   & h1 {
     margin: 3rem;
     font-size: $font-large;
+
+    @media (max-width: $break-phone) {
+      position: absolute;
+      top: calc($height-header + 22rem);
+      transform: translateY(-100%);
+      padding: 1rem;
+      color: $color-white;
+      width: 100%;
+      text-align: center;
+      // padding: 1rem;
+      margin: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0), $color-shadow);
+    }
   }
 }
 
 .content {
   width: 100%;
   display: grid;
-  grid-template-columns: 45rem auto;
+  grid-template-columns: 51rem auto;
   padding: $grid-gap;
   gap: 2rem;
   font-size: $font-medium;
   white-space: pre-line;
+
+  @media (max-width: $break-phone) {
+    padding: 0;
+    grid-template-columns: 1fr;
+  }
+}
+
+.images {
+  @media (max-width: $break-phone) {
+    width: 100%;
+    overflow: auto;
+    // background-color: $color-white;
+    border-bottom: 1px solid $color-grey-light;
+    border-top: 1px solid $color-grey-light;
+  }
 }
 
 .image-big {
-  height: 30rem;
+  height: 34rem;
   overflow: hidden;
   border-radius: $border-radius;
   background-color: $color-black;
@@ -35,6 +66,25 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @media (max-width: $break-phone) {
+    display: none;
+  }
+
+  &--mobile {
+    grid-row: 1;
+    height: 22rem;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (min-width: $break-phone) {
+      display: none;
+    }
   }
 }
 
@@ -48,5 +98,25 @@
 
   @media (max-width: $break-tablet) {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: $break-phone) {
+    display: flex;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+}
+
+.text {
+  @media (max-width: $break-phone) {
+    grid-row: 2;
+    padding: $grid-gap;
+  }
+}
+
+.wrapper {
+  @media (max-width: $break-phone) {
+    flex: 0 0 20rem;
+    height: 12rem;
   }
 }

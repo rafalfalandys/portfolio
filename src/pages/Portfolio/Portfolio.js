@@ -10,22 +10,29 @@ import projectsData from "../../store/projects-data";
 function Portfolio() {
   return (
     <Fragment>
-      <Header />
+      <Header fixed />
       <main className={styles.main}>
         <div className={styles.card}>
-          <h1>Architecture</h1>
           <Link to="architecture">
-            <SingleItem url={projectsData[3].images[0].url} />
+            <SingleItem
+              url={projectsData[3].images[0].url}
+              style={{ transform: "scale(1)" }}
+            />
           </Link>
+          <h1>Architecture</h1>
         </div>
+
         <div className={styles.card}>
-          <h1>Photography</h1>
-          <Link to="photography" className={styles.card}>
-            <SingleItem url={photosData[10].url} />
+          <Link to="photography">
+            <SingleItem
+              url={photosData[10].url}
+              style={{ transform: "scale(1)" }}
+            />
           </Link>
+          <h1>Photography</h1>
         </div>
       </main>
-      <Footer fixed />
+      <Footer />
     </Fragment>
   );
 }
