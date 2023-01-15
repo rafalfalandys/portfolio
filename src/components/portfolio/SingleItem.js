@@ -15,7 +15,7 @@ function SingleItem(props) {
   };
 
   const onMouseOverHandler = () => {
-    ctx.curImgHandler(props.no);
+    if (props.curImgOnHover) ctx.curImgHandler(props.no);
   };
 
   return (
@@ -25,6 +25,7 @@ function SingleItem(props) {
         alt={props.name}
         onClick={onClickHandler}
         onMouseOver={onMouseOverHandler}
+        style={props.style}
       />
     </div>
   );

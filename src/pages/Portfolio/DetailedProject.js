@@ -25,6 +25,7 @@ function DetailedProject(props) {
       no={i}
       key={image.url}
       imagesArr={project.images}
+      curImgOnHover
     />
   ));
 
@@ -35,17 +36,13 @@ function DetailedProject(props) {
       <main className={styles.main}>
         <h1>{project.title}</h1>
         <div className={styles.content}>
-          <div className={styles.row}>
+          <div className={styles.images}>
             <div className={styles["image-big"]}>
-              <img src={project.images[ctx.curImg].url} />
+              <img src={project.images[ctx.curImg].url} alt="architecture" />
             </div>
-            {/* <SingleItem url={project.images[ctx.curImg].url} no={ctx.curImg} /> */}
-            <p>{project.description}</p>
+            <div className={styles.thumbnails}>{images}</div>
           </div>
-          <div className={styles.row}>
-            <div className={styles.images}>{images}</div>
-            <p>{project.description}</p>
-          </div>
+          <p>{project.description}</p>
         </div>
       </main>
       ;

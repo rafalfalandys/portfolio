@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import styles from "./Architecture.module.scss";
 import Footer from "../../components/UI/Footer";
 import Header from "../../components/Header/Header";
@@ -8,26 +8,45 @@ import { Link } from "react-router-dom";
 
 function Architecture() {
   const ctx = useContext(Context);
+  useEffect(() => {
+    ctx.curImgHandler(0);
+  }, [ctx]);
 
-  const zero = 0;
-
-  const projects = ctx.projectsData.map((project, i) => {
-    return (
-      <div key={project.title}>
-        <h1>{project.title}</h1>
-        <Link to={project.id}>
-          <SingleItem url={project.images[0].url} />
-        </Link>
+  const projects = ctx.projectsData.map((project, i) => (
+    <Link to={project.id} className={styles.tile} key={project.id}>
+      <SingleItem
+        url={project.images[0].url}
+        name={project.title}
+        style={{ transform: "scale(1)" }}
+      />
+      <div className={styles.text}>
+        <h1>
+          <span className={styles.keys}>Location:</span>
+          <span>
+            <strong>{project.location}</strong>
+          </span>
+        </h1>
+        <h1>
+          <span className={styles.keys}>Area:</span>
+          <span>
+            <strong>{project.title}</strong>
+          </span>
+        </h1>
+        <p>{project.description}</p>
+        <h2
+          className={styles.mobile}
+        >{`${project.location} - ${project.title}`}</h2>
       </div>
-    );
-    // <SingleItem url={photo.url} name={photo.img} key={photo.img} no={i} />
-  });
+    </Link>
+  ));
 
   return (
     <Fragment>
       <Header />
-      <main className={styles.tiles}>{projects}</main>
-      <Footer fixed />
+      <main className={styles.main}>
+        <div className={styles.tiles}>{projects}</div>
+      </main>
+      <Footer />
     </Fragment>
   );
 }
