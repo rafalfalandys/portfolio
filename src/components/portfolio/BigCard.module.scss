@@ -1,0 +1,47 @@
+@import "../../styles/variables";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: $color-white;
+  border-radius: $border-radius;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  & h1 {
+    padding: 3rem;
+    font-size: $font-large-very;
+
+    @media (max-width: $break-phone) {
+      width: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0), $color-shadow);
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      color: $color-white;
+      padding: 2rem;
+    }
+  }
+
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0 3px 3px $color-shadow;
+    transform: scale(1.01);
+
+    @media (max-width: $break-tablet) {
+      box-shadow: none;
+      transform: scale(1);
+    }
+  }
+}

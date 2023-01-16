@@ -1,9 +1,9 @@
-import Footer from "../components/UI/Footer";
+import Footer from "../components/Footer";
 import logo from "../img/logo.png";
 
 import styles from "./Home.module.scss";
 import { Fragment } from "react";
-import NavElements from "../components/UI/Navigation/NavElements";
+import NavElements from "../components/Navigation/NavElements";
 
 function Home() {
   return (

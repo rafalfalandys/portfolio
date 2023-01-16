@@ -1,5 +1,5 @@
 import { Fragment, useContext } from "react";
-import Footer from "../../components/UI/Footer";
+import Footer from "../../components/Footer";
 import SingleItem from "../../components/portfolio/SingleItem";
 import styles from "./Photography.module.scss";
 import { photosData } from "../../store/photos";
@@ -25,7 +25,7 @@ function Photography() {
   return (
     <Fragment>
       {ctx.isModalVisible && <Modal />}
-      <Header fixed />
+      <Header />
       <main className={styles.tiles}>{photos}</main>
       <Footer />
     </Fragment>

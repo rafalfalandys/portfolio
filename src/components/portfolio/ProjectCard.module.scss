@@ -1,0 +1,103 @@
+@import "../../styles/variables";
+
+.card {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 45% auto;
+  grid-template-rows: 100%;
+  align-content: center;
+  justify-items: center;
+  background-color: $color-white;
+  border-radius: $border-radius;
+  overflow: hidden;
+  transition: all 0.3s;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 3px $color-shadow;
+    transform: scale(1.01);
+  }
+
+  &:active {
+    box-shadow: 0 1px 1px $color-shadow;
+    transform: scale(1.005);
+  }
+
+  @media (max-width: $break-tablet) {
+    &:hover {
+      box-shadow: none;
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: $break-phone) {
+    grid-template-columns: 100%;
+    position: relative;
+  }
+}
+
+.text {
+  padding: 0 1.6rem;
+  overflow: hidden;
+
+  & h1 {
+    font-size: $font-medium;
+    font-weight: 300;
+    margin: 0.7rem 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+
+    &:first-child {
+      margin-top: 1.5rem;
+    }
+
+    & strong {
+      font-weight: 500;
+    }
+
+    @media (max-width: $break-phone) {
+      display: none;
+    }
+  }
+
+  & p {
+    margin-top: 2rem;
+    font-size: $font-small;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* number of lines to show */
+    line-clamp: 7;
+    -webkit-box-orient: vertical;
+
+    @media (max-width: $break-phone) {
+      display: none;
+    }
+  }
+}
+
+.mobile {
+  @media (min-width: $break-phone) {
+    display: none;
+  }
+  @media (max-width: $break-phone) {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translateX(-50%);
+    color: $color-white;
+    padding: 2rem 0 1rem 0;
+    font-size: $font-medium;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), $color-shadow);
+  }
+}

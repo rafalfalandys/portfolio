@@ -1,7 +1,7 @@
 import styles from "./Footer.module.scss";
-import IconsLinks from "./IconsLinks";
-import Phone from "./ContactData/Phone";
-import Email from "./ContactData/Email";
+import IconsLinks from "./UI/IconsLinks";
+import Phone from "./UI/ContactData/Phone";
+import Email from "./UI/ContactData/Email";
 
 function Footer(props) {
   return (

@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Footer from "../components/UI/Footer";
+import Footer from "../components/Footer";
 import Header from "../components/Header/Header";
 
 import styles from "./Contact.module.scss";
@@ -10,7 +10,7 @@ import Email from "../components/UI/ContactData/Email";
 function Contact() {
   return (
     <Fragment>
-      <Header fixed />
+      <Header />
       <main className={styles.main}>
         <h1>Get in touch!</h1>
         <ContactForm />

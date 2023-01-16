@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import Context from "../../../store/context";
+import Context from "../../store/context";
 import styles from "./DropDown.module.scss";
 
 function DropDown() {

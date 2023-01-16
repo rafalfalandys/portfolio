@@ -3,9 +3,9 @@ import logo from "../../img/logo.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import Context from "../../store/context";
-import NavElements from "../UI/Navigation/NavElements";
+import NavElements from "../Navigation/NavElements";
 
-function Header(props) {
+function Header() {
   const ctx = useContext(Context);
 
   const toggleNavHandler = () => ctx.toggleNav();
@@ -18,7 +18,7 @@ function Header(props) {
   );
 
   return (
-    <div className={`${styles.wrapper} ${props.fixed ? styles.fixed : ""}`}>
+    <div className={styles.wrapper}>
       <header className={styles.header}>
         {logoEl}
         <nav className={styles.nav}>

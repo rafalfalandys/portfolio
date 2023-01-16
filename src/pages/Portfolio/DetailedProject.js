@@ -3,14 +3,17 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Modal from "../../components/Modal/Modal";
 import SingleItem from "../../components/portfolio/SingleItem";
-import Footer from "../../components/UI/Footer";
+import Footer from "../../components/Footer";
 import useKey from "../../hooks/use-key";
 import Context from "../../store/context";
 import styles from "./DetailedProject.module.scss";
 
-function DetailedProject(props) {
+function DetailedProject() {
   const ctx = useContext(Context);
+
   useKey();
+
+  const onClickHandler = () => ctx.curImgHandler(0);
 
   const params = useParams();
 
@@ -44,7 +47,7 @@ function DetailedProject(props) {
   return (
     <Fragment>
       {ctx.isModalVisible && <Modal />}
-      <Header fixed />
+      <Header />
       <main className={styles.main}>
         <h1>{`${project.location} - ${project.title}`}</h1>
 
@@ -69,6 +72,7 @@ function DetailedProject(props) {
           <Link
             to={`/portfolio/architecture/${prevProject.id}`}
             className={`${styles.btn} ${styles["btn--nav"]}`}
+            onClick={onClickHandler}
           >
             <ion-icon name="arrow-back"></ion-icon>
             <span>Previous project</span>
@@ -80,6 +84,7 @@ function DetailedProject(props) {
           <Link
             to={`/portfolio/architecture/${nextProject.id}`}
             className={`${styles.btn} ${styles["btn--nav"]}`}
+            onClick={onClickHandler}
           >
             <span>Next project</span>
             <ion-icon name="arrow-forward"></ion-icon>

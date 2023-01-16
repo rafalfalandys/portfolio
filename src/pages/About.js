@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Footer from "../components/UI/Footer";
+import Footer from "../components/Footer";
 import styles from "./About.module.scss";
 import Header from "../components/Header/Header";
 import IconsLinks from "../components/UI/IconsLinks";
@@ -7,7 +7,7 @@ import IconsLinks from "../components/UI/IconsLinks";
 function About() {
   return (
     <Fragment>
-      <Header fixed />
+      <Header />
       <main className={styles.main}>
         <div className={styles.text}>
           <p>

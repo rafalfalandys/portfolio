@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import Context from "../../../store/context";
+import Context from "../../store/context";
 import styles from "./NavItem.module.scss";
 import "./NavItem";
 import DropDown from "./DropDown";
