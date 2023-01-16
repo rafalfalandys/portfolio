@@ -1,5 +1,5 @@
 import { Fragment, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Modal from "../../components/Modal/Modal";
 import SingleItem from "../../components/portfolio/SingleItem";
@@ -14,17 +14,27 @@ function DetailedProject(props) {
 
   const params = useParams();
 
-  const project =
-    ctx.projectsData[
-      ctx.projectsData.findIndex((project) => project.id === params.projectId)
-    ];
+  const projectIndex = ctx.projectsData.findIndex(
+    (project) => project.id === params.projectId
+  );
+
+  const project = ctx.projectsData[projectIndex];
+
+  const nextProject =
+    projectIndex === ctx.projectsData.length - 1
+      ? ctx.projectsData[0]
+      : ctx.projectsData[projectIndex + 1];
+
+  const prevProject =
+    projectIndex === 0
+      ? ctx.projectsData[ctx.projectsData.length - 1]
+      : ctx.projectsData[projectIndex - 1];
 
   const images = project.images.map((image, i) => (
-    <div className={styles.wrapper}>
+    <div className={styles.thumbnail} key={image.url}>
       <SingleItem
         url={image.url}
         no={i}
-        key={image.url}
         imagesArr={project.images}
         curImgOnHover
       />
@@ -53,6 +63,27 @@ function DetailedProject(props) {
           <div className={styles.text}>
             <p>{project.description}</p>
           </div>
+        </div>
+
+        <div className={styles["projects-nav"]}>
+          <Link
+            to={`/portfolio/architecture/${prevProject.id}`}
+            className={`${styles.btn} ${styles["btn--nav"]}`}
+          >
+            <ion-icon name="arrow-back"></ion-icon>
+            <span>Previous project</span>
+          </Link>
+          <Link to="/portfolio/architecture" className={styles.btn}>
+            <ion-icon name="chevron-back" size="large"></ion-icon>
+            <span>Back to all projects</span>
+          </Link>
+          <Link
+            to={`/portfolio/architecture/${nextProject.id}`}
+            className={`${styles.btn} ${styles["btn--nav"]}`}
+          >
+            <span>Next project</span>
+            <ion-icon name="arrow-forward"></ion-icon>
+          </Link>
         </div>
       </main>
 
