@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import Context from "./context";
-// import { photosData } from "./photos";
-import projectsData from "./projects-data";
+import projectsData from "./projects-data/projects-data";
 
 function Provider(props) {
   const [isNavVisible, setIsNavVisible] = useState(false);

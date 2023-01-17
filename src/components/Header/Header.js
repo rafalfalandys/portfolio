@@ -12,7 +12,9 @@ function Header() {
 
   const logoEl = (
     <Link className={styles.logo} to="/home">
-      <img src={logo} alt="voronoi" />
+      <figure>
+        <img src={logo} alt="voronoi" />
+      </figure>
       <h1 className={styles["logo--text"]}>rafa</h1>
     </Link>
   );

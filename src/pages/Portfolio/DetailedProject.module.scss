@@ -10,30 +10,17 @@
   align-items: center;
   max-width: $width-main;
   position: relative;
+  margin-top: 3rem;
 
-  & h1 {
-    margin: 3rem;
-    font-size: $font-large;
-
-    @media (max-width: $break-phone) {
-      position: absolute;
-      top: calc($height-header + 22rem);
-      transform: translateY(-100%);
-      padding: 1rem;
-      color: $color-white;
-      width: 100%;
-      text-align: center;
-      // padding: 1rem;
-      margin: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0), $color-shadow);
-    }
+  @media (max-width: $break-phone) {
+    margin-top: 0;
   }
 }
 
 .content {
   width: 100%;
   display: grid;
-  grid-template-columns: 48rem auto;
+  grid-template-columns: 45% auto;
   padding: $grid-gap;
   gap: 2rem;
   font-size: $font-medium;
@@ -55,7 +42,7 @@
 }
 
 .image-big {
-  height: 27rem;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: $border-radius;
   background-color: $color-black;
@@ -107,6 +94,24 @@
 }
 
 .text {
+  & h1 {
+    font-size: $font-large;
+    margin-bottom: 3rem;
+
+    @media (max-width: $break-phone) {
+      position: absolute;
+      top: calc($height-header + 22rem);
+      left: 0;
+      transform: translateY(-100%);
+      padding: 1rem 0;
+      color: $color-white;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      margin: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0), $color-shadow);
+    }
+  }
   @media (max-width: $break-phone) {
     grid-row: 2;
     padding: $grid-gap;
@@ -132,8 +137,8 @@
   font-size: $font-medium;
   margin: 3rem 0;
   padding: 0 3rem;
+  text-align: center;
   transition: all 0.3s;
-  white-space: nowrap;
 
   &:hover {
     transform: translateX(-3rem);

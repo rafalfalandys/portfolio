@@ -45,19 +45,24 @@
 .text {
   padding: 0 1.6rem;
   overflow: hidden;
+  width: 100%;
 
   & h1 {
     font-size: $font-medium;
     font-weight: 300;
     margin: 0.7rem 0;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 
     display: grid;
     grid-template-columns: 8rem 1fr;
 
     &:first-child {
       margin-top: 1.5rem;
+    }
+
+    & span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     & strong {

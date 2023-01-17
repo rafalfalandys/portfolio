@@ -38,7 +38,7 @@ function Interface() {
         <ion-icon name="chevron-forward"></ion-icon>
       </div>
       <div className={`${styles.close} ${styles.btn}`} onClick={ctx.hideModal}>
-        <ion-icon name="close"></ion-icon>
+        <ion-icon name="close" size="large"></ion-icon>
       </div>
     </Fragment>
   );

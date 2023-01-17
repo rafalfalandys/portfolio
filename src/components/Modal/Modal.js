@@ -11,8 +11,8 @@ import Overlay from "./Overlay";
 function Modal() {
   const ctx = useContext(Context);
 
-  //   if (ctx.isModalVisible) document.body.style.overflow = "hidden";
-  //   if (!ctx.isModalVisible) document.body.style.overflow = "unset";
+  // if (ctx.isModalVisible) document.body.style.overflow = "hidden";
+  // if (!ctx.isModalVisible) document.body.style.overflow = "unset";
 
   const modalEl = (
     <div className={styles.modal}>

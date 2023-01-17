@@ -49,8 +49,6 @@ function DetailedProject() {
       {ctx.isModalVisible && <Modal />}
       <Header />
       <main className={styles.main}>
-        <h1>{`${project.location} - ${project.title}`}</h1>
-
         <div className={styles.content}>
           <div className={styles.images}>
             <div className={styles["image-big"]}>
@@ -64,6 +62,7 @@ function DetailedProject() {
           </div>
 
           <div className={styles.text}>
+            <h1>{`${project.location} - ${project.title}`}</h1>
             <p>{project.description}</p>
           </div>
         </div>

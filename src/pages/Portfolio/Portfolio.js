@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import { photosData } from "../../store/photos";
-import projectsData from "../../store/projects-data";
+import projectsData from "../../store/projects-data/projects-data";
 import BigCard from "../../components/portfolio/BigCard";
 
 function Portfolio() {
