@@ -3,6 +3,7 @@ import React from "react";
 const defaultState = {
   isNavVisible: false,
   isModalVisible: false,
+  curProjects: [],
   curProject: 0,
   curImages: [],
   curImg: 0,

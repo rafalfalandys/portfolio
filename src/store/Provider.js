@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Context from "./context";
 import projectsData from "./projects-data/projects-data";
 
@@ -6,6 +6,7 @@ function Provider(props) {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [curProject, setCurProject] = useState(0);
+  const [curProjects, setCurProjects] = useState(projectsData);
   const [curImages, setCurImages] = useState([]);
   const [curImg, setCurImg] = useState(0);
   const [bumpLeft, setBumpLeft] = useState(false);
@@ -24,6 +25,16 @@ function Provider(props) {
   const hideModal = useCallback(() => setIsModalVisible(false), []);
 
   // Current Project controls
+  useEffect(() => {
+    setCurProjects(
+      projectsData.filter((project) => {
+        if (filters.length === 0) return project;
+        return filters
+          .map((filter) => project.tags.some((tag) => tag === filter))
+          .reduce((acc, boolean) => acc || boolean);
+      })
+    );
+  }, [filters]);
   const curProjectHandler = (no) => setCurProject(no);
 
   const curImagesHandler = (arr) => setCurImages(arr);
@@ -80,6 +91,7 @@ function Provider(props) {
   const context = {
     isNavVisible,
     isModalVisible,
+    curProjects,
     curProject,
     curImages,
     curImg,

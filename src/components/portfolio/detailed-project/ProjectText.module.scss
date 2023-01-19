@@ -1,0 +1,31 @@
+@import "../../../styles/variables";
+
+.text {
+  & h1 {
+    font-size: $font-large;
+    margin-bottom: 3rem;
+
+    @media (max-width: $break-phone) {
+      position: absolute;
+      top: calc($height-header + 22rem);
+      left: 0;
+      transform: translateY(-100%);
+      padding: 1rem 0;
+      color: $color-white;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      margin: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0), $color-shadow);
+    }
+  }
+
+  @media (max-width: $break-phone) {
+    grid-row: 2;
+    padding: $grid-gap;
+  }
+
+  & p {
+    line-height: 140%;
+  }
+}

@@ -10,29 +10,22 @@ import Filters from "../../components/portfolio/Filters";
 function Architecture() {
   const ctx = useContext(Context);
 
-  const { curImgHandler, projectsData, filters } = ctx;
+  const { curImgHandler, curProjects } = ctx;
 
   useEffect(() => {
     curImgHandler(0);
   }, [curImgHandler]);
 
-  const projectCards = projectsData
-    .filter((project) => {
-      if (filters.length === 0) return project;
-      return filters
-        .map((filter) => project.tags.some((tag) => tag === filter))
-        .reduce((acc, boolean) => acc || boolean);
-    })
-    .map((project, i) => (
-      <Link to={project.id} className={styles.tile} key={project.id}>
-        <ProjectCard
-          url={project.images[0].url}
-          title={project.title}
-          location={project.location}
-          description={project.description}
-        />
-      </Link>
-    ));
+  const projectCards = curProjects.map((project, i) => (
+    <Link to={project.id} className={styles.tile} key={project.id}>
+      <ProjectCard
+        url={project.images[0].url}
+        title={project.title}
+        location={project.location}
+        description={project.description}
+      />
+    </Link>
+  ));
 
   return (
     <Fragment>
