@@ -2,6 +2,7 @@ const cigarLounge = {
   id: "cigar-lounge",
   title: "Cigar Lounge",
   location: "Norwegian Prima",
+  tags: ["work", "bar"],
   description:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum.",
   images: [

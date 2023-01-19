@@ -1,0 +1,71 @@
+@import "../../styles/variables";
+
+.wrapper {
+  transform: translate(160%, -50%);
+  height: 1.8rem;
+  width: 3.6rem;
+
+  position: absolute;
+  top: 50%;
+  right: 10%;
+
+  @media (max-width: $break-phone) {
+    top: 5%;
+    right: 5%;
+    transform: translate(-0%, -0%);
+  }
+}
+
+.home-edition {
+  position: relative;
+  transform: translate(0, 0);
+  top: 0;
+  right: 0;
+}
+
+.switch {
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  // border: 1px solid $color-grey-light;
+  box-shadow: inset -4px 4px 4px $color-shadow;
+  background-image: url("../../img/pl.svg");
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.active {
+  background-image: url("../../img/gb.svg");
+}
+
+.slider {
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: $color-white;
+  border: 1px solid $color-grey-light;
+  border-radius: 10rem;
+}
+
+.left {
+  transform: translateX(0);
+}
+
+.right {
+  transform: translateX(1.8rem);
+}
+
+.words {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: $font-medium;
+  margin-top: 3rem;
+}
+
+.weak {
+  font-weight: 200;
+}

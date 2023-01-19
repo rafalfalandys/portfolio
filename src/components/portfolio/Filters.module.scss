@@ -1,0 +1,37 @@
+@import "../../styles/variables";
+
+.filters {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 10rem;
+  flex-wrap: wrap;
+  transition: all 0.3s;
+
+  @media (max-width: $break-phone) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem 1rem 1rem 5rem;
+  }
+
+  & h1 {
+    grid-column: 1/-1;
+  }
+}
+
+.btn {
+  margin: auto;
+  width: max-content;
+  padding: 1rem 3rem;
+  font-size: $font-medium;
+
+  & span {
+    margin-right: 1rem;
+  }
+}
+
+.hidden {
+  display: none;
+  //   transform: translateY(-100%);
+}

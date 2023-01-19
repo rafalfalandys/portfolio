@@ -20,13 +20,24 @@ function SingleItem(props) {
 
   return (
     <div className={styles.container}>
-      <img
-        src={props.url}
-        alt={props.name}
-        onClick={onClickHandler}
-        onMouseOver={onMouseOverHandler}
-        style={props.style}
-      />
+      {!props.type && (
+        <img
+          src={props.url}
+          alt={props.name}
+          onClick={onClickHandler}
+          onMouseOver={onMouseOverHandler}
+          style={props.style}
+        />
+      )}
+      {props.type && (
+        <video
+          src={props.url}
+          alt={props.name}
+          onClick={onClickHandler}
+          onMouseOver={onMouseOverHandler}
+          style={props.style}
+        />
+      )}
     </div>
   );
 }

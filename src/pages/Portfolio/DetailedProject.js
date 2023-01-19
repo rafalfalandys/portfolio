@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Modal from "../../components/Modal/Modal";
@@ -13,25 +13,32 @@ function DetailedProject() {
 
   useKey();
 
+  useEffect(() => {
+    const projectIndex = ctx.projectsData.findIndex(
+      (project) => project.id === params.projectId
+    );
+    ctx.curProjectHandler(projectIndex);
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [ctx.curProject]);
+
   const onClickHandler = () => ctx.curImgHandler(0);
 
   const params = useParams();
 
-  const projectIndex = ctx.projectsData.findIndex(
-    (project) => project.id === params.projectId
-  );
-
-  const project = ctx.projectsData[projectIndex];
+  const project = ctx.projectsData[ctx.curProject];
 
   const nextProject =
-    projectIndex === ctx.projectsData.length - 1
+    ctx.curProject === ctx.projectsData.length - 1
       ? ctx.projectsData[0]
-      : ctx.projectsData[projectIndex + 1];
+      : ctx.projectsData[ctx.curProject + 1];
 
   const prevProject =
-    projectIndex === 0
+    ctx.curProject === 0
       ? ctx.projectsData[ctx.projectsData.length - 1]
-      : ctx.projectsData[projectIndex - 1];
+      : ctx.projectsData[ctx.curProject - 1];
 
   const images = project.images.map((image, i) => (
     <div className={styles.thumbnail} key={image.url}>
@@ -40,6 +47,7 @@ function DetailedProject() {
         no={i}
         imagesArr={project.images}
         curImgOnHover
+        type={image.type}
       />
     </div>
   ));
@@ -52,7 +60,17 @@ function DetailedProject() {
         <div className={styles.content}>
           <div className={styles.images}>
             <div className={styles["image-big"]}>
-              <img src={project.images[ctx.curImg].url} alt="architecture" />
+              {!project.images[ctx.curImg].type && (
+                <img src={project.images[ctx.curImg].url} alt="architecture" />
+              )}
+              {project.images[ctx.curImg].type && (
+                <video
+                  src={project.images[ctx.curImg].url}
+                  alt="architecture"
+                  autoPlay
+                  muted
+                />
+              )}
             </div>
             <div className={styles.thumbnails}>{images}</div>
           </div>

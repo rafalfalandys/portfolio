@@ -44,6 +44,7 @@ function Header() {
           <ion-icon name="chevron-up" size="large"></ion-icon>
         </div>
       </nav>
+      {/* <ToggleSwitch /> */}
     </div>
   );
 }

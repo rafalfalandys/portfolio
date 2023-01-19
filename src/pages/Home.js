@@ -14,7 +14,7 @@ function Home() {
           <h1 className={styles["logo--text"]}>rafa</h1>
         </div>
         <nav className={styles.nav}>
-          <NavElements />
+          <NavElements homeEdition />
         </nav>
       </main>
       <Footer />

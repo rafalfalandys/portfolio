@@ -2,8 +2,12 @@ const funnel = {
   id: "funnel",
   title: "Funnel",
   location: "Norwegian Prima",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum.",
+  tags: ["work", "outdoor", "algorithmic design"],
+  description: `NCL Prima Funnel was planned to be something never seen before. 
+
+    Design direction was an organic shape of the structure that on one side would be an iconic "cherry on top" of the vessel, and on the other hand fulfilling it's main function, which is to direct the fumes out from an open deck area. Another big challange was  a cart track, which was already planned and was taking large space around the chimneys on 3 decks height.
+    
+    We wanted the structure not only to fit between all existing elements, but also to somehow enhance the racing experience. Being Inspired by an Abu-Dhabi F1 track (Yas Island Hotel), with an intense use of innovative algorithmic design methods, we came up with an idea of structure flipped over the track. That we believe creates an unforgettable moment while passing with full speed right below the dynamic shape of funnel's construction.`,
   images: [
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fprima%20funnel%2FDSCF8067.jpeg?alt=media&token=747da877-0dac-46e4-af9b-aba0ceb7052f",
@@ -28,6 +32,10 @@ const funnel = {
     },
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fprima%20funnel%2FDSCF8135.jpeg?alt=media&token=9a493e0d-a84d-43a5-aa52-688742844139",
+    },
+    {
+      type: "video",
+      url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fprima%20funnel%2FIMG_5726.MOV?alt=media&token=c1bd6f6a-47c9-4da5-8301-fb01d83dc534",
     },
   ],
 };

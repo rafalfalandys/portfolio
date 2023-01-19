@@ -3,18 +3,24 @@ import React from "react";
 const defaultState = {
   isNavVisible: false,
   isModalVisible: false,
+  curProject: 0,
   curImages: [],
-  curImg: "",
+  curImg: 0,
   projectsData: [],
   bumpLeft: false,
   bumpRight: false,
   isDropDownVisible: false,
+  isEnglish: false,
+  areFilterVisible: false,
+  filters: [],
 
   toggleNav: () => {},
   hideNav: () => {},
 
   showModal: () => {},
   hideModal: () => {},
+
+  curProjectHandler: () => {},
 
   curImagesHandler: () => {},
   curImgHandler: () => {},
@@ -23,6 +29,11 @@ const defaultState = {
 
   showDropDown: () => {},
   hideDropDown: () => {},
+
+  toggleLanguage: () => {},
+
+  toggleFilters: () => {},
+  filtersHandler: () => {},
 };
 
 const Context = React.createContext(defaultState);

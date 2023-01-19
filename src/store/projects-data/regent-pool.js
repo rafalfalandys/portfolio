@@ -4,7 +4,7 @@ const regentPool = {
   location: "Regent Splendor",
   time: "TDoS",
   scope: "",
-
+  tags: ["work", "outdoor", "bar", "algorithmic design"],
   description: [
     `Project done as an employee of Tillberg Design of Sweden. \n Regent Splendor is one of the most luxiorous cruise ships in the world\n In the main atrium area I am especially proud of the main staircase designed in with an explicit use of alghorythmic design tools.`,
   ],

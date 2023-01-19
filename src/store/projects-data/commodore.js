@@ -2,8 +2,12 @@ const commodore = {
   id: "commodore",
   title: "Commodore Restaurant",
   location: "Norwegian Prima",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum.",
+  tags: ["work", "restaurant", "algorithmic design"],
+  description: `Commodore is a part of a bar and dining area containing 2 restaurants and pre-dinner bar. It takes the starboard side, and has been planned to correlate with Cagney's restaurant on the other side. Right between them there is a long pre-dinner ('Belvedere') bar.
+
+    Design-wise we've taken a 'classic but in contemporary way' approach, which highlights the elegance of a space in an eye-catching manner. Starting with the floor, which is created on a high detailed level to enrich the experience of entering the venue. On walls we've decided to go with a classic direction of a (ta stolarka na scianie - wall panels?). Ceiling on the other hand, has been designed with a big strokes and is to tie the whole space together with smooth unobvious lines.
+    
+     As the space is full of pillars we instead of hiding - decided to highlight them with a strong feature. Inspired by a chalice shape, with support of a parametric design we've came up with a shapes that also create a decorative screen, dividing the space into more private sectors.`,
   images: [
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fcommodore%20restaurant%2FDSCF7492.jpeg?alt=media&token=27c2758d-d617-4aa2-9077-6bfca02f4804",

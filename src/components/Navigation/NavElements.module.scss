@@ -3,10 +3,10 @@
 .links {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   list-style: none;
   gap: 2rem;
   font-size: $font-large;
-  // width: 22rem;
   height: 100%;
 }
 
@@ -19,7 +19,4 @@
   flex-direction: column;
   gap: 2rem;
   transform: translateY(-1.5rem);
-}
-
-.sublink {
 }

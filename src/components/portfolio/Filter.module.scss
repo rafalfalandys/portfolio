@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: $font-medium;
+  width: max-content;
+  //   min-width: 8rem;
+
+  @media (max-width: $break-phone) {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  & label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  & input {
+    appearance: none;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    color: $color-grey-dark;
+    // transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+
+    &::before {
+      content: "";
+      width: 0.65em;
+      height: 0.65em;
+      transform: scale(0);
+      background-color: $color-grey;
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1em 1em var(--form-control-color);
+    }
+  }
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}

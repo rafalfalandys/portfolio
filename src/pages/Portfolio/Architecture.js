@@ -1,32 +1,52 @@
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useCallback, useContext, useEffect, useState } from "react";
 import styles from "./Architecture.module.scss";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header/Header";
 import Context from "../../store/context";
 import { Link } from "react-router-dom";
 import ProjectCard from "../../components/portfolio/ProjectCard";
+import Filters from "../../components/portfolio/Filters";
 
 function Architecture() {
   const ctx = useContext(Context);
-  useEffect(() => {
-    ctx.curImgHandler(0);
-  }, [ctx]);
+  const [projectCards, setProjectCards] = useState([]);
 
-  const projectCards = ctx.projectsData.map((project, i) => (
-    <Link to={project.id} className={styles.tile} key={project.id}>
-      <ProjectCard
-        url={project.images[0].url}
-        title={project.title}
-        location={project.location}
-        description={project.description}
-      />
-    </Link>
-  ));
+  const { curImgHandler, projectsData } = ctx;
+
+  useEffect(() => {
+    curImgHandler(0);
+  }, [curImgHandler]);
+
+  const filterProjectsHandler = useCallback(
+    (filters) => {
+      setProjectCards(
+        projectsData
+          .filter((project) => {
+            if (filters.length === 0) return project;
+            return filters
+              .map((filter) => project.tags.some((tag) => tag === filter))
+              .reduce((acc, boolean) => acc || boolean);
+          })
+          .map((project, i) => (
+            <Link to={project.id} className={styles.tile} key={project.id}>
+              <ProjectCard
+                url={project.images[0].url}
+                title={project.title}
+                location={project.location}
+                description={project.description}
+              />
+            </Link>
+          ))
+      );
+    },
+    [projectsData]
+  );
 
   return (
     <Fragment>
       <Header />
       <main className={styles.main}>
+        <Filters onFilter={filterProjectsHandler} />
         <div className={styles.tiles}>{projectCards}</div>
       </main>
       <Footer />
@@ -34,3 +54,19 @@ function Architecture() {
   );
 }
 export default Architecture;
+
+// console.log("-----------");
+// const isMatch = [];
+// filters.map((filter) => {
+//   project.tags.some((tag) => {
+//     console.log(tag === filter);
+//     return tag === filter;
+//   });
+// });
+// // console.log(test);
+
+// const isMatch = [];
+// project.tags.forEach((tag) => {
+//   isMatch.push(filters.some((filter) => filter === tag));
+// });
+// return isMatch.reduce((acc, boolean) => acc || boolean);
