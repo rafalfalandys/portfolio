@@ -11,7 +11,7 @@ const defaultState = {
   bumpRight: false,
   isDropDownVisible: false,
   isEnglish: false,
-  areFilterVisible: false,
+  areFiltersVisible: false,
   filters: [],
 
   toggleNav: () => {},
@@ -33,6 +33,7 @@ const defaultState = {
   toggleLanguage: () => {},
 
   toggleFilters: () => {},
+  hideFilters: () => {},
   filtersHandler: () => {},
 };
 

@@ -61,8 +61,21 @@ function Provider(props) {
   const toggleLanguage = () => setIsEnglish((prevState) => !prevState);
 
   // filters control
-  const toggleFilter = () => setAreFiltersVisible((prev) => !prev);
-  const filtersHandler = (filters) => setFilters(filters);
+  const toggleFilters = () => setAreFiltersVisible((prev) => !prev);
+  const hideFilters = () => setAreFiltersVisible(false);
+  const filtersHandler = (filter) => {
+    if (filter === "all") setFilters([]);
+    else
+      setFilters((prev) => {
+        const updatedFilters = prev.slice(0);
+        if (prev.includes(filter)) {
+          updatedFilters.splice(prev.indexOf(filter), 1);
+        } else {
+          updatedFilters.push(filter);
+        }
+        return updatedFilters;
+      });
+  };
 
   const context = {
     isNavVisible,
@@ -75,6 +88,8 @@ function Provider(props) {
     bumpRight,
     isDropDownVisible,
     isEnglish,
+    areFiltersVisible,
+    filters,
 
     toggleNav,
     hideNav,
@@ -93,6 +108,10 @@ function Provider(props) {
     showDropDown,
 
     toggleLanguage,
+
+    toggleFilters,
+    hideFilters,
+    filtersHandler,
   };
 
   return <Context.Provider value={context}>{props.children}</Context.Provider>;

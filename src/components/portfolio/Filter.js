@@ -1,24 +1,34 @@
-import { useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import Context from "../../store/context";
 import styles from "./Filter.module.scss";
 
 function Filter(props) {
+  const ctx = useContext(Context);
+  const [isChecked, setIsChecked] = useState(false);
   const filterRef = useRef();
 
-  const changeHandler = () => {
-    props.toggleFilter(filterRef.current.value);
-  };
+  const { filters } = ctx;
 
+  const changeHandler = () => {
+    ctx.filtersHandler(filterRef.current.value);
+  };
   const labelLowerCase = props.label.toLowerCase();
 
-  const checkIfChecked = () => {
-    if (labelLowerCase === "all" && props.curFilters.length === 0) return true;
-    if (labelLowerCase === "all" && props.curFilters.length !== 0) return false;
-    else {
-      return !!props.curFilters.find((el) => el === filterRef.current.value);
-    }
-  };
-
-  const isChecked = checkIfChecked();
+  useEffect(() => {
+    const checkIfChecked = () => {
+      if (labelLowerCase === "all" && filters.length === 0) {
+        setIsChecked(true);
+        return;
+      }
+      if (labelLowerCase === "all" && filters.length !== 0) {
+        setIsChecked(false);
+        return;
+      } else {
+        setIsChecked(!!filters.find((el) => el === filterRef.current.value));
+      }
+    };
+    checkIfChecked();
+  }, [filters, labelLowerCase]);
 
   return (
     <div className={styles.filter}>
