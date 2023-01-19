@@ -62,7 +62,7 @@ function Provider(props) {
 
   // filters control
   const toggleFilters = () => setAreFiltersVisible((prev) => !prev);
-  const hideFilters = () => setAreFiltersVisible(false);
+  const hideFilters = useCallback(() => setAreFiltersVisible(false), []);
   const filtersHandler = (filter) => {
     if (filter === "all") setFilters([]);
     else

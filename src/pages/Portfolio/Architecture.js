@@ -46,19 +46,3 @@ function Architecture() {
   );
 }
 export default Architecture;
-
-// console.log("-----------");
-// const isMatch = [];
-// filters.map((filter) => {
-//   project.tags.some((tag) => {
-//     console.log(tag === filter);
-//     return tag === filter;
-//   });
-// });
-// // console.log(test);
-
-// const isMatch = [];
-// project.tags.forEach((tag) => {
-//   isMatch.push(filters.some((filter) => filter === tag));
-// });
-// return isMatch.reduce((acc, boolean) => acc || boolean);
