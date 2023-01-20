@@ -19,11 +19,14 @@ function ProjectText() {
             <br />
             <br />
 
-            <span>
-              {project.tags.includes("work")
-                ? "I was working on a project as en employee of Tillberg Design of Sweden."
-                : ""}
-            </span>
+            {project.tags.includes("work") && (
+              <span>
+                I was working on a project as en employee of Tillberg Design of
+                Sweden.
+                <br />
+                <br />
+              </span>
+            )}
           </Fragment>
         )}
 
