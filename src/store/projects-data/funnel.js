@@ -25,6 +25,9 @@ const funnel = {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fprima%20funnel%2Flayout.jpeg?alt=media&token=89bf8804-47a2-46fe-804d-d91d15d34104",
     },
     {
+      url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fprima%20funnel%2Fsketches.jpeg?alt=media&token=a9ce047a-5566-4a3e-b456-a15af527553b",
+    },
+    {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fprima%20funnel%2FDSCF7436-2.jpeg?alt=media&token=b0caf437-d878-4863-9b7c-48f6bc7b406b",
     },
     {
@@ -39,6 +42,7 @@ const funnel = {
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fprima%20funnel%2FDSCF8135.jpeg?alt=media&token=9a493e0d-a84d-43a5-aa52-688742844139",
     },
+
     {
       type: "video",
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fprima%20funnel%2FIMG_5726.MOV?alt=media&token=c1bd6f6a-47c9-4da5-8301-fb01d83dc534",
