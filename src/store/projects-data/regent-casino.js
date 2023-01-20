@@ -3,9 +3,13 @@ const regentCasino = {
   title: "Casino",
   location: "Regent Splendor",
   tags: ["work", "algorithmic design"],
-  description: [
-    `Project done as an employee of Tillberg Design of Sweden. \n Regent Splendor is one of the most luxiorous cruise ships in the world\n In the main atrium area I am especially proud of the main staircase designed in with an explicit use of alghorythmic design tools.`,
-  ],
+  role: ["designer", "coordinator"],
+  description: `Designing a casino is a tricky thing. You think of doing another Casino Royale with James Bond, all the suits, martini and olives, but no matter what you come up with, the space ends up dominated by gambling machines blinking, glowing and ringing. Still though we gave it a try and I think we’ve done a nice job. 
+  Machines sit in pockets we designed, and are hidden behind very decorative, glass screens. That, plus having the chance of adjusting colour of tables (for example poker table) to the theme of room, created very well received venue. 
+  I personally am proud of a chandelier consisting of many bulbs hanging on different heights. That details was being developed with a support of algorithmic design tools (Rhino + Grasshopper).`,
+  opis: `Projektowanie kasyna bywa skomplikowane. Myślisz o stworzeniu drugiego Casino Royale, z Jamesem Bondem, garniturami, martini i oliwkami, a bez względu na to co robisz, cała strefa świeci, mruga i dzwoni, bo wszędzie stoi jednoręki bandyta. Mimo wszystko spróbowaliśmy coś z tym zrobić.
+  Maszyny znajdują się w specjalnie zaprojektowanych meblach i są schowane za dekoracyjną, szklaną ścianką działową. To plus możliwość dopasowania kolorów na stołach (np. do pokera) do motywu strefy stworzyło strefę bardzo dobrze ocenianą przez klientów.
+  Osobiście jestem dumny z żyrandola składającego się z wielu kloszy zawieszonych na różnych wysokościach. Ten detal był opracowywany przy użyciu narzędzi projektowania algorytmicznego (Rhino + Grasshopper).`,
 
   images: [
     {

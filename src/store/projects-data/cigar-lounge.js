@@ -3,8 +3,15 @@ const cigarLounge = {
   title: "Cigar Lounge",
   location: "Norwegian Prima",
   tags: ["work", "bar"],
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum.",
+  role: ["designer"],
+  description: `Cigar Lounge is a classically designed area (if not to say - conservatively). Unlike the area its directly neighbouring with - Metropolitan Bar - it’s a silent, dark venue, just like most cigar smokers expect it to be. 
+  It’s a spot to sit for a while with glass of whiskey, and talk to a friend or just chill for w while.
+
+    Dark wood and classical details make this design, and an industrial ceiling gives it a contemporary touch. Right in center there is a custom designed humidor being also the main feature of the room.`,
+  opis: `Cigar Lounge jest klasycznie zaprojektowaną strefą (jeśli nie powiedzieć - konserwatywnie). W przeciwieństwie do strefy, z którą bezpośrednio sąsiaduje - Metropolitan Bar - jest cichą i ciemną przestrzenią. Dokładnie taką jakiej spodziewa się większość miłośników cygar.
+    To dobre miejsce, żeby na chwilę usiąść ze szklanką whiskey i porozmawiać z przyjacielem. Albo po prostu chwilę odpocząć.
+
+    Przestrzeń tworzą głównie ciemne drewno i klasyczne detale, a industrialny sufit dodaje nowoczesnego sznytu. W samym środku znajduje się indywidualnie zaprojektowany humidor, który jest też głównym akcentem pomieszczenia.`,
   images: [
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fcigar%20lounge%2FCigar%20lounge.jpeg?alt=media&token=c31a4f55-3f44-4708-b960-98cc6a1a9b95",

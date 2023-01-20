@@ -3,11 +3,24 @@ const commodore = {
   title: "Commodore Restaurant",
   location: "Norwegian Prima",
   tags: ["work", "restaurant", "algorithmic design"],
-  description: `Commodore is a part of a bar and dining area containing 2 restaurants and pre-dinner bar. It takes the starboard side, and has been planned to correlate with Cagney's restaurant on the other side. Right between them there is a long pre-dinner ('Belvedere') bar.
+  role: ["designer", "coordinator"],
+  description: `Commodore restaurant is a part of a bar and dining area containing 2 restaurants and pre-dinner bar. It takes the starboard side, and has been planned to correlate with restaurant on the other side. Right between them there is a long pre-dinner ('Belvedere') bar.
 
-    Design-wise we've taken a 'classic but in contemporary way' approach, which highlights the elegance of a space in an eye-catching manner. Starting with the floor, which is created on a high detailed level to enrich the experience of entering the venue. On walls we've decided to go with a classic direction of a (ta stolarka na scianie - wall panels?). Ceiling on the other hand, has been designed with a big strokes and is to tie the whole space together with smooth unobvious lines.
+    Design-wise we've taken a 'classic but in contemporary way' approach, which highlights the elegance of a space in an eye-catching manner. 
+    Starting with the floor, which is created on a high detailed level to enrich the experience of entering the venue. 
+    On walls we've decided to go with a classic direction of wall panels. 
+    Ceiling on the other hand, has been designed with a big strokes, and is to tie the whole space together with smooth unobvious lines.
     
-     As the space is full of pillars we instead of hiding - decided to highlight them with a strong feature. Inspired by a chalice shape, with support of a parametric design we've came up with a shapes that also create a decorative screen, dividing the space into more private sectors.`,
+     As the space is full of pillars, we instead of hiding - decided to highlight them with a strong feature. Inspired by a chalice shape, with support of a parametric design we've came up with a shapes that also create a decorative screen, dividing the space into more private sectors.`,
+  opis: `Restauracja Commodore jest strefą, której byłem koordynatorem i za której design w dużej mierze odpowiadam osobiście.
+
+  Jest częścią większego założenia, składającego się jeszcze z Belvedere Baru i drugiej restauracji. Znajduje się po stronie sterburty i ze swoimi płynnymi liniami, została zaprojektowaną z myślą, aby przeciwważyć ostrzejszy design restauracji po drugiej stronie.
+  
+  Projektowo obraliśmy kierunek ‘klasyki w nowoczesnym wydaniu’, który podkreśla elegancję przestrzeni w sposób przyciągający wzrok. 
+  Podłoga została zaprojektowana i wykonana z dużą dbałością o detale, aby już sam moment wejścia uczynić wyjątkowym.
+  Na ścianach zdecydowaliśmy iść w klasycznym kierunku paneli ściennych.
+  Z drugiej strony - sufit stworzyliśmy silnymi, nieoczywistymi liniami, które nadają całej przestrzeni spójności.
+  Jako że strefa jest pełna słupów, zdecydowaliśmy żeby zamiast próbować je chować - podkreślić je w mocny sposób. Zainspirowani kształtem kielichów, ze wsparciem metod projektowania algorytmicznego, zaprojektowaliśmy dekoracyjne ścianki działowe zintegrowane ze słupami wydzielające sektory dające poczucie prywatności w tej otwartej przestrzeni.`,
   images: [
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fcommodore%20restaurant%2FDSCF7492.jpeg?alt=media&token=27c2758d-d617-4aa2-9077-6bfca02f4804",

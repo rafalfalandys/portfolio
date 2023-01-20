@@ -3,11 +3,17 @@ const funnel = {
   title: "Funnel",
   location: "Norwegian Prima",
   tags: ["work", "outdoor", "algorithmic design"],
+  role: ["designer"],
   description: `NCL Prima Funnel was planned to be something never seen before. 
 
-    Design direction was an organic shape of the structure that on one side would be an iconic "cherry on top" of the vessel, and on the other hand fulfilling it's main function, which is to direct the fumes out from an open deck area. Another big challange was  a cart track, which was already planned and was taking large space around the chimneys on 3 decks height.
+    Design direction was an organic shape of the structure that on one side would be an iconic "cherry on top" of the vessel, and on the other hand fulfilling it's main function, which is to direct the fumes out from an open deck area. Another big challange was a 3 decks height cart track, which was already planned and was taking large space around the chimneys.
     
     We wanted the structure not only to fit between all existing elements, but also to somehow enhance the racing experience. Being Inspired by an Abu-Dhabi F1 track (Yas Island Hotel), with an intense use of innovative algorithmic design methods, we came up with an idea of structure flipped over the track. That we believe creates an unforgettable moment while passing with full speed right below the dynamic shape of funnel's construction.`,
+  opis: `Obudowa kominów statku Norwegian Prima była od początku planowana jako coś niewidzianego nigdy wcześniej.
+
+    Naszym projektowym kierunkiem była struktura o organicznych kształtach, z jednej strony będąca ‘wisienką na torcie’ tego statku nowej generacji, a z drugiej strony spełniająca swoją główną funkcję - wyrzucać spaliny daleko poza przestrzeń otwartego pokładu. Kolejnym wyzwaniem był tor kartingowy wysoki na 3 pokłady i zabierający dużą przestrzeń dookoła kominów.
+    
+    Chcieliśmy, żeby struktura nie tylko jakkolwiek wpasowała się w istniejące elementy, ale także żeby wzmacniała wyścigowe emocje toru. Zainspirowani torem wyścigowym w Abu-Dhabi (Yas Island Hotel), przy ogromnym wsparciu technik projektowania algorytmicznego, wpadliśmy na pomysł kratowej konstrukcji przerzuconej ponad trasą toru. Wierzę, że ten zabieg współtworzy niezapomniane wspomnienia podczas przejazdu pełną prędkością pod tą dynamiczną konstrukcją.`,
   images: [
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fprima%20funnel%2FDSCF8067.jpeg?alt=media&token=747da877-0dac-46e4-af9b-aba0ceb7052f",

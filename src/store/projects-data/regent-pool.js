@@ -5,10 +5,15 @@ const regentPool = {
   time: "TDoS",
   scope: "",
   tags: ["work", "outdoor", "bar", "algorithmic design"],
-  description: [
-    `Project done as an employee of Tillberg Design of Sweden. \n Regent Splendor is one of the most luxiorous cruise ships in the world\n In the main atrium area I am especially proud of the main staircase designed in with an explicit use of alghorythmic design tools.`,
-  ],
-
+  role: ["designer", "coordinator"],
+  description: `Open deck areas on cruise ships usually looks similar. That's because we must face some hard ocean condition there - super strong wind, rain, pool water flooding the deck, and all loose furniture sliding throughout the deck when water is too rough. All that restrains you much as a designer. Therefore we put our focus on where we can:
+  - The floor is designed up to single plank. That kind of attention to detail plus the fact that on Regent Splendor teak is actually natural makes a real difference.
+  Area is divided into semi private zones, very much appreciated by the passengers. - The divisions are created by decorative screens, designed in a very strict cooperation with a graphics department.
+  - Finally the ceiling on which the pattern is designed by a graphic team. Their work was then supported by algorithmic design tools (rhino + grasshopper) to quickly modify artistic strokes to production drawings.`,
+  opis: `Strefy zewnętrzne na statkach pasażerskich zazwyczaj wyglądają podobnie. Dzieje się tak ponieważ musimy zmierzyć się z naprawdę ciężkimi warunkami - silny wiatr, deszcz, woda z basen wylewająca się na pokład i wszystkie meble ślizgające się po pokładzie w trakcie silnych fal. Wszystkie te czynniki mocno ograniczają pole manewru dla projektanta. Dlatego w tej strefie skupiliśmy się na elementach takich jak:
+- Podłoga zaprojektowana do pojedynczej deski. Tego typu dbałość o szczegóły, plus fakt że na pokładzie tego statku drewno tekowe jest naturalne, robi prawdziwą różnicę.
+- Przestrzeń jest podzielona na pół prywatne strefy, bardzo doceniane przez pasażerów. Podziały tworzą dekoracyjne ścianki projektowane w ścisłej współpracy z działem graficznym.
+- Sufit na którym wzór został także zaprojektowany przez grafików. Ich pracę wsparłem narzędziami projektowania algorytmicznego (Rhino + Grasshopper) żeby sprawnie przerobić artystyczne linie na rysunki wykonawcze`,
   images: [
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fregent%20pool%2FMain%20Pool%2020-09%20-%20final.jpeg?alt=media&token=36ae48c4-4213-4919-ae7d-2d9e09ce4a41",

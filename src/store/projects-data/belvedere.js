@@ -3,8 +3,14 @@ const belvedere = {
   title: "Belvedere Bar",
   location: "Norwegian Prima",
   tags: ["work", "bar"],
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum.",
+  role: ["designer"],
+  description: `Belvedere is a pre-dinner bar located between 2 restaurants. All 3 venues were being designed together, so they create a feeling of one consistent area.
+  Main part of it is a centered bar. Room is rather dark, what creates a moody atmosphere.
+  In the middle there is a custom designed ceiling  strictly integrated with the bar and long sofa opposite to it. Ceiling on the sides is rather a background for the middle part and only eye-catching elements in it are elliptical, and  rectangular shapes referring to the themes of side restaurants`,
+  opis: `Belvedere jest pre-dinner barem zlokalizowanym pomiędzy dwoma restauracjami. Wszystkie 3 strefy były projektowane razem, żeby zbudować uczucie jednej spójnej przestrzeni.
+  Główną częścią jest bar, umieszczony centralnie. Przestrzeń jest dosyć ciemna, co stwarza przyjemny nastrój.
+  Środkową część zajmuje też indywidualnie zaprojektowany sufit, ściśle zintegrowany z barem i długą sofą naprzeciwko niego. Sufit po bokach stanowi tło dla baru i jedynymi wyróżniającymi się elementami są eliptyczne i prostokątne kształty, nawiązujące to motywów restauracji.
+  `,
   images: [
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fbelvedere%20bar%2FDSCF8054-2.jpeg?alt=media&token=5accadf7-b74e-43df-8d96-0fd8ac5208f3",

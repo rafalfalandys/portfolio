@@ -3,8 +3,21 @@ const market = {
   title: "Surfside Cafe",
   location: "Norwegian Prima",
   tags: ["work", "restaurant"],
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum.",
+  role: ["designer"],
+  description: `Surfside Cafe is an example of new approach to the onboard Lidos.
+    It's main purpose is still to be the most accessible food serving venue on the ship, but on Norwegian Prima it's much smaller than „standard” lido. How is that?
+    Well - few other venues are not extra paid, so all the people just spread among them. That gave us a chance to design a cosy area instead of massive food hall.
+    
+    Looking at the plan - the main dominant in composition is a square at center that is to bring some design diversity from a perspective of person walking along the main walkway.
+    
+    The area is being very well received by the passengers - even though there are more 'premium' venues available it is always full of people.`,
+  opis: `Surfside Cafe jest przykładem świeżego podejścia do bufetów na statkach pasażerskich.
+    Jego głównym celem pozostaje bycie najbardziej otwartą strefą gastronomiczną na statku, ale na Primie jest dużo mniejszy niż na konkurencyjnych statkach. Jak to możliwe?
+    Zazwyczaj oprócz lido każda inna restauracja jest dodatkowo płatna. Tutaj kilka innych restauracji wydaje darmowe śniadania, obiady i kolacje, przez co ludzie rozpraszają się po wielu lokalach. To dało nam szansę zaprojektowania przytulnej strefy, zamiast ogromnej stołówki.
+    
+    Patrząc na plan - mniej więcej na środku przestrzenii znajduje się dominanta - skwer, wyróżniający się od reszty strefy, wnoszący różnorodność z perspektywy osoby idącej wzdłuż bufetu.
+    
+    Lokal jest bardzo dobrze odbierany przez pasażerów i mimo dostępności restauracji ‘premium’, jest zawsze pełny ludzi.`,
   images: [
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2F24%20market%20place%2F24h%20Market%20Place%20View%2002.jpeg?alt=media&token=bc7ed0ea-e030-44d5-8ec0-dd9fbf2b19b3",

@@ -3,8 +3,9 @@ const palomar = {
   title: "Palomar Restaurant",
   location: "Norwegian Prima",
   tags: ["work", "restaurant"],
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat vel quaerat in id! Praesentium, qui velit aspernatur eos temporibus similique illo harum fugit deserunt dolores. Praesentium dolorum ab laborum.",
+  role: ["designer"],
+  description: `Palomar is an extra paid venue with seafood. Ship main flow forced a classic setup with main walkway coming along the area. Area contains of interior and outdoor part. Both parts talk same design language - especially on ceiling, filled with sea-inspired shapes. That, marinistic details, and lot of plants - create an area we gathered some very good feedback for.`,
+  opis: `Palomar jest płatną restauracją z owocami morza. Układ restauracji z szerokim korytarzem jest wynikową układem całego statku. Strefa składa się z części wenętrznej i zewnętrznej. Obie łączy ten sam motyw projektowy. Przede wszystkim sufit, który jest wypełniony elementami inspirowanymi morską florą. To, marinistyczne detale i dużo zieleni, tworzy strefę za którą zebraliśmy bardzo dobre opinie.`,
   images: [
     {
       url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/projects%2Fpalomar%2FDSCF7912.jpeg?alt=media&token=58a0d10f-e0a0-4a7d-bd7a-278a93fc841c",
