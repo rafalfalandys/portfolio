@@ -1,18 +1,18 @@
 @import "../../styles/variables";
 
 .main {
-  padding-top: $height-header;
+  padding-top: calc($height-header + 3rem);
   width: 100%;
-  min-height: calc(100vh - $height-footer);
+  min-height: 100vh;
   display: flex;
   margin: auto;
   flex-direction: column;
   align-items: center;
   max-width: $width-main;
   position: relative;
-  margin-top: 3rem;
 
   @media (max-width: $break-phone) {
+    padding-top: $height-header;
     margin-top: 0;
   }
 }
