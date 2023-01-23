@@ -3,10 +3,9 @@ import styles from "./Architecture.module.scss";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header/Header";
 import Context from "../../store/context";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProjectCard from "../../components/portfolio/ProjectCard";
 import Filters from "../../components/portfolio/Filters";
-import { fetchAllProjects } from "../../hooks/use-ajax";
 
 function Architecture() {
   const ctx = useContext(Context);
@@ -56,7 +55,3 @@ function Architecture() {
   );
 }
 export default Architecture;
-
-export function loader() {
-  return fetchAllProjects();
-}

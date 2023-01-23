@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 import Context from "./context";
-// import projectsData from "./projects-data/projects-data";
 
 function Provider(props) {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -33,12 +32,15 @@ function Provider(props) {
 
   // Current Project controls
 
-  const allProjectsHandler = (projects) => setAllProjects(projects);
-  const curProjectsHandler = useCallback(
-    (projects) => setCurProjects(projects),
+  const allProjectsHandler = useCallback(
+    (projects) => setAllProjects(projects),
     []
   );
+  const curProjectsHandler = useCallback((projects) => {
+    setCurProjects(projects);
+  }, []);
   const curProjectHandler = (no) => setCurProject(no);
+
   const curImagesHandler = (arr) => setCurImages(arr);
   const curImgHandler = (no) => setCurImg(no);
 
