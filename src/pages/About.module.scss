@@ -2,6 +2,7 @@
 
 .main {
   overflow: hidden;
+  height: 100vh;
 }
 
 .text {
@@ -31,7 +32,8 @@
 .photo {
   width: 100%;
   margin-top: $height-header;
-  height: calc(100vh - $height-footer - $height-header);
+  // height: calc(100vh - $height-footer - $height-header);
+  height: 100vh;
   position: relative;
 
   img {
@@ -41,7 +43,7 @@
   }
 
   @media (max-width: $break-phone) {
-    transform: translateX(20rem);
+    transform: translateX(23rem);
   }
 }
 
