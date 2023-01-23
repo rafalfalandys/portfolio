@@ -20,6 +20,10 @@
 
   max-width: 150rem;
 
+  @media (max-width: $break-tablet) {
+    height: auto;
+  }
+
   @media (max-width: $break-phone) {
     display: flex;
     flex-direction: column;
@@ -41,16 +45,20 @@
   height: 2.5rem;
   gap: 2rem;
 
+  @media (max-width: $break-tablet) {
+    flex-direction: column;
+    height: 100%;
+  }
+
   @media (max-width: $break-phone) {
     flex-direction: column;
     align-items: center;
     font-size: $font-medium;
     height: 6rem;
-
-    svg {
-      height: 2.5rem;
-    }
   }
+  // svg {
+  //   height: 2.5rem;
+  // }
 }
 
 .icons {
