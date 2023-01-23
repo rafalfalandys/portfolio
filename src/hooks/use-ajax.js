@@ -5,7 +5,7 @@ const url = `https://portfolio-f338a-default-rtdb.europe-west1.firebasedatabase.
 
 function useAjax() {
   const [isLoading, setisLoading] = useState(true);
-  const { allProjectsHandler, allProjects } = useContext(Context);
+  const { allProjectsHandler } = useContext(Context);
 
   const fetchProjects = async () => {
     setisLoading(true);
@@ -26,10 +26,11 @@ function useAjax() {
 
 export default useAjax;
 
-// fetch(`${url}projects.json`, {
-// import { useState } from "react";
-// import projectsData from "../store/projects-data/projects-data";
-//   method: "POST",
-//   body: JSON.stringify(projectsData),
-//   headers: { "Content-Type": "application/json" },
-// });
+export async function fetchAllProjects() {
+  const response = await fetch(`${url}projects.json`);
+  if (!response.ok) {
+    throw new Error(`Something went wrong (${response.status})`);
+  }
+  const data = await response.json();
+  return data["-NMPSVcmPcUplf-Wwe-W"];
+}

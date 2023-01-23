@@ -2,11 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
-import { HashRouter } from "react-router-dom"; // hashrouter instead of browser router because it works with netlify
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <HashRouter>
-    <App />
-  </HashRouter>
-);
+root.render(<App />);

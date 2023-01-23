@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import Context from "./context";
 // import projectsData from "./projects-data/projects-data";
 
@@ -34,7 +34,10 @@ function Provider(props) {
   // Current Project controls
 
   const allProjectsHandler = (projects) => setAllProjects(projects);
-  const curProjectsHandler = (projects) => setCurProjects(projects);
+  const curProjectsHandler = useCallback(
+    (projects) => setCurProjects(projects),
+    []
+  );
   const curProjectHandler = (no) => setCurProject(no);
   const curImagesHandler = (arr) => setCurImages(arr);
   const curImgHandler = (no) => setCurImg(no);
