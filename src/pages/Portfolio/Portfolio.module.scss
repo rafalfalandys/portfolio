@@ -11,6 +11,7 @@
   padding: $height-header $grid-gap 0 $grid-gap;
 
   @media (max-width: $break-phone) {
+    min-height: 91vh;
     // padding-bottom: 8rem;
     gap: 3rem;
     grid-template-columns: 1fr;

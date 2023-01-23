@@ -11,9 +11,10 @@
   margin-bottom: 4rem;
 
   @media (max-width: $break-phone) {
+    background: none;
     top: 50%;
     transform: translate(-50%, -55%);
-    padding: 1rem;
+    padding: 0;
   }
 
   & img,
@@ -25,7 +26,7 @@
     object-fit: contain;
 
     @media (max-width: $break-phone) {
-      max-width: 92vw;
+      max-width: 100vw;
       max-height: 80vh;
     }
   }
