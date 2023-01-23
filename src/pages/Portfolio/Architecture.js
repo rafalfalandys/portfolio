@@ -10,20 +10,24 @@ import { fetchAllProjects } from "../../hooks/use-ajax";
 
 function Architecture() {
   const ctx = useContext(Context);
-  const { curImgHandler, curProjects, curProjectsHandler, filters } = ctx;
-
-  const loaderData = useLoaderData();
+  const {
+    curImgHandler,
+    allProjects,
+    curProjects,
+    curProjectsHandler,
+    filters,
+  } = ctx;
 
   useEffect(() => {
     curProjectsHandler(
-      loaderData.filter((project) => {
+      allProjects.filter((project) => {
         if (filters.length === 0) return project;
         return filters
           .map((filter) => project.tags?.some((tag) => tag === filter))
           .reduce((acc, boolean) => acc || boolean);
       })
     );
-  }, [filters, curProjectsHandler, loaderData]);
+  }, [filters, curProjectsHandler, allProjects]);
 
   useEffect(() => {
     curImgHandler(0);

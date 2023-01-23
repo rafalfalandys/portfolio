@@ -20,16 +20,12 @@ import RootLayout from "./pages/Portfolio/RootLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
+    <Route path="/" element={<RootLayout />} loader={projectsLoader}>
       <Route index element={<Navigate to="/home" replace />} />
       <Route path="/home" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/portfolio" element={<Portfolio />} />
-      <Route
-        path="/portfolio/architecture"
-        element={<Architecture />}
-        loader={projectsLoader}
-      />
+      <Route path="/portfolio/architecture" element={<Architecture />} />
       <Route
         path="/portfolio/architecture/:projectId"
         element={<DetailedProject />}

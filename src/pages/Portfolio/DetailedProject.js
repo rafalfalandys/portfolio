@@ -16,8 +16,8 @@ function DetailedProject() {
   const params = useParams();
 
   useKey();
-
   useEffect(() => {
+    console.log(projectIndex);
     const projectIndex = curProjects.findIndex(
       (project) => project.id === params.projectId
     );
