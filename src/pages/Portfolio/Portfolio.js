@@ -10,6 +10,7 @@ import Context from "../../store/context";
 
 function Portfolio() {
   const ctx = useContext(Context);
+
   return (
     <Fragment>
       <Header />

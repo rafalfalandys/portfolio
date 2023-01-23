@@ -3,6 +3,7 @@ import React from "react";
 const defaultState = {
   isNavVisible: false,
   isModalVisible: false,
+  allProjects: [],
   curProjects: [],
   curProject: 0,
   curImages: [],
@@ -21,6 +22,8 @@ const defaultState = {
   showModal: () => {},
   hideModal: () => {},
 
+  allProjectsHandler: () => {},
+  curProjectsHandler: () => {},
   curProjectHandler: () => {},
 
   curImagesHandler: () => {},

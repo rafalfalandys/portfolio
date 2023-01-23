@@ -6,7 +6,7 @@ import styles from "./ProjectsNavBar.module.scss";
 function ProjectsNavBar() {
   const ctx = useContext(Context);
 
-  const { curProjects, curProject, curImgHandler } = ctx;
+  const { curProjects, curProject, curImgHandler, isEnglish } = ctx;
 
   const onClickHandler = () => curImgHandler(0);
 
@@ -28,18 +28,18 @@ function ProjectsNavBar() {
         onClick={onClickHandler}
       >
         <ion-icon name="arrow-back"></ion-icon>
-        <span>Previous project</span>
+        <span>{isEnglish ? "Previous project" : "Poprzedni projekt"}</span>
       </Link>
       <Link to="/portfolio/architecture" className={styles.btn}>
         <ion-icon name="chevron-back" size="large"></ion-icon>
-        <span>Back to all projects</span>
+        <span>{isEnglish ? "Back to projects" : "Powrót do projektów"}</span>
       </Link>
       <Link
         to={`/portfolio/architecture/${nextProject.id}`}
         className={`${styles.btn} ${styles["btn--nav"]}`}
         onClick={onClickHandler}
       >
-        <span>Next project</span>
+        <span>{isEnglish ? "Next project" : "Następny projekt"}</span>
         <ion-icon name="arrow-forward"></ion-icon>
       </Link>
     </div>

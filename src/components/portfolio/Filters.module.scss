@@ -6,8 +6,14 @@
   justify-content: center;
   gap: 2rem;
   padding: 3rem 10rem;
+  width: max-content;
+  max-width: calc(100% - 2 * $grid-gap);
   flex-wrap: wrap;
   transition: all 0.3s;
+  background-color: $color-white;
+  margin: 0 auto;
+  border-radius: 0 0 $border-radius $border-radius;
+  box-shadow: 0 3px 3px $color-shadow;
 
   @media (max-width: $break-phone) {
     display: grid;
@@ -21,7 +27,7 @@
 }
 
 .btn {
-  margin: auto;
+  margin: 0 auto;
   width: max-content;
   padding: 1rem 3rem;
   font-size: $font-medium;
