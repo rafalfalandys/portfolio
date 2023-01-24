@@ -25,12 +25,3 @@ function useAjax() {
 }
 
 export default useAjax;
-
-export async function fetchAllProjects() {
-  const response = await fetch(`${url}projects.json`);
-  if (!response.ok) {
-    throw new Error(`Something went wrong (${response.status})`);
-  }
-  const data = await response.json();
-  return data["-NMPSVcmPcUplf-Wwe-W"];
-}

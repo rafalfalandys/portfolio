@@ -48,7 +48,3 @@ function DetailedProject() {
   );
 }
 export default DetailedProject;
-
-export function loader() {
-  return fetchAllProjects();
-}
