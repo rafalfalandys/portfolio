@@ -1,4 +1,5 @@
 import { Fragment, useContext, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Context from "../../store/context";
 import Filter from "./Filter";
 import styles from "./Filters.module.scss";

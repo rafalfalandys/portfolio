@@ -1,12 +1,15 @@
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Context from "../../store/context";
 import styles from "./ProjectsNavBar.module.scss";
 
 function ProjectsNavBar() {
   const ctx = useContext(Context);
+  const curProjects = useSelector((state) => state.projects.curProjects);
+  const curProject = useSelector((state) => state.projects.curProject);
 
-  const { curProjects, curProject, curImgHandler, isEnglish } = ctx;
+  const { curImgHandler, isEnglish } = ctx;
 
   const onClickHandler = () => curImgHandler(0);
 

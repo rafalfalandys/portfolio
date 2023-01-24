@@ -2,12 +2,15 @@ import { Fragment, useContext } from "react";
 import SingleItem from "../SingleItem";
 import Context from "../../../store/context";
 import styles from "./ProjectImages.module.scss";
+import { useSelector } from "react-redux";
 
 function ProjectImages() {
   const ctx = useContext(Context);
+  const curProjects = useSelector((state) => state.projects.curProjects);
+  const curProject = useSelector((state) => state.projects.curProject);
 
-  const { curProjects, curProject, curImg } = ctx;
-
+  const { curImg } = ctx;
+  console.log(curProject);
   const project = curProjects[curProject];
 
   const images = project.images.map((image, i) => (

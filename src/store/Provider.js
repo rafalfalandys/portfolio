@@ -5,9 +5,7 @@ function Provider(props) {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const [allProjects, setAllProjects] = useState([]);
   const [curProject, setCurProject] = useState(0);
-  const [curProjects, setCurProjects] = useState([]);
 
   const [curImages, setCurImages] = useState([]);
   const [curImg, setCurImg] = useState(0);
@@ -20,7 +18,6 @@ function Provider(props) {
   const [isEnglish, setIsEnglish] = useState(false);
 
   const [areFiltersVisible, setAreFiltersVisible] = useState(false);
-  const [filters, setFilters] = useState([]);
 
   // Navigation controls
   const toggleNav = () => setIsNavVisible((prevState) => !prevState);
@@ -32,13 +29,6 @@ function Provider(props) {
 
   // Current Project controls
 
-  const allProjectsHandler = useCallback(
-    (projects) => setAllProjects(projects),
-    []
-  );
-  const curProjectsHandler = useCallback((projects) => {
-    setCurProjects(projects);
-  }, []);
   const curProjectHandler = (no) => setCurProject(no);
 
   const curImagesHandler = (arr) => setCurImages(arr);
@@ -78,25 +68,11 @@ function Provider(props) {
   // filters control
   const toggleFilters = () => setAreFiltersVisible((prev) => !prev);
   const hideFilters = useCallback(() => setAreFiltersVisible(false), []);
-  const filtersHandler = (filter) => {
-    if (filter === "all") setFilters([]);
-    else
-      setFilters((prev) => {
-        const updatedFilters = prev.slice(0);
-        if (prev.includes(filter)) {
-          updatedFilters.splice(prev.indexOf(filter), 1);
-        } else {
-          updatedFilters.push(filter);
-        }
-        return updatedFilters;
-      });
-  };
 
   const context = {
     isNavVisible,
     isModalVisible,
-    allProjects,
-    curProjects,
+
     curProject,
     curImages,
     curImg,
@@ -105,13 +81,10 @@ function Provider(props) {
     isDropDownVisible,
     isEnglish,
     areFiltersVisible,
-    filters,
 
     toggleNav,
     hideNav,
 
-    allProjectsHandler,
-    curProjectsHandler,
     curProjectHandler,
 
     showModal,
@@ -129,7 +102,6 @@ function Provider(props) {
 
     toggleFilters,
     hideFilters,
-    filtersHandler,
   };
 
   return <Context.Provider value={context}>{props.children}</Context.Provider>;

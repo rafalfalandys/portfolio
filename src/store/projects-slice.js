@@ -15,19 +15,20 @@ const projectsSlice = createSlice({
     },
 
     setCurProject(state, action) {
-      state.curProject = action.payload.curProject;
+      state.curProject = action.payload;
     },
 
     filterProjects(state, action) {
       if (action.payload === "all" || action.payload === undefined) {
         state.filters = [];
       } else {
-        if (state.filters.includes(action.payload.filter))
-          state.filters.splice(state.filters.indexOf(action.payload.filter));
-        else state.filters.push(action.payload.filter);
+        console.log(action.payload);
+        if (state.filters.includes(action.payload))
+          state.filters.splice(state.filters.indexOf(action.payload.filter), 1);
+        else state.filters.push(action.payload);
       }
 
-      state.allProjects.filter((project) => {
+      state.curProjects = state.allProjects.filter((project) => {
         if (state.filters.length === 0) return project;
         return state.filters
           .map((filter) => project.tags?.some((tag) => tag === filter))

@@ -17,7 +17,6 @@ export const fetchProjects = () => {
     try {
       const projectsData = await fetchData();
       dispatch(projectsActions.setAllProjects(projectsData));
-      dispatch(projectsActions.filterProjects());
     } catch (error) {
       console.log(error);
     }

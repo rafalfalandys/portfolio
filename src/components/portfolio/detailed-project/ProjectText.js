@@ -1,11 +1,14 @@
 import { Fragment, useContext } from "react";
+import { useSelector } from "react-redux";
 import Context from "../../../store/context";
 import styles from "./ProjectText.module.scss";
 
 function ProjectText() {
   const ctx = useContext(Context);
+  const curProjects = useSelector((state) => state.projects.curProjects);
+  const curProject = useSelector((state) => state.projects.curProject);
 
-  const project = ctx.curProjects[ctx.curProject];
+  const project = curProjects[curProject];
 
   return (
     <div className={styles.text}>
