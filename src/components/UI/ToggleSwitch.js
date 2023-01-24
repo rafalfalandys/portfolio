@@ -1,11 +1,12 @@
-import { useContext } from "react";
-import Context from "../../store/context";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
 import styles from "./ToggleSwitch.module.scss";
 
 function ToggleSwitch(props) {
-  const ctx = useContext(Context);
+  const dispatch = useDispatch();
+  const { isEnglish } = useSelector((state) => state.ui);
 
-  const toggleLanguageHandler = () => ctx.toggleLanguage();
+  const toggleLanguageHandler = () => dispatch(uiActions.toggleLanguage());
 
   return (
     <div
@@ -15,21 +16,19 @@ function ToggleSwitch(props) {
       onClick={toggleLanguageHandler}
     >
       {props.homeEdition || (
-        <div
-          className={`${styles.switch} ${ctx.isEnglish ? styles.active : ""}`}
-        >
+        <div className={`${styles.switch} ${isEnglish ? styles.active : ""}`}>
           <div
             className={`${styles.slider} ${
-              ctx.isEnglish ? styles.right : styles.left
+              isEnglish ? styles.right : styles.left
             } `}
           ></div>
         </div>
       )}
       {props.homeEdition && (
         <li className={styles.words}>
-          <span className={ctx.isEnglish ? styles.weak : ""}>Polski </span>{" "}
+          <span className={isEnglish ? styles.weak : ""}>Polski </span>{" "}
           &nbsp;/&nbsp;
-          <span className={!ctx.isEnglish ? styles.weak : ""}>English </span>
+          <span className={!isEnglish ? styles.weak : ""}>English </span>
         </li>
       )}
     </div>

@@ -1,17 +1,14 @@
-import { useContext } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Context from "../../store/context";
+import { projectsActions } from "../../store/projects-slice";
 import styles from "./ProjectsNavBar.module.scss";
 
 function ProjectsNavBar() {
-  const ctx = useContext(Context);
-  const curProjects = useSelector((state) => state.projects.curProjects);
-  const curProject = useSelector((state) => state.projects.curProject);
+  const dispatch = useDispatch();
+  const { curProjects, curProject } = useSelector((state) => state.projects);
+  const { isEnglish } = useSelector((state) => state.ui);
 
-  const { curImgHandler, isEnglish } = ctx;
-
-  const onClickHandler = () => curImgHandler(0);
+  const onClickHandler = () => dispatch(projectsActions.setImg(0));
 
   const nextProject =
     curProject === curProjects.length - 1

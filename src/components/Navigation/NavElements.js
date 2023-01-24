@@ -1,16 +1,22 @@
 import NavItem from "./NavItem";
 import styles from "./NavElements.module.scss";
 import ToggleSwitch from "../UI/ToggleSwitch";
-import { useContext } from "react";
-import Context from "../../store/context";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
 // import { Link } from "react-router-dom";
 
 function NavElements(props) {
-  const ctx = useContext(Context);
+  const dispatch = useDispatch();
+  const isEnglish = useSelector((state) => state.ui.isEnglish);
+
+  const mouseLeaveHandler = () => {
+    dispatch(uiActions.controlPortfolioDropDown("hide"));
+  };
+
   return (
-    <ul className={styles.links}>
+    <ul className={styles.links} onMouseLeave={mouseLeaveHandler}>
       <NavItem mobile={props.mobile} linkTo="/about">
-        {ctx.isEnglish ? "About" : "O mnie"}
+        {isEnglish ? "About" : "O mnie"}
       </NavItem>
       <NavItem mobile={props.mobile} linkTo="/portfolio" hover={props.hover}>
         Porfolio
@@ -26,7 +32,7 @@ function NavElements(props) {
         </div>
       )} */}
       <NavItem mobile={props.mobile} linkTo="/contact">
-        {ctx.isEnglish ? "Contact" : "Kontakt"}
+        {isEnglish ? "Contact" : "Kontakt"}
       </NavItem>
       <ToggleSwitch homeEdition={props.homeEdition} />
     </ul>

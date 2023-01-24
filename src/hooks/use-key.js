@@ -1,25 +1,25 @@
-import { useCallback, useContext, useEffect } from "react";
-import Context from "../store/context";
+import { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { projectsActions } from "../store/projects-slice";
+import { uiActions } from "../store/ui-slice";
 
 function useKey() {
-  const ctx = useContext(Context);
-  const { isModalVisible, nextImg, prevImg, hideModal } = ctx;
+  const dispatch = useDispatch();
+  const { isModalVisible } = useSelector((state) => state.ui);
 
   const arrowHandler = useCallback(
     (e) => {
-      if (e.key === "ArrowRight") nextImg();
-      if (e.key === "ArrowLeft") prevImg();
+      if (e.key === "ArrowRight") dispatch(projectsActions.nextImage());
+      if (e.key === "ArrowLeft") dispatch(projectsActions.previousImage());
     },
-    [nextImg, prevImg]
+    [dispatch]
   );
 
   const escHandler = useCallback(
     (e) => {
-      if (e.key === "Escape") {
-        hideModal();
-      }
+      if (e.key === "Escape") dispatch(uiActions.controlModal("hide"));
     },
-    [hideModal]
+    [dispatch]
   );
 
   useEffect(() => {

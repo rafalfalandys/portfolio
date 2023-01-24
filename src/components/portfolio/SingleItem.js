@@ -1,21 +1,22 @@
-import { useContext } from "react";
-import Context from "../../store/context";
+import { useDispatch } from "react-redux";
+import { projectsActions } from "../../store/projects-slice";
+import { uiActions } from "../../store/ui-slice";
 import styles from "./SingleItem.module.scss";
 
 function SingleItem(props) {
-  const ctx = useContext(Context);
+  const dispatch = useDispatch();
 
   const onClickHandler = () => {
-    ctx.curImagesHandler(props.imagesArr);
-    ctx.curImgHandler(0);
+    dispatch(projectsActions.setImages(props.imagesArr));
+    dispatch(projectsActions.setImg(0));
     if (props.no !== undefined) {
-      ctx.curImgHandler(props.no);
-      ctx.showModal();
+      dispatch(projectsActions.setImg(props.no));
+      dispatch(uiActions.controlModal("show"));
     }
   };
 
   const onMouseOverHandler = () => {
-    if (props.curImgOnHover) ctx.curImgHandler(props.no);
+    if (props.curImgOnHover) dispatch(projectsActions.setImg(props.no));
   };
 
   return (

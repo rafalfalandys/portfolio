@@ -13,7 +13,6 @@ import Portfolio from "./pages/Portfolio/Portfolio";
 import Architecture from "./pages/Portfolio/Architecture";
 import Photography from "./pages/Portfolio/Photography";
 import DetailedProject from "./pages/Portfolio/DetailedProject";
-import Provider from "./store/Provider";
 import RootLayout from "./pages/Portfolio/RootLayout";
 
 const router = createBrowserRouter(
@@ -35,11 +34,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return (
-    <Provider>
-      <RouterProvider router={router} />
-    </Provider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

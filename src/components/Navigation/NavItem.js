@@ -1,25 +1,24 @@
-import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import Context from "../../store/context";
 import styles from "./NavItem.module.scss";
 import "./NavItem";
 import DropDown from "./DropDown";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
 
 function NavItem(props) {
-  const ctx = useContext(Context);
+  const dispatch = useDispatch();
+  const isPortfolioDropDownVisible = useSelector(
+    (state) => state.ui.isPortfolioDropDownVisible
+  );
 
   const clickHandler = () => {
     if (props.mobile) {
-      return ctx.hideNav();
+      return dispatch(uiActions.controlMobileNav("hide"));
     } else return;
   };
 
   const hoverHandler = () => {
-    if (props.hover) ctx.showDropDown();
-  };
-
-  const leaveHandler = () => {
-    if (props.hover) ctx.hideDropDown();
+    if (props.hover) dispatch(uiActions.controlPortfolioDropDown("show"));
   };
 
   return (
@@ -27,14 +26,15 @@ function NavItem(props) {
       <NavLink
         to={props.linkTo}
         onMouseOver={hoverHandler}
-        onMouseLeave={leaveHandler}
         className={(navData) =>
           navData.isActive ? `${styles.link} ${styles.active}` : styles.link
         }
       >
         {props.children}
       </NavLink>
-      {ctx.isDropDownVisible && props.hover && !props.mobile && <DropDown />}
+      {isPortfolioDropDownVisible && props.hover && !props.mobile && (
+        <DropDown />
+      )}
     </li>
   );
 }

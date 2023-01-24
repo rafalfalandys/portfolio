@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import Context from "../../store/context";
+import { useSelector } from "react-redux";
 
 import styles from "./ImageBig.module.scss";
 
-function ImageBig(props) {
-  const ctx = useContext(Context);
+function ImageBig() {
+  const { curImages, curImg } = useSelector((state) => state.projects);
 
-  const url = ctx.curImages[props.imgNo].url;
-  const type = ctx.curImages[props.imgNo].type;
+  const url = curImages[curImg].url;
+  const type = curImages[curImg].type;
 
   return (
     <div className={styles.container}>

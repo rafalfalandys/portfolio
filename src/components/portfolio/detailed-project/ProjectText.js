@@ -1,12 +1,10 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { useSelector } from "react-redux";
-import Context from "../../../store/context";
 import styles from "./ProjectText.module.scss";
 
 function ProjectText() {
-  const ctx = useContext(Context);
-  const curProjects = useSelector((state) => state.projects.curProjects);
-  const curProject = useSelector((state) => state.projects.curProject);
+  const { curProjects, curProject } = useSelector((state) => state.projects);
+  const { isEnglish } = useSelector((state) => state.ui);
 
   const project = curProjects[curProject];
 
@@ -14,7 +12,7 @@ function ProjectText() {
     <div className={styles.text}>
       <h1>{`${project.location} - ${project.title}`}</h1>
       <p>
-        {ctx.isEnglish && (
+        {isEnglish && (
           <Fragment>
             <span>
               {`My role: ${project.role.map((role) => role).join(", ")}.`}
@@ -33,7 +31,7 @@ function ProjectText() {
           </Fragment>
         )}
 
-        {!ctx.isEnglish && (
+        {!isEnglish && (
           <Fragment>
             <span>
               {`Moja rola: ${project.role
@@ -56,8 +54,8 @@ function ProjectText() {
             )}
           </Fragment>
         )}
-        {ctx.isEnglish && <span>{project.description}</span>}
-        {!ctx.isEnglish && (
+        {isEnglish && <span>{project.description}</span>}
+        {!isEnglish && (
           <span>{project.opis ? project.opis : project.description}</span>
         )}
       </p>

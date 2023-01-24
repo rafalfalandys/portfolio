@@ -1,15 +1,15 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import Footer from "../../components/Footer";
 import SingleItem from "../../components/portfolio/SingleItem";
 import styles from "./Photography.module.scss";
 import { photosData } from "../../store/photos";
 import Modal from "../../components/Modal/Modal";
 import Header from "../../components/Header/Header";
-import Context from "../../store/context";
 import useKey from "../../hooks/use-key";
+import { useSelector } from "react-redux";
 
 function Photography() {
-  const ctx = useContext(Context);
+  const { isModalVisible } = useSelector((state) => state.ui);
   useKey();
 
   const photos = photosData.map((photo, i) => (
@@ -24,7 +24,7 @@ function Photography() {
 
   return (
     <Fragment>
-      {ctx.isModalVisible && <Modal />}
+      {isModalVisible && <Modal />}
       <Header />
       <main className={styles.tiles}>{photos}</main>
       <Footer />

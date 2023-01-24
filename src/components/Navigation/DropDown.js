@@ -1,25 +1,32 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Context from "../../store/context";
+import { uiActions } from "../../store/ui-slice";
 import styles from "./DropDown.module.scss";
 
 function DropDown() {
-  const ctx = useContext(Context);
+  const dispatch = useDispatch();
+  const isEnglish = useSelector((state) => state.ui.isEnglish);
+
+  const showDropDownHandler = () =>
+    dispatch(uiActions.controlPortfolioDropDown("show"));
+  const hideDropDownHandler = () =>
+    dispatch(uiActions.controlPortfolioDropDown("hide"));
+
   return (
     <div
       className={styles.dropdown}
-      onMouseOver={ctx.showDropDown}
-      onMouseLeave={ctx.hideDropDown}
+      onMouseOver={showDropDownHandler}
+      onMouseLeave={hideDropDownHandler}
     >
       <ul>
         <li>
           <Link to="/portfolio/architecture">
-            {ctx.isEnglish ? "Architecture" : "Architektura"}
+            {isEnglish ? "Architecture" : "Architektura"}
           </Link>
         </li>
         <li>
           <Link to="/portfolio/photography">
-            {ctx.isEnglish ? "Photography" : "Fotografia"}
+            {isEnglish ? "Photography" : "Fotografia"}
           </Link>
         </li>
       </ul>

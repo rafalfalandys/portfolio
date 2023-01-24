@@ -1,16 +1,13 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Context from "../../store/context";
 import { projectsActions } from "../../store/projects-slice";
 import styles from "./Filter.module.scss";
 
 function Filter(props) {
   const dispatch = useDispatch();
-  const ctx = useContext(Context);
   const [isChecked, setIsChecked] = useState(false);
   const filterRef = useRef();
-  const filters = useSelector((state) => state.projects.filters);
-  const curProjects = useSelector((state) => state.projects.curProjects);
+  const { filters } = useSelector((state) => state.projects);
 
   const labelLowerCase = props.label.toLowerCase();
   const changeHandler = () => {

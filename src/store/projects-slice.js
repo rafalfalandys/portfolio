@@ -7,6 +7,10 @@ const projectsSlice = createSlice({
     curProjects: [],
     curProject: 0,
     filters: [],
+    curImages: [],
+    curImg: 0,
+    bumpLeft: false,
+    bumpRight: false,
   },
   reducers: {
     setAllProjects(state, action) {
@@ -34,6 +38,36 @@ const projectsSlice = createSlice({
           .map((filter) => project.tags?.some((tag) => tag === filter))
           .reduce((acc, boolean) => acc || boolean);
       });
+    },
+
+    // Images
+    setImages(state, action) {
+      console.log(action);
+      state.curImages = action.payload;
+    },
+
+    setImg(state, action) {
+      state.curImg = action.payload;
+    },
+
+    nextImage(state, action) {
+      if (state.curImg === state.curImages.length - 1) state.curImg = 0;
+      else state.curImg++;
+
+      //   state.bumpRight = true;
+      //   setTimeout(() => {
+      //     state.bumpRight = false;
+      //   }, 300);
+    },
+
+    previousImage(state, action) {
+      if (state.curImg === 0) state.curImg = state.curImages.length - 1;
+      else state.curImg--;
+
+      //   state.bumpLeft = true;
+      //   setTimeout(() => {
+      //     state.bumpLeft = false;
+      //   }, 300);
     },
   },
 });

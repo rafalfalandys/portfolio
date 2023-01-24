@@ -1,24 +1,26 @@
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Context from "../../store/context";
+import { uiActions } from "../../store/ui-slice";
 import Filter from "./Filter";
 import styles from "./Filters.module.scss";
 
 function Filters() {
-  const ctx = useContext(Context);
+  const dispatch = useDispatch();
+  const { curProject } = useSelector((state) => state.projects);
+  const { isFiltersBarVisible } = useSelector((state) => state.ui);
 
-  const { hideFilters, toggleFilters, curProject } = ctx;
-  const toggleFiltersElHandler = () => toggleFilters();
+  const toggleFiltersElHandler = () =>
+    dispatch(uiActions.controlFiltersBar("toggle"));
 
   useEffect(() => {
-    hideFilters();
-  }, [curProject, hideFilters]);
+    dispatch(uiActions.controlFiltersBar("hide"));
+  }, [curProject, dispatch]);
 
   return (
     <Fragment>
       <div
         className={`${styles.filters} ${
-          ctx.areFiltersVisible ? "" : styles.hidden
+          isFiltersBarVisible ? "" : styles.hidden
         }`}
       >
         <h1>Tags: </h1>
@@ -30,9 +32,9 @@ function Filters() {
         <Filter label="Algorithmic design" />
       </div>
       <div className={styles.btn} onClick={toggleFiltersElHandler}>
-        <span>{ctx.areFiltersVisible ? "Hide filters" : "Filters"}</span>
+        <span>{isFiltersBarVisible ? "Hide filters" : "Filters"}</span>
         <ion-icon
-          name={`chevron-${ctx.areFiltersVisible ? "up" : "down"}`}
+          name={`chevron-${isFiltersBarVisible ? "up" : "down"}`}
         ></ion-icon>
       </div>
     </Fragment>

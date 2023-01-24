@@ -1,24 +1,28 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useEffect } from "react";
 import SingleItem from "../SingleItem";
-import Context from "../../../store/context";
 import styles from "./ProjectImages.module.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { projectsActions } from "../../../store/projects-slice";
 
 function ProjectImages() {
-  const ctx = useContext(Context);
-  const curProjects = useSelector((state) => state.projects.curProjects);
-  const curProject = useSelector((state) => state.projects.curProject);
+  const dispatch = useDispatch();
+  const { curProjects, curProject, curImg } = useSelector(
+    (state) => state.projects
+  );
 
-  const { curImg } = ctx;
-  console.log(curProject);
-  const project = curProjects[curProject];
+  const projectObj = curProjects[curProject];
+  const imagesArr = projectObj.images;
 
-  const images = project.images.map((image, i) => (
+  useEffect(() => {
+    dispatch(projectsActions.setImages(imagesArr));
+  }, [dispatch, imagesArr]);
+
+  const images = imagesArr.map((image, i) => (
     <div className={styles.thumbnail} key={image.url}>
       <SingleItem
         url={image.url}
         no={i}
-        imagesArr={project.images}
+        imagesArr={imagesArr}
         curImgOnHover
         type={image.type}
       />
@@ -29,12 +33,12 @@ function ProjectImages() {
     <Fragment>
       <div className={styles.images}>
         <div className={styles["image-big"]}>
-          {!project.images[curImg].type && (
-            <img src={project.images[curImg].url} alt="architecture" />
+          {!imagesArr[curImg].type && (
+            <img src={imagesArr[curImg].url} alt="architecture" />
           )}
-          {project.images[curImg].type && (
+          {imagesArr[curImg].type && (
             <video
-              src={project.images[curImg].url}
+              src={imagesArr[curImg].url}
               alt="architecture"
               autoPlay
               muted
@@ -45,7 +49,7 @@ function ProjectImages() {
         <div className={styles.thumbnails}>{images}</div>
       </div>
       <div className={styles["image-big--mobile"]}>
-        <img src={project.images[0].url} alt="architecture" />
+        <img src={projectObj.images[0].url} alt="architecture" />
       </div>
     </Fragment>
   );
