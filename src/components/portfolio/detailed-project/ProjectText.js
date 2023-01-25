@@ -4,8 +4,12 @@ import styles from "./ProjectText.module.scss";
 
 function ProjectText() {
   const ctx = useContext(Context);
+  const { curProject, curProjects } = ctx;
 
-  const project = ctx.curProjects[ctx.curProject];
+  if (curProjects.length === 0 || curProject === -1) return;
+
+  // need to stop here because react renders this components before useEffects set the context
+  const project = curProjects[curProject];
 
   return (
     <div className={styles.text}>

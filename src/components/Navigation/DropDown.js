@@ -13,12 +13,12 @@ function DropDown() {
     >
       <ul>
         <li>
-          <Link to="/portfolio/architecture">
+          <Link to="/architecture">
             {ctx.isEnglish ? "Architecture" : "Architektura"}
           </Link>
         </li>
         <li>
-          <Link to="/portfolio/photography">
+          <Link to="/photography">
             {ctx.isEnglish ? "Photography" : "Fotografia"}
           </Link>
         </li>

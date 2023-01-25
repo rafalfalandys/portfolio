@@ -1,50 +1,34 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Navigate,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.scss";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio/Portfolio";
-import Architecture from "./pages/Portfolio/Architecture";
+import Architecture, {
+  loader as projectsLoader,
+} from "./pages/Portfolio/Architecture";
 import Photography from "./pages/Portfolio/Photography";
-import DetailedProject, {
-  loader as detailedProjectProjectsLoader,
-} from "./pages/Portfolio/DetailedProject";
+import DetailedProject from "./pages/Portfolio/DetailedProject";
 import Provider from "./store/Provider";
-import RootLayout, { loader as rootProjectsLoader } from "./pages/RootLayout";
+import RootLayout from "./pages/RootLayout";
 
-const routerEls = (
-  <Route path="/" element={<RootLayout />} loader={rootProjectsLoader}>
-    <Route index element={<Navigate to="/home" replace />} />
-    <Route path="/home" element={<Home />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/portfolio" element={<Portfolio />} />
-    <Route path="/portfolio/architecture" element={<Architecture />} />
-    <Route
-      path="/portfolio/architecture/:projectId"
-      element={<DetailedProject />}
-      loader={detailedProjectProjectsLoader}
-    />
-    <Route path="/portfolio/photography" element={<Photography />} />
-    <Route path="/contact" element={<Contact />} />
-  </Route>
-);
-
-const router = createBrowserRouter(createRoutesFromElements(routerEls));
-
-const routerB = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
-      { path: "portfolio", element: <Portfolio />, children: [] },
+      { path: "contact", element: <Contact /> },
+      { path: "portfolio", element: <Portfolio /> },
+      { path: "photography", element: <Photography /> },
+      {
+        path: "architecture",
+        id: "architecture",
+        element: <Architecture />,
+        loader: projectsLoader,
+        children: [{ path: ":projectId", element: <DetailedProject /> }],
+      },
     ],
   },
 ]);

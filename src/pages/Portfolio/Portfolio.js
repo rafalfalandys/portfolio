@@ -15,13 +15,13 @@ function Portfolio() {
     <Fragment>
       <Header />
       <main className={styles.main}>
-        <Link to="architecture">
+        <Link to="/architecture">
           <BigCard
             url={projectsData[3].images[0].url}
             text={ctx.isEnglish ? "Architecture" : "Architektura"}
           />
         </Link>
-        <Link to="photography">
+        <Link to="/photography">
           <BigCard
             url={photosData[10].url}
             text={ctx.isEnglish ? "Photography" : "Fotografia"}

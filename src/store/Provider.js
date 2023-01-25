@@ -31,7 +31,6 @@ function Provider(props) {
   const hideModal = useCallback(() => setIsModalVisible(false), []);
 
   // Current Project controls
-
   const allProjectsHandler = useCallback(
     (projects) => setAllProjects(projects),
     []

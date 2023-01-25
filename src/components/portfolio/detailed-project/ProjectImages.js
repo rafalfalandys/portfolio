@@ -8,6 +8,9 @@ function ProjectImages() {
 
   const { curProjects, curProject, curImg } = ctx;
 
+  // need to stop here because react renders this components before useEffects set the context
+  if (curProjects.length === 0 || curProject === -1) return;
+
   const project = curProjects[curProject];
 
   const images = project.images.map((image, i) => (

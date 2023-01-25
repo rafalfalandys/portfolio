@@ -1,8 +1,6 @@
-import { Fragment, useContext, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../../components/Header/Header";
 import Modal from "../../components/Modal/Modal";
-import Footer from "../../components/Footer";
 import useKey from "../../hooks/use-key";
 import Context from "../../store/context";
 import styles from "./DetailedProject.module.scss";
@@ -12,7 +10,6 @@ import { fetchAllProjects } from "../../hooks/use-ajax";
 import ProjectsNavBar from "../../components/portfolio/detailed-project/ProjectsNavBar";
 
 function DetailedProject() {
-  const [isLoad, setIsLoad] = useState(false);
   const ctx = useContext(Context);
   const { curProjects, curProject, curProjectHandler } = ctx;
   const params = useParams();
@@ -23,7 +20,6 @@ function DetailedProject() {
       (project) => project.id === params.projectId
     );
     curProjectHandler(projectIndex);
-    if (curProjects.length !== 0) setIsLoad(true);
   }, [curProjects, curProjectHandler, params.projectId]);
 
   useEffect(() => {
@@ -33,17 +29,14 @@ function DetailedProject() {
   return (
     <Fragment>
       {ctx.isModalVisible && <Modal />}
-      <Header />
       <main className={styles.main}>
         <div className={styles.content}>
-          {isLoad && <ProjectImages />}
-          {isLoad && <ProjectText />}
+          <ProjectImages />
+          <ProjectText />
         </div>
 
-        {isLoad && <ProjectsNavBar />}
+        <ProjectsNavBar />
       </main>
-
-      <Footer />
     </Fragment>
   );
 }

@@ -8,6 +8,9 @@ function ProjectsNavBar() {
 
   const { curProjects, curProject, curImgHandler, isEnglish } = ctx;
 
+  // need to stop here because react renders this components before useEffects set the context
+  if (curProjects.length === 0 || curProject === -1) return;
+
   const onClickHandler = () => curImgHandler(0);
 
   const nextProject =
@@ -23,7 +26,7 @@ function ProjectsNavBar() {
   return (
     <div className={styles["projects-nav"]}>
       <Link
-        to={`/portfolio/architecture/${prevProject.id}`}
+        to={`/architecture/${prevProject.id}`}
         className={`${styles.btn} ${styles["btn--nav"]}`}
         onClick={onClickHandler}
       >
@@ -35,7 +38,7 @@ function ProjectsNavBar() {
         <span>{isEnglish ? "Back to projects" : "Powrót do projektów"}</span>
       </Link>
       <Link
-        to={`/portfolio/architecture/${nextProject.id}`}
+        to={`/architecture/${nextProject.id}`}
         className={`${styles.btn} ${styles["btn--nav"]}`}
         onClick={onClickHandler}
       >
