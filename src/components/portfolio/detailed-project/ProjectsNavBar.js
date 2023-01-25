@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import Context from "../../store/context";
+import Context from "../../../store/context";
 import styles from "./ProjectsNavBar.module.scss";
 
 function ProjectsNavBar() {
@@ -30,7 +30,7 @@ function ProjectsNavBar() {
         <ion-icon name="arrow-back"></ion-icon>
         <span>{isEnglish ? "Previous project" : "Poprzedni projekt"}</span>
       </Link>
-      <Link to="/portfolio/architecture" className={styles.btn}>
+      <Link to=".." relative="path" className={styles.btn}>
         <ion-icon name="chevron-back" size="large"></ion-icon>
         <span>{isEnglish ? "Back to projects" : "Powrót do projektów"}</span>
       </Link>

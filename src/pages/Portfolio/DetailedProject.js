@@ -6,10 +6,10 @@ import Footer from "../../components/Footer";
 import useKey from "../../hooks/use-key";
 import Context from "../../store/context";
 import styles from "./DetailedProject.module.scss";
-import ProjectsNavBar from "./ProjectsNavBar";
 import ProjectImages from "../../components/portfolio/detailed-project/ProjectImages";
 import ProjectText from "../../components/portfolio/detailed-project/ProjectText";
 import { fetchAllProjects } from "../../hooks/use-ajax";
+import ProjectsNavBar from "../../components/portfolio/detailed-project/ProjectsNavBar";
 
 function DetailedProject() {
   const [isLoad, setIsLoad] = useState(false);
