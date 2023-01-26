@@ -10,11 +10,10 @@ import { URL } from "../../helper";
 import { useCallback } from "react";
 
 function Architecture() {
-  const { curImgHandler, curProjects, curProjectsHandler, filters } =
+  const { curImgHandler, curProjects, curProjectsHandler, filters, isEnglish } =
     useContext(Context);
   const loadedProjects = useLoaderData();
   const location = useLocation().pathname;
-  console.log(location);
 
   // here comes a function, instead of simple array, because without useCallback VSC was screaming for dependencies in useEffect below
   const filterProjects = useCallback(() => {
@@ -42,7 +41,7 @@ function Architecture() {
         url={project.images[0].url}
         title={project.title}
         location={project.location}
-        description={project.description}
+        description={(!isEnglish && project.opis) || project.description}
       />
     </Link>
   ));

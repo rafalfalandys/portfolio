@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
+import { Form } from "react-router-dom";
 import useInput from "../hooks/use-input";
+import Context from "../store/context";
 import styles from "./ContactForm.module.scss";
 import Spinner from "./UI/Spinner";
 
 function ContactForm() {
+  const { isEnglish } = useContext(Context);
   const [isFormValid, setIsFormValid] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -85,10 +89,11 @@ function ContactForm() {
   };
 
   return (
-    <form className={styles.form} onSubmit={submitHandler}>
-      <label> Name</label>
+    <Form method="post" className={styles.form}>
+      <label>{`${isEnglish ? "Name" : "Imię"}`}</label>
       <input
         type="text"
+        name="name"
         value={name}
         onChange={changeNameHandler}
         onBlur={blurNameHandler}
@@ -96,9 +101,10 @@ function ContactForm() {
           isNameValid ? styles.input : `${styles.input} ${styles.error}`
         }
       />
-      <label> E-mail / Phone</label>
+      <label>{`${isEnglish ? "E-mail / Phone" : "E-mail / Telefon"}`}</label>
       <input
         type="text"
+        name="contact"
         value={contact}
         onChange={changeContactHandler}
         onBlur={blurContactHandler}
@@ -106,9 +112,10 @@ function ContactForm() {
           isContactValid ? styles.input : `${styles.input} ${styles.error}`
         }
       />
-      <label> Message</label>
+      <label>{`${isEnglish ? "Message" : "Wiadomość"}`}</label>
       <textarea
         type="text"
+        name="msg"
         value={msg}
         onChange={changeMsgHandler}
         onBlur={blurMsgHandler}
@@ -133,7 +140,7 @@ function ContactForm() {
           </p>
         )}
       </div>
-    </form>
+    </Form>
   );
 }
 

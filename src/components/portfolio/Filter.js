@@ -7,7 +7,7 @@ function Filter(props) {
   const [isChecked, setIsChecked] = useState(false);
   const filterRef = useRef();
 
-  const { filters } = ctx;
+  const { filters, isEnglish } = ctx;
 
   const changeHandler = () => {
     ctx.filtersHandler(filterRef.current.value);
@@ -40,7 +40,7 @@ function Filter(props) {
         onChange={changeHandler}
         checked={isChecked}
       />
-      <label>{props.label}</label>
+      <label>{`${isEnglish ? props.label : props.pl}`}</label>
     </div>
   );
 }

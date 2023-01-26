@@ -1,0 +1,12 @@
+@import "../styles/variables";
+
+.main {
+  min-height: calc(100vh - $height-footer);
+  padding-top: 10rem;
+  text-align: center;
+
+  @media (max-width: $break-phone) {
+    padding-top: 0;
+    height: 100vh;
+  }
+}
