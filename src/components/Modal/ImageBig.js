@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import Context from "../../store/context";
+import ContextProjects from "../../store/context-projects";
 
 import styles from "./ImageBig.module.scss";
 
 function ImageBig() {
-  const ctx = useContext(Context);
+  const { curImages, curImg } = useContext(ContextProjects);
 
-  const url = ctx.curImages[ctx.curImg].url;
-  const type = ctx.curImages[ctx.curImg].type;
+  const url = curImages[curImg].url;
+  const type = curImages[curImg].type;
 
   return (
     <div className={styles.container}>

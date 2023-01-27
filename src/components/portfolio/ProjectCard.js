@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import Context from "../../store/context";
+import ContextUI from "../../store/context-ui";
 import styles from "./ProjectCard.module.scss";
 
 function ProjectCard(props) {
-  const ctx = useContext(Context);
+  const { isEnglish } = useContext(ContextUI);
 
   return (
     <div className={styles.card}>
@@ -11,14 +11,14 @@ function ProjectCard(props) {
       <div className={styles.text}>
         <h1>
           <span className={styles.keys}>
-            {ctx.isEnglish ? "Location:" : "Lokalizacja:"}
+            {isEnglish ? "Location:" : "Lokalizacja:"}
           </span>
           <span>
             <strong>{props.location}</strong>
           </span>
         </h1>
         <h1>
-          <span>{ctx.isEnglish ? "Area:" : "Strefa:"}</span>
+          <span>{isEnglish ? "Area:" : "Strefa:"}</span>
           <span>
             <strong>{props.title}</strong>
           </span>

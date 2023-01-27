@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import Context from "./context";
+import Context from "./context-ui";
 
 function ProviderUI(props) {
   const [isNavVisible, setIsNavVisible] = useState(false);

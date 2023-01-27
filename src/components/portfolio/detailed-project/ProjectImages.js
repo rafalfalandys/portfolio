@@ -1,11 +1,10 @@
 import { Fragment, useContext } from "react";
 import SingleItem from "../SingleItem";
-import Context from "../../../store/context";
 import styles from "./ProjectImages.module.scss";
+import ContextProjects from "../../../store/context-projects";
 
 function ProjectImages() {
-  const ctx = useContext(Context);
-  const { curProject, curImg, curImages } = ctx;
+  const { curProject, curImg, curImages } = useContext(ContextProjects);
 
   const images = curImages.map((image, i) => (
     <div className={styles.thumbnail} key={image.url}>

@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import { photosData } from "../../store/photos";
 import projectsData from "../../store/projects-data/projects-data";
 import BigCard from "../../components/portfolio/BigCard";
-import Context from "../../store/context";
+import ContextUI from "../../store/context-ui";
 
 function Portfolio() {
-  const ctx = useContext(Context);
+  const { isEnglish } = useContext(ContextUI);
 
   return (
     <Fragment>
@@ -18,13 +18,13 @@ function Portfolio() {
         <Link to="/architecture">
           <BigCard
             url={projectsData[3].images[0].url}
-            text={ctx.isEnglish ? "Architecture" : "Architektura"}
+            text={isEnglish ? "Architecture" : "Architektura"}
           />
         </Link>
         <Link to="/photography">
           <BigCard
             url={photosData[10].url}
-            text={ctx.isEnglish ? "Photography" : "Fotografia"}
+            text={isEnglish ? "Photography" : "Fotografia"}
           />
         </Link>
       </main>

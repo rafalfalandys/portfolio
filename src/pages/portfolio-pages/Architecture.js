@@ -2,16 +2,18 @@ import { Fragment, useContext, useEffect } from "react";
 import styles from "./Architecture.module.scss";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header/Header";
-import Context from "../../store/context";
 import { Link, Outlet, useLoaderData, useLocation } from "react-router-dom";
 import ProjectCard from "../../components/portfolio/ProjectCard";
 import Filters from "../../components/portfolio/Filters";
 import { URL } from "../../helper";
 import { useCallback } from "react";
+import ContextUI from "../../store/context-ui";
+import ContextProjects from "../../store/context-projects";
 
 function Architecture() {
-  const { curImgHandler, curProjects, curProjectsHandler, filters, isEnglish } =
-    useContext(Context);
+  const { isEnglish } = useContext(ContextUI);
+  const { curImgHandler, curProjects, curProjectsHandler, filters } =
+    useContext(ContextProjects);
   const loadedProjects = useLoaderData();
   const location = useLocation().pathname;
 

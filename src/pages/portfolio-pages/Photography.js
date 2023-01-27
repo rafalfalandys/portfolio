@@ -5,11 +5,11 @@ import styles from "./Photography.module.scss";
 import { photosData } from "../../store/photos";
 import Modal from "../../components/Modal/Modal";
 import Header from "../../components/Header/Header";
-import Context from "../../store/context";
 import useKey from "../../hooks/use-key";
+import ContextUI from "../../store/context-ui";
 
 function Photography() {
-  const ctx = useContext(Context);
+  const { isModalVisible } = useContext(ContextUI);
   useKey();
 
   const photos = photosData.map((photo, i) => (
@@ -24,7 +24,7 @@ function Photography() {
 
   return (
     <Fragment>
-      {ctx.isModalVisible && <Modal />}
+      {isModalVisible && <Modal />}
       <Header />
       <main className={styles.tiles}>{photos}</main>
       <Footer />

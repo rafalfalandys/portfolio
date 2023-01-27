@@ -2,23 +2,23 @@ import { Fragment, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import useKey from "../../hooks/use-key";
-import Context from "../../store/context";
 import styles from "./DetailedProject.module.scss";
 import ProjectImages from "../../components/portfolio/detailed-project/ProjectImages";
 import ProjectText from "../../components/portfolio/detailed-project/ProjectText";
 import ProjectsNavBar from "../../components/portfolio/detailed-project/ProjectsNavBar";
+import ContextUI from "../../store/context-ui";
+import ContextProjects from "../../store/context-projects";
 
 function DetailedProject() {
   const [isLoad, setIsLoad] = useState(false);
-  const ctx = useContext(Context);
+  const { isModalVisible } = useContext(ContextUI);
   const {
     curProjects,
-    curProject,
     curProjectHandler,
     curProjectNo,
     curProjectNoHandler,
     curImagesHandler,
-  } = ctx;
+  } = useContext(ContextProjects);
   const params = useParams();
   useKey();
 
@@ -45,7 +45,7 @@ function DetailedProject() {
 
   return (
     <Fragment>
-      {ctx.isModalVisible && <Modal />}
+      {isModalVisible && <Modal />}
       <main className={styles.main}>
         <div className={styles.content}>
           {isLoad && <ProjectImages />}

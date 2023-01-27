@@ -2,15 +2,16 @@ import NavItem from "./NavItem";
 import styles from "./NavElements.module.scss";
 import ToggleSwitch from "../UI/ToggleSwitch";
 import { useContext } from "react";
-import Context from "../../store/context";
+import ContextUI from "../../store/context-ui";
 // import { Link } from "react-router-dom";
 
 function NavElements(props) {
-  const ctx = useContext(Context);
+  const { isEnglish } = useContext(ContextUI);
+
   return (
     <ul className={styles.links}>
       <NavItem mobile={props.mobile} linkTo="/about">
-        {ctx.isEnglish ? "About" : "O mnie"}
+        {isEnglish ? "About" : "O mnie"}
       </NavItem>
       <NavItem mobile={props.mobile} linkTo="/portfolio" hover={props.hover}>
         Porfolio
@@ -26,7 +27,7 @@ function NavElements(props) {
         </div>
       )} */}
       <NavItem mobile={props.mobile} linkTo="/contact">
-        {ctx.isEnglish ? "Contact" : "Kontakt"}
+        {isEnglish ? "Contact" : "Kontakt"}
       </NavItem>
       <ToggleSwitch homeEdition={props.homeEdition} />
     </ul>

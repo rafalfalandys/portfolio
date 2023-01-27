@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import Context from "../../store/context";
+import ContextUI from "../../store/context-ui";
 import styles from "./Overlay.module.scss";
 
 function Overlay() {
-  const ctx = useContext(Context);
+  const { hideModal } = useContext(ContextUI);
 
-  const hideModalHandler = () => ctx.hideModal();
+  const hideModalHandler = () => hideModal();
 
   return <div className={styles.overlay} onClick={hideModalHandler}></div>;
 }

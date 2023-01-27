@@ -1,12 +1,16 @@
 import { Fragment, useContext } from "react";
-import Context from "../../store/context";
+import ContextProjects from "../../store/context-projects";
+import ContextUI from "../../store/context-ui";
 import styles from "./Interface.module.scss";
 
 function Interface() {
-  const ctx = useContext(Context);
+  const { curImages, curImg, bumpLeft, bumpRight, prevImg, nextImg } =
+    useContext(ContextProjects);
 
-  const dotEls = ctx.curImages.map((name, i) => {
-    const isActive = i === ctx.curImg;
+  const { hideModal } = useContext(ContextUI);
+
+  const dotEls = curImages.map((_, i) => {
+    const isActive = i === curImg;
     return (
       <ion-icon
         name={`ellipse${isActive ? "" : "-outline"}`}
@@ -19,25 +23,25 @@ function Interface() {
   const btnStyle = (whichBtn) => {
     if (whichBtn === "left")
       return `${styles.btn} ${styles.arrows} ${styles[`${whichBtn}`]} ${
-        ctx.bumpLeft ? styles.bump : ""
+        bumpLeft ? styles.bump : ""
       }`;
 
     if (whichBtn === "right")
       return `${styles.btn} ${styles.arrows} ${styles[`${whichBtn}`]} ${
-        ctx.bumpRight ? styles.bump : ""
+        bumpRight ? styles.bump : ""
       }`;
   };
 
   return (
     <Fragment>
       <div className={styles.dots}>{dotEls}</div>
-      <div className={btnStyle("left")} onClick={ctx.prevImg}>
+      <div className={btnStyle("left")} onClick={prevImg}>
         <ion-icon name="chevron-back"></ion-icon>
       </div>
-      <div className={btnStyle("right")} onClick={ctx.nextImg}>
+      <div className={btnStyle("right")} onClick={nextImg}>
         <ion-icon name="chevron-forward"></ion-icon>
       </div>
-      <div className={`${styles.close} ${styles.btn}`} onClick={ctx.hideModal}>
+      <div className={`${styles.close} ${styles.btn}`} onClick={hideModal}>
         <ion-icon name="close" size="large"></ion-icon>
       </div>
     </Fragment>

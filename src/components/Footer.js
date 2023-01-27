@@ -3,16 +3,16 @@ import IconsLinks from "./UI/IconsLinks";
 import Phone from "./UI/ContactData/Phone";
 import Email from "./UI/ContactData/Email";
 import { useContext } from "react";
-import Context from "../store/context";
+import ContextUI from "../store/context-ui";
 
 function Footer(props) {
-  const ctx = useContext(Context);
+  const { isEnglish } = useContext(ContextUI);
   return (
     <footer className={`${styles.footer} ${props.fixed ? styles.fixed : ""}`}>
       <div className={styles.container}>
         <p className={styles.text}>
           <strong>Rafał Falandys</strong> <br />{" "}
-          {ctx.isEnglish
+          {isEnglish
             ? "Master of Architecture, Alghorhythmic Design Specialist, Frontend Developer and Senior Designer."
             : "Magister architektury, specjalista projektowania parametrycznego i frontend deweloper."}
         </p>

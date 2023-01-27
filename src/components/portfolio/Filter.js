@@ -1,16 +1,17 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import Context from "../../store/context";
+import ContextProjects from "../../store/context-projects";
+import ContextUI from "../../store/context-ui";
 import styles from "./Filter.module.scss";
 
 function Filter(props) {
-  const ctx = useContext(Context);
   const [isChecked, setIsChecked] = useState(false);
   const filterRef = useRef();
 
-  const { filters, isEnglish } = ctx;
+  const { isEnglish } = useContext(ContextUI);
+  const { filters, filtersHandler } = useContext(ContextProjects);
 
   const changeHandler = () => {
-    ctx.filtersHandler(filterRef.current.value);
+    filtersHandler(filterRef.current.value);
   };
   const labelLowerCase = props.label.toLowerCase();
 

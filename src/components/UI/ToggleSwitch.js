@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import Context from "../../store/context";
+import ContextUI from "../../store/context-ui";
 import styles from "./ToggleSwitch.module.scss";
 
 function ToggleSwitch(props) {
-  const ctx = useContext(Context);
+  const { isEnglish, toggleLanguage } = useContext(ContextUI);
 
-  const toggleLanguageHandler = () => ctx.toggleLanguage();
+  const toggleLanguageHandler = () => toggleLanguage();
 
   return (
     <div
@@ -15,21 +15,19 @@ function ToggleSwitch(props) {
       onClick={toggleLanguageHandler}
     >
       {props.homeEdition || (
-        <div
-          className={`${styles.switch} ${ctx.isEnglish ? styles.active : ""}`}
-        >
+        <div className={`${styles.switch} ${isEnglish ? styles.active : ""}`}>
           <div
             className={`${styles.slider} ${
-              ctx.isEnglish ? styles.right : styles.left
+              isEnglish ? styles.right : styles.left
             } `}
           ></div>
         </div>
       )}
       {props.homeEdition && (
         <li className={styles.words}>
-          <span className={ctx.isEnglish ? styles.weak : ""}>Polski </span>{" "}
+          <span className={isEnglish ? styles.weak : ""}>Polski </span>{" "}
           &nbsp;/&nbsp;
-          <span className={!ctx.isEnglish ? styles.weak : ""}>English </span>
+          <span className={!isEnglish ? styles.weak : ""}>English </span>
         </li>
       )}
     </div>

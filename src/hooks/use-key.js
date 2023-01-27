@@ -1,9 +1,10 @@
 import { useCallback, useContext, useEffect } from "react";
-import Context from "../store/context";
+import ContextProjects from "../store/context-projects";
+import ContextUI from "../store/context-ui";
 
 function useKey() {
-  const ctx = useContext(Context);
-  const { isModalVisible, nextImg, prevImg, hideModal } = ctx;
+  const { isModalVisible, hideModal } = useContext(ContextUI);
+  const { nextImg, prevImg } = useContext(ContextProjects);
 
   const arrowHandler = useCallback(
     (e) => {

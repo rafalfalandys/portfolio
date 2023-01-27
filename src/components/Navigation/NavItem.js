@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import Context from "../../store/context";
 import styles from "./NavItem.module.scss";
 import "./NavItem";
 import DropDown from "./DropDown";
+import ContextUI from "../../store/context-ui";
 
 function NavItem(props) {
-  const ctx = useContext(Context);
+  const ctx = useContext(ContextUI);
 
   const clickHandler = () => {
     if (props.mobile) {

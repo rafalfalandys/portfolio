@@ -1,21 +1,23 @@
 import { useContext } from "react";
-import Context from "../../store/context";
+import ContextProjects from "../../store/context-projects";
+import ContextUI from "../../store/context-ui";
 import styles from "./SingleItem.module.scss";
 
 function SingleItem(props) {
-  const ctx = useContext(Context);
+  const { showModal } = useContext(ContextUI);
+  const { curImagesHandler, curImgHandler } = useContext(ContextProjects);
 
   const onClickHandler = () => {
-    ctx.curImagesHandler(props.imagesArr);
-    ctx.curImgHandler(0);
+    curImagesHandler(props.imagesArr);
+    curImgHandler(0);
     if (props.no !== undefined) {
-      ctx.curImgHandler(props.no);
-      ctx.showModal();
+      curImgHandler(props.no);
+      showModal();
     }
   };
 
   const onMouseEnterHandler = () => {
-    if (props.curImgOnHover) ctx.curImgHandler(props.no);
+    if (props.curImgOnHover) curImgHandler(props.no);
   };
 
   return (

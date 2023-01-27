@@ -1,9 +1,11 @@
 import { Fragment, useContext } from "react";
-import Context from "../../../store/context";
+import ContextProjects from "../../../store/context-projects";
+import ContextUI from "../../../store/context-ui";
 import styles from "./ProjectText.module.scss";
 
 function ProjectText() {
-  const { curProject, isEnglish } = useContext(Context);
+  const { isEnglish } = useContext(ContextUI);
+  const { curProject } = useContext(ContextProjects);
 
   return (
     <div className={styles.text}>

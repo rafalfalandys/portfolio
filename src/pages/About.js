@@ -3,10 +3,10 @@ import Footer from "../components/Footer";
 import styles from "./About.module.scss";
 import Header from "../components/Header/Header";
 import IconsLinks from "../components/UI/IconsLinks";
-import Context from "../store/context";
+import ContextUI from "../store/context-ui";
 
 function About() {
-  const ctx = useContext(Context);
+  const { isEnglish } = useContext(ContextUI);
 
   return (
     <Fragment>
@@ -16,7 +16,7 @@ function About() {
           <p>
             <strong>Rafał Falandys</strong>
             <br />
-            {ctx.isEnglish
+            {isEnglish
               ? "Master of Architecture, Alghorhythmic Design Specialist, Frontend Developer and Senior Designer."
               : "Magister architektury, specjalista projektowania parametrycznego i frontend deweloper."}
           </p>

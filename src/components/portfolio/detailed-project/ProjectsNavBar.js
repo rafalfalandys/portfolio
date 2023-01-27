@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import Context from "../../../store/context";
+import ContextProjects from "../../../store/context-projects";
+import ContextUI from "../../../store/context-ui";
 import styles from "./ProjectsNavBar.module.scss";
 
 function ProjectsNavBar() {
-  const { curProjects, curProjectNo, curImgHandler, isEnglish } =
-    useContext(Context);
+  const { isEnglish } = useContext(ContextUI);
+  const { curProjects, curProjectNo, curImgHandler } =
+    useContext(ContextProjects);
 
   const onClickHandler = () => curImgHandler(0);
 

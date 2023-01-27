@@ -1,19 +1,19 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ProviderProjects from "./store/ProviderProjects";
+import ProviderUI from "./store/ProviderUI";
 import "./App.scss";
+
+import RootLayout from "./pages/RootLayout";
+import ErrorPage from "./pages/ErrorPage";
 import About from "./pages/About";
 import Contact, { action as sendMessage } from "./pages/Contact";
 import Home from "./pages/Home";
 import Portfolio from "./pages/portfolio-pages/Portfolio";
+import Photography from "./pages/portfolio-pages/Photography";
 import Architecture, {
   loader as projectsLoader,
 } from "./pages/portfolio-pages/Architecture";
-import Photography from "./pages/portfolio-pages/Photography";
 import DetailedProject from "./pages/portfolio-pages/DetailedProject";
-import Provider from "./store/Provider";
-import RootLayout from "./pages/RootLayout";
-import ErrorPage from "./pages/ErrorPage";
-import ProviderProjects from "./store/ProviderProjects";
-import ProviderUI from "./store/ProviderUI";
 
 const router = createBrowserRouter([
   {

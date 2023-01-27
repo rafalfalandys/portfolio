@@ -1,18 +1,15 @@
 import { Fragment, useContext, useEffect } from "react";
-import Context from "../../store/context";
+import ContextProjects from "../../store/context-projects";
+import ContextUI from "../../store/context-ui";
 import Filter from "./Filter";
 import styles from "./Filters.module.scss";
 
 function Filters() {
-  const ctx = useContext(Context);
+  const { areFiltersVisible, hideFilters, toggleFilters, isEnglish } =
+    useContext(ContextUI);
 
-  const {
-    areFiltersVisible,
-    hideFilters,
-    toggleFilters,
-    curProject,
-    isEnglish,
-  } = ctx;
+  const { curProject } = useContext(ContextProjects);
+
   const toggleFiltersElHandler = () => toggleFilters();
 
   useEffect(() => {

@@ -2,13 +2,13 @@ import styles from "./Header.module.scss";
 import logo from "../../img/logo.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import Context from "../../store/context";
 import NavElements from "../Navigation/NavElements";
+import ContextUI from "../../store/context-ui";
 
 function Header() {
-  const ctx = useContext(Context);
+  const { toggleNav, isNavVisible } = useContext(ContextUI);
 
-  const toggleNavHandler = () => ctx.toggleNav();
+  const toggleNavHandler = () => toggleNav();
 
   const logoEl = (
     <Link className={styles.logo} to="/home">
@@ -28,7 +28,7 @@ function Header() {
         </nav>
         <div className={styles["menu__icon"]} onClick={toggleNavHandler}>
           <ion-icon
-            name={`${ctx.isNavVisible ? "close" : "menu"}`}
+            name={`${isNavVisible ? "close" : "menu"}`}
             size="large"
           ></ion-icon>
         </div>
@@ -36,7 +36,7 @@ function Header() {
       {/* Need to double nav to see shadow of header bar */}
       <nav
         className={`${styles["nav--hideable"]} ${
-          ctx.isNavVisible ? "" : styles.hidden
+          isNavVisible ? "" : styles.hidden
         }`}
       >
         <NavElements mobile />

@@ -2,12 +2,12 @@ import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { Form, useActionData, useNavigation } from "react-router-dom";
 import useInput from "../hooks/use-input";
-import Context from "../store/context";
+import ContextUI from "../store/context-ui";
 import styles from "./ContactForm.module.scss";
 import Spinner from "./UI/Spinner";
 
 function ContactForm() {
-  const { isEnglish } = useContext(Context);
+  const { isEnglish } = useContext(ContextUI);
   const [isFormValid, setIsFormValid] = useState(false);
   const [isLoad, setIsLoad] = useState(false);
   const navigation = useNavigation();

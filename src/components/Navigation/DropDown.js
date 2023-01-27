@@ -1,25 +1,25 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import Context from "../../store/context";
+import ContextUI from "../../store/context-ui";
 import styles from "./DropDown.module.scss";
 
 function DropDown() {
-  const ctx = useContext(Context);
+  const { showDropDown, hideDropDown, isEnglish } = useContext(ContextUI);
   return (
     <div
       className={styles.dropdown}
-      onMouseOver={ctx.showDropDown}
-      onMouseLeave={ctx.hideDropDown}
+      onMouseOver={showDropDown}
+      onMouseLeave={hideDropDown}
     >
       <ul>
         <li>
           <Link to="/architecture">
-            {ctx.isEnglish ? "Architecture" : "Architektura"}
+            {isEnglish ? "Architecture" : "Architektura"}
           </Link>
         </li>
         <li>
           <Link to="/photography">
-            {ctx.isEnglish ? "Photography" : "Fotografia"}
+            {isEnglish ? "Photography" : "Fotografia"}
           </Link>
         </li>
       </ul>
