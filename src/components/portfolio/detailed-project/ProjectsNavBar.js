@@ -4,24 +4,20 @@ import Context from "../../../store/context";
 import styles from "./ProjectsNavBar.module.scss";
 
 function ProjectsNavBar() {
-  const ctx = useContext(Context);
-
-  const { curProjects, curProject, curImgHandler, isEnglish } = ctx;
-
-  // need to stop here because react renders this components before useEffects set the context
-  if (curProjects.length === 0 || curProject === -1) return;
+  const { curProjects, curProjectNo, curImgHandler, isEnglish } =
+    useContext(Context);
 
   const onClickHandler = () => curImgHandler(0);
 
   const nextProject =
-    curProject === curProjects.length - 1
+    curProjectNo === curProjects.length - 1
       ? curProjects[0]
-      : curProjects[curProject + 1];
+      : curProjects[curProjectNo + 1];
 
   const prevProject =
-    curProject === 0
+    curProjectNo === 0
       ? curProjects[curProjects.length - 1]
-      : curProjects[curProject - 1];
+      : curProjects[curProjectNo - 1];
 
   return (
     <div className={styles["projects-nav"]}>

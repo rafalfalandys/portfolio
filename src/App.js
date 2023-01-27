@@ -3,15 +3,17 @@ import "./App.scss";
 import About from "./pages/About";
 import Contact, { action as sendMessage } from "./pages/Contact";
 import Home from "./pages/Home";
-import Portfolio from "./pages/Portfolio/Portfolio";
+import Portfolio from "./pages/portfolio-pages/Portfolio";
 import Architecture, {
   loader as projectsLoader,
-} from "./pages/Portfolio/Architecture";
-import Photography from "./pages/Portfolio/Photography";
-import DetailedProject from "./pages/Portfolio/DetailedProject";
+} from "./pages/portfolio-pages/Architecture";
+import Photography from "./pages/portfolio-pages/Photography";
+import DetailedProject from "./pages/portfolio-pages/DetailedProject";
 import Provider from "./store/Provider";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
+import ProviderProjects from "./store/ProviderProjects";
+import ProviderUI from "./store/ProviderUI";
 
 const router = createBrowserRouter([
   {
@@ -37,9 +39,13 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <Provider>
-      <RouterProvider router={router} />
-    </Provider>
+    <ProviderUI>
+      <ProviderProjects>
+        {/* <Provider> */}
+        <RouterProvider router={router} />
+        {/* </Provider> */}
+      </ProviderProjects>
+    </ProviderUI>
   );
 }
 

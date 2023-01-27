@@ -3,11 +3,11 @@ import Context from "../../store/context";
 
 import styles from "./ImageBig.module.scss";
 
-function ImageBig(props) {
+function ImageBig() {
   const ctx = useContext(Context);
 
-  const url = ctx.curImages[props.imgNo].url;
-  const type = ctx.curImages[props.imgNo].type;
+  const url = ctx.curImages[ctx.curImg].url;
+  const type = ctx.curImages[ctx.curImg].type;
 
   return (
     <div className={styles.container}>

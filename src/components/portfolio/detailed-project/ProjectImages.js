@@ -5,19 +5,14 @@ import styles from "./ProjectImages.module.scss";
 
 function ProjectImages() {
   const ctx = useContext(Context);
-  const { curProjects, curProject, curImg, curImages } = ctx;
+  const { curProject, curImg, curImages } = ctx;
 
-  // need to stop here because react renders this components before useEffects set the context
-  if (curProjects.length === 0 || curProject === -1) return;
-
-  const project = curProjects[curProject];
-
-  const images = project.images.map((image, i) => (
+  const images = curImages.map((image, i) => (
     <div className={styles.thumbnail} key={image.url}>
       <SingleItem
         url={image.url}
         no={i}
-        imagesArr={project.images}
+        imagesArr={curProject.images}
         curImgOnHover
         type={image.type}
       />
@@ -28,12 +23,12 @@ function ProjectImages() {
     <Fragment>
       <div className={styles.images}>
         <div className={styles["image-big"]}>
-          {!project.images[curImg]?.type && (
-            <img src={project.images[curImg].url} alt="architecture" />
+          {!curProject.images[curImg]?.type && (
+            <img src={curProject.images[curImg].url} alt="architecture" />
           )}
-          {project.images[curImg].type && (
+          {curProject.images[curImg].type && (
             <video
-              src={project.images[curImg].url}
+              src={curProject.images[curImg].url}
               alt="architecture"
               autoPlay
               muted
@@ -44,7 +39,7 @@ function ProjectImages() {
         <div className={styles.thumbnails}>{images}</div>
       </div>
       <div className={styles["image-big--mobile"]}>
-        <img src={project.images[0].url} alt="architecture" />
+        <img src={curProject.images[0].url} alt="architecture" />
       </div>
     </Fragment>
   );

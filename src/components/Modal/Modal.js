@@ -17,7 +17,7 @@ function Modal() {
   const modalEl = (
     <div className={styles.modal}>
       <Overlay />
-      <ImageBig imgNo={ctx.curImg} />
+      <ImageBig />
       <Interface />
     </div>
   );

@@ -1,9 +1,6 @@
 import React from "react";
 
 const defaultState = {
-  isNavVisible: false,
-  isModalVisible: false,
-
   allProjects: [],
   curProjects: [],
   curProjectNo: 0,
@@ -15,17 +12,7 @@ const defaultState = {
   bumpLeft: false,
   bumpRight: false,
 
-  isDropDownVisible: false,
-  isEnglish: false,
-
-  areFiltersVisible: false,
   filters: [],
-
-  toggleNav: () => {},
-  hideNav: () => {},
-
-  showModal: () => {},
-  hideModal: () => {},
 
   allProjectsHandler: () => {},
   curProjectsHandler: () => {},
@@ -37,16 +24,9 @@ const defaultState = {
   nextImg: () => {},
   prevImg: () => {},
 
-  showDropDown: () => {},
-  hideDropDown: () => {},
-
-  toggleLanguage: () => {},
-
-  toggleFilters: () => {},
-  hideFilters: () => {},
   filtersHandler: () => {},
 };
 
-const Context = React.createContext(defaultState);
+const ContextProjects = React.createContext(defaultState);
 
-export default Context;
+export default ContextProjects;

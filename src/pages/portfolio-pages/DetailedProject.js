@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import useKey from "../../hooks/use-key";
@@ -6,12 +6,19 @@ import Context from "../../store/context";
 import styles from "./DetailedProject.module.scss";
 import ProjectImages from "../../components/portfolio/detailed-project/ProjectImages";
 import ProjectText from "../../components/portfolio/detailed-project/ProjectText";
-import { fetchAllProjects } from "../../hooks/use-ajax";
 import ProjectsNavBar from "../../components/portfolio/detailed-project/ProjectsNavBar";
 
 function DetailedProject() {
+  const [isLoad, setIsLoad] = useState(false);
   const ctx = useContext(Context);
-  const { curProjects, curProject, curProjectHandler, curImagesHandler } = ctx;
+  const {
+    curProjects,
+    curProject,
+    curProjectHandler,
+    curProjectNo,
+    curProjectNoHandler,
+    curImagesHandler,
+  } = ctx;
   const params = useParams();
   useKey();
 
@@ -19,36 +26,35 @@ function DetailedProject() {
     const projectIndex = curProjects.findIndex(
       (project) => project.id === params.projectId
     );
-    curProjectHandler(projectIndex);
-    curImagesHandler(curProject);
+    curProjectNoHandler(projectIndex);
+    curProjectHandler(curProjects[projectIndex]);
+    curImagesHandler(curProjects[projectIndex]?.images);
+
+    if (curProjects.length !== 0) setIsLoad(true);
   }, [
     curProjects,
-    curProjectHandler,
+    curProjectNoHandler,
     params.projectId,
     curImagesHandler,
-    curProject,
+    curProjectNo,
   ]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [curProject]);
+  }, [curProjectNo]);
 
   return (
     <Fragment>
       {ctx.isModalVisible && <Modal />}
       <main className={styles.main}>
         <div className={styles.content}>
-          <ProjectImages />
-          <ProjectText />
+          {isLoad && <ProjectImages />}
+          {isLoad && <ProjectText />}
         </div>
 
-        <ProjectsNavBar />
+        {isLoad && <ProjectsNavBar />}
       </main>
     </Fragment>
   );
 }
 export default DetailedProject;
-
-export function loader() {
-  return fetchAllProjects();
-}

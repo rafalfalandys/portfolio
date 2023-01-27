@@ -1,10 +1,7 @@
 import { useCallback, useState } from "react";
 import Context from "./context";
 
-function Provider(props) {
-  const [isNavVisible, setIsNavVisible] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
+function ProviderProjects(props) {
   const [allProjects, setAllProjects] = useState([]);
   const [curProjects, setCurProjects] = useState([]);
   const [curProjectNo, setCurProjectNo] = useState(0);
@@ -16,20 +13,7 @@ function Provider(props) {
   const [bumpLeft, setBumpLeft] = useState(false);
   const [bumpRight, setBumpRight] = useState(false);
 
-  const [isDropDownVisible, setIsDropDownVisible] = useState(false);
-
-  const [isEnglish, setIsEnglish] = useState(false);
-
-  const [areFiltersVisible, setAreFiltersVisible] = useState(false);
   const [filters, setFilters] = useState([]);
-
-  // Navigation controls
-  const toggleNav = () => setIsNavVisible((prevState) => !prevState);
-  const hideNav = () => setIsNavVisible(false);
-
-  // Modal controls
-  const showModal = () => setIsModalVisible(true);
-  const hideModal = useCallback(() => setIsModalVisible(false), []);
 
   // Project controls
   const allProjectsHandler = useCallback(
@@ -42,6 +26,7 @@ function Provider(props) {
   const curProjectNoHandler = (no) => setCurProjectNo(no);
   const curProjectHandler = (project) => setCurProject(project);
 
+  // Images control
   const curImagesHandler = (arr) => setCurImages(arr);
   const curImgHandler = useCallback((no) => setCurImg(no), []);
 
@@ -69,16 +54,6 @@ function Provider(props) {
     }, 300);
   }, [curImages]);
 
-  // portfolio dropdown control
-  const showDropDown = () => setIsDropDownVisible(true);
-  const hideDropDown = () => setIsDropDownVisible(false);
-
-  //language control
-  const toggleLanguage = () => setIsEnglish((prevState) => !prevState);
-
-  // filters control
-  const toggleFilters = () => setAreFiltersVisible((prev) => !prev);
-  const hideFilters = useCallback(() => setAreFiltersVisible(false), []);
   const filtersHandler = (filter) => {
     if (filter === "all") setFilters([]);
     else
@@ -94,9 +69,6 @@ function Provider(props) {
   };
 
   const context = {
-    isNavVisible,
-    isModalVisible,
-
     allProjects,
     curProjects,
     curProject,
@@ -107,38 +79,23 @@ function Provider(props) {
 
     bumpLeft,
     bumpRight,
-    isDropDownVisible,
-    isEnglish,
-    areFiltersVisible,
-    filters,
 
-    toggleNav,
-    hideNav,
+    filters,
 
     allProjectsHandler,
     curProjectsHandler,
     curProjectHandler,
     curProjectNoHandler,
 
-    showModal,
-    hideModal,
-
     curImagesHandler,
     curImgHandler,
     nextImg,
     prevImg,
 
-    hideDropDown,
-    showDropDown,
-
-    toggleLanguage,
-
-    toggleFilters,
-    hideFilters,
     filtersHandler,
   };
 
   return <Context.Provider value={context}>{props.children}</Context.Provider>;
 }
 
-export default Provider;
+export default ProviderProjects;
