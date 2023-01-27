@@ -6,6 +6,10 @@
   grid-template-columns: auto 1fr;
   font-size: $font-medium;
   gap: 1rem;
+  background-color: $color-white;
+  padding: 2rem 5rem;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 2px $color-shadow;
 
   @media (max-width: $break-phone) {
     display: flex;

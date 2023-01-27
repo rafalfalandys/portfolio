@@ -8,7 +8,6 @@ import Phone from "../components/UI/ContactData/Phone";
 import Email from "../components/UI/ContactData/Email";
 import Context from "../store/context";
 import { URL } from "../helper";
-import { json } from "react-router-dom";
 
 function Contact() {
   const ctx = useContext(Context);
@@ -45,7 +44,15 @@ export async function action({ request }) {
     body: JSON.stringify(formData),
   });
   if (!response.ok) {
-    throw json({ message: "Could not send message" }, { status: 500 });
+    return {
+      msg: "Something went wrong, try again.",
+      pl: "Coś poszło nie tak, spróbuj ponownie.",
+      ok: response.ok,
+    };
   }
-  return null;
+  return {
+    msg: "Message sent succesfully.",
+    pl: "Poszło! Dziękuję za kontakt.",
+    ok: response.ok,
+  };
 }

@@ -11,7 +11,7 @@ import ProjectsNavBar from "../../components/portfolio/detailed-project/Projects
 
 function DetailedProject() {
   const ctx = useContext(Context);
-  const { curProjects, curProject, curProjectHandler } = ctx;
+  const { curProjects, curProject, curProjectHandler, curImagesHandler } = ctx;
   const params = useParams();
   useKey();
 
@@ -20,7 +20,14 @@ function DetailedProject() {
       (project) => project.id === params.projectId
     );
     curProjectHandler(projectIndex);
-  }, [curProjects, curProjectHandler, params.projectId]);
+    curImagesHandler(curProject);
+  }, [
+    curProjects,
+    curProjectHandler,
+    params.projectId,
+    curImagesHandler,
+    curProject,
+  ]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useEffect, useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, useActionData, useNavigation } from "react-router-dom";
 import useInput from "../hooks/use-input";
 import Context from "../store/context";
 import styles from "./ContactForm.module.scss";
@@ -9,9 +9,11 @@ import Spinner from "./UI/Spinner";
 function ContactForm() {
   const { isEnglish } = useContext(Context);
   const [isFormValid, setIsFormValid] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [isLoad, setIsLoad] = useState(false);
+  const navigation = useNavigation();
+  const actionData = useActionData();
+
+  const isSubmitting = navigation.state === "submitting";
 
   const {
     value: name,
@@ -46,47 +48,23 @@ function ContactForm() {
     );
   }, [isEnteredNameValid, isEnteredContactValid, isEnteredMsgValid]);
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-
-    setIsLoading(true);
-
-    setErrorMsg("");
-    const uploadData = {
-      name,
-      contact,
-      msg,
-    };
-
-    try {
-      await fetch(
-        "https://portfolio-f338a-default-rtdb.europe-west1.firebasedatabase.app/messages.json",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(uploadData),
-        }
-      );
-    } catch (error) {
-      setErrorMsg(`Something went wrong (${error})`);
-      setTimeout(() => {
-        setErrorMsg("");
-        setIsLoading(false);
-      }, 3000);
-      return;
-    }
-
-    setIsLoading(false);
+  const setLoadState = () => {
     setIsLoad(true);
 
     setTimeout(() => {
       setIsLoad(false);
     }, 3000);
-
-    resetName();
-    resetContact();
-    resetMsg();
   };
+
+  useEffect(() => {
+    if (!actionData) return;
+    if (actionData.ok) {
+      resetName();
+      resetContact();
+      resetMsg();
+    }
+    setLoadState();
+  }, [actionData]);
 
   return (
     <Form method="post" className={styles.form}>
@@ -131,14 +109,21 @@ function ContactForm() {
             <span>Please enter all data</span>
           </p>
         )}
-        {isFormValid && !errorMsg && !isLoading && <button>Send</button>}
-        {isLoading && !errorMsg && <Spinner />}
-        {isLoad && <p>Message sent succesfully!</p>}
-        {errorMsg && (
-          <p className={styles.error}>
-            <span>{errorMsg}</span>
-          </p>
-        )}
+        {isFormValid && !isSubmitting && !isLoad && <button>Send</button>}
+        {isSubmitting && <Spinner />}
+        <p>
+          {isLoad &&
+            actionData.ok &&
+            (isEnglish ? actionData?.msg : actionData?.pl)}
+        </p>
+
+        <p className={styles.error}>
+          <span>
+            {isLoad &&
+              !actionData.ok &&
+              (isEnglish ? actionData.msg : actionData?.pl)}
+          </span>
+        </p>
       </div>
     </Form>
   );

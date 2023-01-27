@@ -30,10 +30,10 @@ function Architecture() {
     curProjectsHandler(filterProjects());
   }, [filters, filterProjects, curProjectsHandler]);
 
-  // set big image after mounting component
+  // set big image to 0 after mounting component anytime we enter this page
   useEffect(() => {
     curImgHandler(0);
-  }, [curImgHandler]);
+  }, [curImgHandler, location]);
 
   const projectCards = curProjects.map((project) => (
     <Link to={project.id} className={styles.tile} key={project.id}>

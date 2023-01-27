@@ -14,7 +14,7 @@ function SingleItem(props) {
     }
   };
 
-  const onMouseOverHandler = () => {
+  const onMouseEnterHandler = () => {
     if (props.curImgOnHover) ctx.curImgHandler(props.no);
   };
 
@@ -25,7 +25,7 @@ function SingleItem(props) {
           src={props.url}
           alt={props.name}
           onClick={onClickHandler}
-          onMouseOver={onMouseOverHandler}
+          onMouseEnter={onMouseEnterHandler}
           style={props.style}
         />
       )}
@@ -34,7 +34,7 @@ function SingleItem(props) {
           src={props.url}
           alt={props.name}
           onClick={onClickHandler}
-          onMouseOver={onMouseOverHandler}
+          onMouseEnter={onMouseEnterHandler}
           style={props.style}
         />
       )}

@@ -41,7 +41,7 @@ function Provider(props) {
   const curProjectHandler = (no) => setCurProject(no);
 
   const curImagesHandler = (arr) => setCurImages(arr);
-  const curImgHandler = (no) => setCurImg(no);
+  const curImgHandler = useCallback((no) => setCurImg(no), []);
 
   const nextImg = useCallback(() => {
     setCurImg((prev) => {

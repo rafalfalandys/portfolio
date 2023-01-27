@@ -6,7 +6,13 @@ import styles from "./Filters.module.scss";
 function Filters() {
   const ctx = useContext(Context);
 
-  const { hideFilters, toggleFilters, curProject, isEnglish } = ctx;
+  const {
+    areFiltersVisible,
+    hideFilters,
+    toggleFilters,
+    curProject,
+    isEnglish,
+  } = ctx;
   const toggleFiltersElHandler = () => toggleFilters();
 
   useEffect(() => {
@@ -17,7 +23,7 @@ function Filters() {
     <Fragment>
       <div
         className={`${styles.filters} ${
-          ctx.areFiltersVisible ? "" : styles.hidden
+          areFiltersVisible ? "" : styles.hidden
         }`}
       >
         <h1>Tags: </h1>
@@ -30,13 +36,13 @@ function Filters() {
       </div>
       <div className={styles.btn} onClick={toggleFiltersElHandler}>
         {isEnglish && (
-          <span>{ctx.areFiltersVisible ? "Hide filters" : "Filters"}</span>
+          <span>{areFiltersVisible ? "Hide filters" : "Filters"}</span>
         )}
         {!isEnglish && (
-          <span>{ctx.areFiltersVisible ? "Ukryj filtry" : "Filtry"}</span>
+          <span>{areFiltersVisible ? "Ukryj filtry" : "Filtry"}</span>
         )}
         <ion-icon
-          name={`chevron-${ctx.areFiltersVisible ? "up" : "down"}`}
+          name={`chevron-${areFiltersVisible ? "up" : "down"}`}
         ></ion-icon>
       </div>
     </Fragment>

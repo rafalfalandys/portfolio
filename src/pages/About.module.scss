@@ -3,6 +3,7 @@
 .main {
   overflow: hidden;
   height: 100vh;
+  position: relative;
 }
 
 .text {
@@ -16,7 +17,7 @@
   }
 
   @media (max-width: $break-phone) {
-    margin: 15rem 30vw 0 10%;
+    margin: 10rem 30vw 0 10%;
   }
 }
 
@@ -30,20 +31,27 @@
 }
 
 .photo {
-  width: 100%;
-  margin-top: $height-header;
-  // height: calc(100vh - $height-footer - $height-header);
-  height: 100vh;
-  position: relative;
-
-  img {
-    position: absolute;
-    right: 0;
-    height: 100%;
-  }
+  // padding-top: $height-header;
+  height: 90vh;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 
   @media (max-width: $break-phone) {
-    transform: translateX(23rem);
+    height: 70rem;
+    width: 50rem;
+    right: -5rem;
+  }
+  @media (max-width: 320px) {
+    height: 50rem;
+    width: 50rem;
+    right: -5rem;
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 

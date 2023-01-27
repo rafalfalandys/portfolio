@@ -13,8 +13,8 @@ function Footer(props) {
         <p className={styles.text}>
           <strong>Rafał Falandys</strong> <br />{" "}
           {ctx.isEnglish
-            ? "Master of Architecture, Alghorhythmic Design Specialist, Frontend Developer and Senior Designer"
-            : "Magister architektury, specjalista projektowania parametrycznego i deweloper frontend"}
+            ? "Master of Architecture, Alghorhythmic Design Specialist, Frontend Developer and Senior Designer."
+            : "Magister architektury, specjalista projektowania parametrycznego i frontend deweloper."}
         </p>
         <div className={styles.contact}>
           <Phone />

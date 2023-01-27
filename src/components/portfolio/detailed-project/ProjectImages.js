@@ -5,8 +5,7 @@ import styles from "./ProjectImages.module.scss";
 
 function ProjectImages() {
   const ctx = useContext(Context);
-
-  const { curProjects, curProject, curImg } = ctx;
+  const { curProjects, curProject, curImg, curImages } = ctx;
 
   // need to stop here because react renders this components before useEffects set the context
   if (curProjects.length === 0 || curProject === -1) return;
@@ -29,7 +28,7 @@ function ProjectImages() {
     <Fragment>
       <div className={styles.images}>
         <div className={styles["image-big"]}>
-          {!project.images[curImg].type && (
+          {!project.images[curImg]?.type && (
             <img src={project.images[curImg].url} alt="architecture" />
           )}
           {project.images[curImg].type && (

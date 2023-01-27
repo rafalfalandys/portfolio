@@ -4,6 +4,7 @@ import styles from "./ProjectCard.module.scss";
 
 function ProjectCard(props) {
   const ctx = useContext(Context);
+
   return (
     <div className={styles.card}>
       <img src={props.url} alt={props.title} />

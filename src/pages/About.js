@@ -17,8 +17,8 @@ function About() {
             <strong>Rafał Falandys</strong>
             <br />
             {ctx.isEnglish
-              ? "Master of Architecture, Alghorhythmic Design Specialist, Frontend Developer and Senior Designer"
-              : "Magister architektury, specjalista projektowania parametrycznego i frontend deweloper"}
+              ? "Master of Architecture, Alghorhythmic Design Specialist, Frontend Developer and Senior Designer."
+              : "Magister architektury, specjalista projektowania parametrycznego i frontend deweloper."}
           </p>
           <IconsLinks height="3rem" />
         </div>
