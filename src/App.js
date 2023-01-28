@@ -14,6 +14,7 @@ import Architecture, {
   loader as projectsLoader,
 } from "./pages/portfolio-pages/Architecture";
 import DetailedProject from "./pages/portfolio-pages/DetailedProject";
+import EditPanel from "./pages/EditPanel";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
         loader: projectsLoader,
         children: [{ path: ":projectId", element: <DetailedProject /> }],
       },
+      {
+        path: "edit-panel",
+        element: <EditPanel />,
+        loader: projectsLoader,
+      },
     ],
   },
 ]);
@@ -41,9 +47,7 @@ function App() {
   return (
     <ProviderUI>
       <ProviderProjects>
-        {/* <Provider> */}
         <RouterProvider router={router} />
-        {/* </Provider> */}
       </ProviderProjects>
     </ProviderUI>
   );

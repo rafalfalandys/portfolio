@@ -42,7 +42,7 @@
     width: 50rem;
     right: -5rem;
   }
-  @media (max-width: 320px) {
+  @media (max-width: $break-phone-tiny) {
     height: 50rem;
     width: 50rem;
     right: -5rem;

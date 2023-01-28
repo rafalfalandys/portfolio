@@ -1,0 +1,54 @@
+@import "../styles/variables";
+
+.main {
+  min-height: calc(100vh - $height-footer);
+  padding-top: $height-header;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: $font-medium;
+
+  & h1 {
+    font-size: $font-large;
+    margin: 3rem auto;
+    font-weight: 700;
+  }
+  & h2 {
+    font-size: $font-large;
+    margin: 3rem auto;
+    font-weight: 300;
+
+    @media (max-width: $break-phone) {
+      margin: 3rem auto 0 auto;
+    }
+  }
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.project {
+  background-color: $color-white;
+  padding: 1rem 2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 2px $color-shadow;
+  }
+
+  &:active {
+    transform: scale(1.02);
+    box-shadow: 0 1px 1px $color-shadow;
+  }
+}

@@ -70,5 +70,10 @@ export async function loader() {
     throw new Error(`Something went wrong (${response.status})`);
   }
   const data = await response.json();
-  return data["-NMPSVcmPcUplf-Wwe-W"];
+
+  const projectsArr = [];
+  for (const key in data) {
+    projectsArr.push(data[key]);
+  }
+  return projectsArr;
 }
