@@ -1,0 +1,68 @@
+@import "../../styles/variables";
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid $color-grey;
+
+  & input {
+    font-size: $font-medium;
+    padding: 0.3rem;
+  }
+
+  & figure {
+    height: 10rem;
+    width: 16rem;
+    border-radius: $border-radius-small;
+    overflow: hidden;
+
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.number {
+  width: 3rem;
+}
+
+.type {
+  width: 10rem;
+  font-size: $font-medium;
+  margin-right: 3rem;
+}
+
+.url {
+  font-family: inherit;
+  font-size: $font-medium;
+  padding: 0.3rem 1rem;
+  flex-grow: 1;
+  word-wrap: break-word;
+  word-break: break-all;
+  height: 10rem;
+  resize: none;
+  border-radius: $border-radius-small;
+}
+
+.icon {
+  transition: all 0.3s;
+  &--up {
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
+  }
+  &--down {
+    &:hover {
+      transform: translateY(0.5rem);
+    }
+  }
+  &--remove {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { Form } from "react-router-dom";
-import ContextProjects from "../store/context-projects";
+import ContextProjects from "../../store/context-projects";
 import styles from "./EditProjectForm.module.scss";
+import ImagesPanel from "./ImagesPanel";
 
 function EditProjectForm() {
   const [project, setProject] = useState({});
@@ -14,7 +15,7 @@ function EditProjectForm() {
   }, [curProject]);
 
   return (
-    <Form className={styles.form}>
+    <Form className={styles.form} method="post">
       <label>Location</label>
       <input
         type="text"
@@ -40,14 +41,14 @@ function EditProjectForm() {
       <input
         type="text"
         name="role"
-        defaultValue={project.role}
+        defaultValue={project.role?.join(", ")}
         className={styles.text}
       />
       <label>Tags</label>
       <input
         type="text"
         name="tags"
-        defaultValue={project.tags}
+        defaultValue={project.tags?.join(", ")}
         className={styles.text}
       />
       <label>Description</label>
@@ -55,22 +56,24 @@ function EditProjectForm() {
         type="text"
         name="description"
         defaultValue={project.description}
-        className={styles.text}
+        className={`${styles.text} ${styles.description}`}
       />
       <label>Opis</label>
       <textarea
         type="text"
         name="opis"
         defaultValue={project.opis}
-        className={styles.text}
+        className={`${styles.text} ${styles.description}`}
       />
       <label>Images</label>
+      <ImagesPanel />
       <input
+        style={{ display: "none" }}
         type="text"
-        name="images"
-        defaultValue={project.images}
-        className={styles.text}
+        name="key"
+        defaultValue={project.key}
       />
+      <button className={styles.btn}>Confirm Changes</button>
     </Form>
   );
 }

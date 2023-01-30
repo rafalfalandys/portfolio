@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: $font-large;
+  grid-column: 1/-1;
+  justify-self: center;
+  margin-top: 1rem;
+  transition: all 0.3s;
+  border: 1px solid $color-grey;
+  border-radius: 10rem;
+  padding-left: 2rem;
+
+  & ion-icon {
+    font-size: 32px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

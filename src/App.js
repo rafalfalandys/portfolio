@@ -14,7 +14,7 @@ import Architecture, {
   loader as projectsLoader,
 } from "./pages/portfolio-pages/Architecture";
 import DetailedProject from "./pages/portfolio-pages/DetailedProject";
-import EditPanel from "./pages/EditPanel";
+import EditPanel, { action as editProjects } from "./pages/EditPanel";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +38,7 @@ const router = createBrowserRouter([
         path: "edit-panel",
         element: <EditPanel />,
         loader: projectsLoader,
+        action: editProjects,
       },
     ],
   },

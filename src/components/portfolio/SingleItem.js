@@ -22,7 +22,7 @@ function SingleItem(props) {
 
   return (
     <div className={styles.container}>
-      {!props.type && (
+      {props.type !== "video" && (
         <img
           src={props.url}
           alt={props.name}
@@ -31,7 +31,7 @@ function SingleItem(props) {
           style={props.style}
         />
       )}
-      {props.type && (
+      {props.type === "video" && (
         <video
           src={props.url}
           alt={props.name}

@@ -22,10 +22,10 @@ function ProjectImages() {
     <Fragment>
       <div className={styles.images}>
         <div className={styles["image-big"]}>
-          {!curProject.images[curImg]?.type && (
+          {curImages[curImg].type !== "video" && (
             <img src={curProject.images[curImg].url} alt="architecture" />
           )}
-          {curProject.images[curImg].type && (
+          {curImages[curImg].type === "video" && (
             <video
               src={curProject.images[curImg].url}
               alt="architecture"

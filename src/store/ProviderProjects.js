@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useCallback, useState } from "react";
 import Context from "./context-projects";
 
@@ -27,6 +28,10 @@ function ProviderProjects(props) {
   const curProjectHandler = (project) => setCurProject(project);
 
   // Images control
+  useEffect(() => {
+    if (curProject && curProject !== {}) setCurImages(curProject.images);
+  }, [curProject]);
+
   const curImagesHandler = (arr) => setCurImages(arr);
   const curImgHandler = useCallback((no) => setCurImg(no), []);
 

@@ -29,6 +29,9 @@ function NavElements(props) {
       <NavItem mobile={props.mobile} linkTo="/contact">
         {isEnglish ? "Contact" : "Kontakt"}
       </NavItem>
+      <NavItem mobile={props.mobile} linkTo="/edit-panel">
+        {isEnglish ? "Edit Panel" : "Panel Edycji"}
+      </NavItem>
       <ToggleSwitch homeEdition={props.homeEdition} />
     </ul>
   );

@@ -17,7 +17,19 @@ function Architecture() {
   const loadedProjects = useLoaderData();
   const location = useLocation().pathname;
 
+  //////////////// BACKUP LOADER ///////////////////
+  // const onClickHandler = () => {
+  //   loadedProjects.forEach((project) =>
+  //     fetch(URL + "projects-backup.json", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(project),
+  //     })
+  //   );
+  // };
+
   // here comes a function, instead of simple array, because without useCallback VSC was screaming for dependencies in useEffect below
+
   const filterProjects = useCallback(() => {
     return loadedProjects.filter((project) => {
       if (filters.length === 0) return project;
@@ -55,6 +67,7 @@ function Architecture() {
       {location === "/architecture" && (
         <main className={styles.main}>
           <Filters />
+          {/* <h1 onClick={onClickHandler}>Load backup</h1> */}
           <div className={styles.tiles}>{projectCards}</div>
         </main>
       )}
@@ -73,7 +86,7 @@ export async function loader() {
 
   const projectsArr = [];
   for (const key in data) {
-    projectsArr.push(data[key]);
+    projectsArr.push({ ...data[key], key });
   }
   return projectsArr;
 }

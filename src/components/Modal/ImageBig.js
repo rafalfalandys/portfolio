@@ -11,8 +11,10 @@ function ImageBig() {
 
   return (
     <div className={styles.container}>
-      {!type && <img src={url} alt="big" />}
-      {type && <video src={url} alt="big" controls autoPlay muted />}
+      {type !== "video" && <img src={url} alt="big" />}
+      {type === "video" && (
+        <video src={url} alt="big" controls autoPlay muted />
+      )}
     </div>
   );
 }

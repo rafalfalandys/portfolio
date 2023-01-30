@@ -37,6 +37,7 @@ function DetailedProject() {
     params.projectId,
     curImagesHandler,
     curProjectNo,
+    curProjectHandler,
   ]);
 
   useEffect(() => {
