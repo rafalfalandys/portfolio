@@ -11,7 +11,6 @@ function ProjectsList() {
   const loaderData = useLoaderData().sort((a, b) => a.order - b.order);
   const { curProjects, curProjectsHandler, changeProjectsOrder } =
     useContext(ContextProjects);
-  const { addingProjectModeHandler } = useContext(ContextUI);
   const [isOrderChanged, setIsOrderChanged] = useState(false);
   const submit = useSubmit();
   const navigate = useNavigate();
@@ -50,6 +49,7 @@ function ProjectsList() {
         title={project.title}
         index={i}
         key={project.id}
+        keyValue={project.key}
         onSlide={slideProject}
       />
     );

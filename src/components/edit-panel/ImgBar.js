@@ -10,10 +10,11 @@ function ImgBar({
   const clickUpHandler = () => moveUpHandler(i);
   const clickDownHandler = () => moveDownHandler(i);
   const clickRemoveHandler = () => removeImgHandler(i);
+
   return (
     <div key={image.url} className={styles.bar}>
       <label className={styles.number}>{i}</label>
-      <figure>
+      <figure className={styles.image}>
         <img src={image.url} alt="architecture" />
       </figure>
 
@@ -28,7 +29,7 @@ function ImgBar({
         <option value="video">Video</option>
       </select>
 
-      <label>URL:</label>
+      <label className={styles["url-label"]}>URL:</label>
       <textarea
         className={styles.url}
         type="url"

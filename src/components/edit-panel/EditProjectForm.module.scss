@@ -14,10 +14,16 @@
   font-family: inherit;
   white-space: pre-wrap;
 
+  @media (max-width: 1000px) {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    padding: 2rem 2rem;
+  }
   @media (max-width: $break-phone) {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    padding: 2rem 1rem;
   }
 }
 

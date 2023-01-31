@@ -31,7 +31,7 @@ function NavElements(props) {
       </NavItem>
       {editMode && (
         <NavItem mobile={props.mobile} linkTo="/edit-panel">
-          {isEnglish ? "Edit Panel" : "Panel Edycji"}
+          {isEnglish ? "Edit" : "Edycja"}
         </NavItem>
       )}
       <ToggleSwitch homeEdition={props.homeEdition} />

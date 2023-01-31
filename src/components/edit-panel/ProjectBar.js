@@ -1,15 +1,28 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useSubmit } from "react-router-dom";
+import ContextProjects from "../../store/context-projects";
 import ContextUI from "../../store/context-ui";
 import styles from "./ProjectBar.module.scss";
 
-function ProjectBar({ onSlide, id, title, index }) {
+function ProjectBar({ onSlide, id, title, index, keyValue }) {
   const { deletingMode } = useContext(ContextUI);
+  const { curProjects, curProjectsHandler } = useContext(ContextProjects);
+  const submit = useSubmit();
+
   const slideHandler = (isRight) => {
     if (!deletingMode) onSlide(index, isRight);
   };
 
-  const deleteProjectHandler = () => {};
+  const deleteProjectHandler = () => {
+    const proceed = window.confirm(`Delete ${title}?`);
+    if (proceed) {
+      const updatedProjects = curProjects.filter(
+        (project) => project.title !== title
+      );
+      curProjectsHandler(updatedProjects);
+      submit({ key: keyValue }, { method: "delete" });
+    }
+  };
 
   return (
     <div className={styles.project}>

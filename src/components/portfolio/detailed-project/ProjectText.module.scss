@@ -35,11 +35,17 @@
   font-size: $font-large;
   font-weight: 700;
   width: fit-content;
-  padding: 2rem 3rem;
+  height: 6rem;
   margin: 3rem auto;
   border-radius: 10rem;
   border: 1px solid $color-grey;
   transition: all 0.2s;
+  display: flex;
+  align-items: center;
+
+  & a {
+    padding: 2rem 3rem;
+  }
 
   &:hover {
     transform: scale(1.03);

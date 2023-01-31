@@ -6,10 +6,11 @@ import { useContext } from "react";
 import ContextUI from "../store/context-ui";
 
 function Footer(props) {
-  const { isEnglish } = useContext(ContextUI);
+  const { isEnglish, toggleEditMode } = useContext(ContextUI);
   return (
     <footer className={`${styles.footer} ${props.fixed ? styles.fixed : ""}`}>
       <div className={styles.container}>
+        <div className={styles.editmode} onClick={toggleEditMode}></div>
         <p className={styles.text}>
           <strong>Rafał Falandys</strong> <br />{" "}
           {isEnglish

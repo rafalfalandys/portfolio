@@ -10,6 +10,10 @@
   max-width: $width-main;
   font-size: $font-medium;
   padding: $grid-gap;
+
+  @media (max-width: $break-phone) {
+    padding: 1rem;
+  }
 }
 
 .modes {

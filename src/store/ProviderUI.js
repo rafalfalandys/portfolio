@@ -7,7 +7,7 @@ function ProviderUI(props) {
   const [isDropDownVisible, setIsDropDownVisible] = useState(false);
   const [areFiltersVisible, setAreFiltersVisible] = useState(false);
   const [isEnglish, setIsEnglish] = useState(false);
-  const [editMode, setEditMode] = useState(true);
+  const [editMode, setEditMode] = useState(false);
   const [addingProjectMode, setAddingProjectMode] = useState(false);
   const [deletingMode, setDeletingMode] = useState(false);
 

@@ -79,7 +79,7 @@ export async function action({ request }) {
     return redirect("/architecture");
   }
 
-  // editing project
+  // editing/adding project
   if (data.has("title")) {
     const images = await buildImgsArr(data);
     const projectData = {
@@ -94,10 +94,17 @@ export async function action({ request }) {
       images: images,
     };
 
-    console.log(request.method);
-
     await loadProject(projectData, request.method);
 
-    return redirect(`/architecture/${projectData.id}`);
+    if (request.method === "POST") return null;
+    else return redirect(`/architecture/${projectData.id}`);
+  }
+
+  // deleting projects
+  if (request.method === "DELETE") {
+    await fetch(`${URL}/projects/${data.get("key")}.json`, {
+      method: "DELETE",
+    });
+    return null;
   } else return null;
 }
