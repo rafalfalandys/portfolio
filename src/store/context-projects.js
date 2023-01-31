@@ -1,7 +1,17 @@
 import React from "react";
 
+export const emptyProject = {
+  title: "",
+  id: "",
+  location: "",
+  role: [],
+  tags: [],
+  description: "",
+  opis: "",
+  images: [{ type: "img", url: "" }],
+};
+
 const defaultState = {
-  allProjects: [],
   curProjects: [],
   curProjectNo: 0,
   curProject: {},
@@ -14,10 +24,10 @@ const defaultState = {
 
   filters: [],
 
-  allProjectsHandler: () => {},
   curProjectsHandler: () => {},
   curProjectNoHandler: () => {},
   curProjectHandler: () => {},
+  changeProjectsOrder: () => {},
 
   curImagesHandler: () => {},
   curImgHandler: () => {},

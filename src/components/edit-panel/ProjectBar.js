@@ -1,0 +1,46 @@
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import ContextUI from "../../store/context-ui";
+import styles from "./ProjectBar.module.scss";
+
+function ProjectBar({ onSlide, id, title, index }) {
+  const { deletingMode } = useContext(ContextUI);
+  const slideHandler = (isRight) => {
+    if (!deletingMode) onSlide(index, isRight);
+  };
+
+  const deleteProjectHandler = () => {};
+
+  return (
+    <div className={styles.project}>
+      <div
+        className={`${styles.left} ${styles.icon}`}
+        onClick={slideHandler.bind(null, false)} // false stands for !isRight
+      >
+        {!deletingMode && <ion-icon name="chevron-back-outline"></ion-icon>}
+      </div>
+      <NavLink
+        to={id}
+        className={(navData) => (navData.isActive ? styles.active : "")}
+      >
+        {title}
+      </NavLink>
+      <div
+        className={`${styles.right} ${styles.icon}`}
+        onClick={slideHandler.bind(null, true)} // false stands for isRight
+      >
+        {!deletingMode && <ion-icon name="chevron-forward-outline"></ion-icon>}
+      </div>
+      {deletingMode && (
+        <div
+          className={`${styles.delete} ${styles.icon}`}
+          onClick={deleteProjectHandler}
+        >
+          <ion-icon name="trash-outline" size="large"></ion-icon>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default ProjectBar;

@@ -58,7 +58,6 @@ function ImagesPanel() {
     setImages((prev) => {
       const updatedImages = prev.slice(0);
       updatedImages.push({ type: "img", url: "" });
-      console.log(updatedImages);
       return updatedImages;
     });
 

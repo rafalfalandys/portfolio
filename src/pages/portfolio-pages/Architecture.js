@@ -31,12 +31,14 @@ function Architecture() {
   // here comes a function, instead of simple array, because without useCallback VSC was screaming for dependencies in useEffect below
 
   const filterProjects = useCallback(() => {
-    return loadedProjects.filter((project) => {
-      if (filters.length === 0) return project;
-      return filters
-        .map((filter) => project.tags?.some((tag) => tag === filter))
-        .reduce((acc, boolean) => acc || boolean);
-    });
+    return loadedProjects
+      .filter((project) => {
+        if (filters.length === 0) return project;
+        return filters
+          .map((filter) => project.tags?.some((tag) => tag === filter))
+          .reduce((acc, boolean) => acc || boolean);
+      })
+      .sort((a, b) => a.order - b.order);
   }, [filters, loadedProjects]);
 
   // setting current projects context, so from detailed projects view, I only browse filtered ones

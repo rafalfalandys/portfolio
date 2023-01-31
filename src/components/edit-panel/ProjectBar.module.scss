@@ -1,0 +1,66 @@
+@import "../../styles/variables";
+
+.project {
+  display: flex;
+  align-items: center;
+  background-color: $color-white;
+  //   padding: 1rem 1rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 2px 2px $color-shadow;
+  }
+
+  &:active {
+    box-shadow: 0 1px 1px $color-shadow;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+  width: 6rem;
+  height: 4rem;
+}
+
+.left {
+  &:hover {
+    transform: translateX(-0.5rem);
+  }
+}
+.right {
+  &:hover {
+    transform: translateX(0.5rem);
+  }
+}
+
+.active {
+  font-weight: 700;
+}
+
+.delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: $color-white;
+  border: 1px solid $color-grey;
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rem;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(1.03);
+  }
+}

@@ -15,6 +15,7 @@ import Architecture, {
 } from "./pages/portfolio-pages/Architecture";
 import DetailedProject from "./pages/portfolio-pages/DetailedProject";
 import EditPanel, { action as editProjects } from "./pages/EditPanel";
+import EditProjectForm from "./components/edit-panel/EditProjectForm";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,14 @@ const router = createBrowserRouter([
         element: <EditPanel />,
         loader: projectsLoader,
         action: editProjects,
+        children: [
+          {
+            path: ":projectId",
+            element: <EditProjectForm />,
+            loader: projectsLoader,
+            action: editProjects,
+          },
+        ],
       },
     ],
   },

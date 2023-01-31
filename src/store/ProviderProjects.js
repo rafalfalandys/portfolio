@@ -2,11 +2,21 @@ import { useEffect } from "react";
 import { useCallback, useState } from "react";
 import Context from "./context-projects";
 
+export const emptyProject = {
+  title: "",
+  id: "",
+  location: "",
+  role: [],
+  tags: [],
+  description: "",
+  opis: "",
+  images: [{ type: "img", url: "" }],
+};
+
 function ProviderProjects(props) {
-  const [allProjects, setAllProjects] = useState([]);
   const [curProjects, setCurProjects] = useState([]);
   const [curProjectNo, setCurProjectNo] = useState(0);
-  const [curProject, setCurProject] = useState({});
+  const [curProject, setCurProject] = useState(emptyProject);
 
   const [curImages, setCurImages] = useState([]);
   const [curImg, setCurImg] = useState(0);
@@ -16,16 +26,31 @@ function ProviderProjects(props) {
 
   const [filters, setFilters] = useState([]);
 
-  // Project controls
-  const allProjectsHandler = useCallback(
-    (projects) => setAllProjects(projects),
-    []
-  );
+  // Projects Control
   const curProjectsHandler = useCallback((projects) => {
     setCurProjects(projects);
   }, []);
   const curProjectNoHandler = (no) => setCurProjectNo(no);
   const curProjectHandler = (project) => setCurProject(project);
+  const changeProjectsOrder = (i, isRight) => {
+    setCurProjects((prev) => {
+      // checking extremes first
+      return i === (isRight ? prev.length - 1 : 0)
+        ? prev.map((_, index) => {
+            if (isRight) {
+              return index === 0 ? prev[prev.length - 1] : prev[index - 1];
+            } else {
+              return index === prev.length - 1 ? prev[0] : prev[index + 1];
+            }
+          })
+        : // normal cases now
+          prev.map((project, index) => {
+            if (index === i) return prev[i + (isRight ? 1 : -1)];
+            if (index === i + (isRight ? 1 : -1)) return prev[i];
+            else return project;
+          });
+    });
+  };
 
   // Images control
   useEffect(() => {
@@ -74,7 +99,6 @@ function ProviderProjects(props) {
   };
 
   const context = {
-    allProjects,
     curProjects,
     curProject,
     curProjectNo,
@@ -87,10 +111,10 @@ function ProviderProjects(props) {
 
     filters,
 
-    allProjectsHandler,
     curProjectsHandler,
     curProjectHandler,
     curProjectNoHandler,
+    changeProjectsOrder,
 
     curImagesHandler,
     curImgHandler,

@@ -26,6 +26,23 @@
   }
 
   & p {
+    font-size: $font-medium;
     line-height: 140%;
+  }
+}
+
+.edit-link {
+  font-size: $font-large;
+  font-weight: 700;
+  width: fit-content;
+  padding: 2rem 3rem;
+  margin: 3rem auto;
+  border-radius: 10rem;
+  border: 1px solid $color-grey;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 3px 3px $color-shadow;
   }
 }

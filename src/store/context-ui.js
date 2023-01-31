@@ -9,6 +9,10 @@ const defaultState = {
 
   areFiltersVisible: false,
 
+  editMode: false,
+  addingProjectMode: false,
+  deletingMode: false,
+
   toggleNav: () => {},
   hideNav: () => {},
 
@@ -22,6 +26,10 @@ const defaultState = {
 
   toggleFilters: () => {},
   hideFilters: () => {},
+
+  toggleEditMode: () => {},
+  addingProjectModeHandler: () => {},
+  toggleDeletingMode: () => {},
 };
 
 const ContextUI = React.createContext(defaultState);

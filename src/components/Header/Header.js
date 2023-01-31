@@ -11,7 +11,7 @@ function Header() {
   const toggleNavHandler = () => toggleNav();
 
   const logoEl = (
-    <Link className={styles.logo} to="/home">
+    <Link className={styles.logo} to="/">
       <figure>
         <img src={logo} alt="voronoi" />
       </figure>

@@ -7,6 +7,9 @@ function ProviderUI(props) {
   const [isDropDownVisible, setIsDropDownVisible] = useState(false);
   const [areFiltersVisible, setAreFiltersVisible] = useState(false);
   const [isEnglish, setIsEnglish] = useState(false);
+  const [editMode, setEditMode] = useState(true);
+  const [addingProjectMode, setAddingProjectMode] = useState(false);
+  const [deletingMode, setDeletingMode] = useState(false);
 
   // Navigation controls
   const toggleNav = () => setIsNavVisible((prevState) => !prevState);
@@ -27,12 +30,20 @@ function ProviderUI(props) {
   //language control
   const toggleLanguage = () => setIsEnglish((prevState) => !prevState);
 
+  // Edit mode control
+  const toggleEditMode = () => setEditMode((prev) => !prev);
+  const addingProjectModeHandler = (boolean) => setAddingProjectMode(boolean);
+  const toggleDeletingMode = () => setDeletingMode((prev) => !prev);
+
   const context = {
     isNavVisible,
     isModalVisible,
     isDropDownVisible,
     areFiltersVisible,
     isEnglish,
+    editMode,
+    addingProjectMode,
+    deletingMode,
 
     toggleNav,
     hideNav,
@@ -47,6 +58,10 @@ function ProviderUI(props) {
 
     toggleFilters,
     hideFilters,
+
+    toggleEditMode,
+    addingProjectModeHandler,
+    toggleDeletingMode,
   };
 
   return <Context.Provider value={context}>{props.children}</Context.Provider>;

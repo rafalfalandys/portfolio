@@ -1,11 +1,13 @@
 import { Fragment, useContext } from "react";
+import { Link, useParams } from "react-router-dom";
 import ContextProjects from "../../../store/context-projects";
 import ContextUI from "../../../store/context-ui";
 import styles from "./ProjectText.module.scss";
 
 function ProjectText() {
-  const { isEnglish } = useContext(ContextUI);
+  const { isEnglish, editMode } = useContext(ContextUI);
   const { curProject } = useContext(ContextProjects);
+  const params = useParams();
 
   return (
     <div className={styles.text}>
@@ -60,6 +62,11 @@ function ProjectText() {
           </span>
         )}
       </p>
+      {editMode && (
+        <div className={styles["edit-link"]}>
+          <Link to={`/edit-panel/${params.projectId}`}>Edit this project</Link>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,16 +1,19 @@
 import { Fragment } from "react";
 import styles from "./EditPanel.module.scss";
 import Header from "../components/Header/Header";
-import { redirect } from "react-router-dom";
+import { Outlet, redirect } from "react-router-dom";
 import { useContext } from "react";
 import ContextProjects from "../store/context-projects";
 import { useState } from "react";
 import EditProjectForm from "../components/edit-panel/EditProjectForm";
 import { URL } from "../helper";
 import ProjectsList from "../components/edit-panel/ProjectsList";
+import ContextUI from "../store/context-ui";
 
 function EditPanel() {
   const { curProjectHandler } = useContext(ContextProjects);
+  const { editMode, toggleEditMode, deletingMode, toggleDeletingMode } =
+    useContext(ContextUI);
   const [isFormVisible, setIsFormVisible] = useState(false);
 
   const showForm = (project) => {
@@ -22,9 +25,17 @@ function EditPanel() {
     <Fragment>
       <Header />
       <main className={styles.main}>
-        <div className={styles.projects}>
-          <ProjectsList showFormHandler={showForm} />
+        <div className={styles.modes}>
+          <h1 className={styles.modebtn} onClick={toggleEditMode}>
+            Edit mode: <span>{`${editMode ? "on" : "off"}`}</span>
+          </h1>
+          <h1 className={styles.modebtn} onClick={toggleDeletingMode}>
+            Delete mode: <span>{`${deletingMode ? "on" : "off"}`}</span>
+          </h1>
         </div>
+        <ProjectsList showFormHandler={showForm} />
+        <Outlet />
+
         {isFormVisible && <EditProjectForm />}
       </main>
     </Fragment>
@@ -32,6 +43,10 @@ function EditPanel() {
 }
 
 export default EditPanel;
+
+////////////////////////////////////////////////////////
+/////////////////// action functions ///////////////////
+////////////////////////////////////////////////////////
 
 const buildImgsArr = async (data) => {
   const urls = data.getAll("url");
@@ -41,38 +56,48 @@ const buildImgsArr = async (data) => {
   });
 };
 
+const loadProject = async (project, method = "PATCH") => {
+  await fetch(`${URL}/projects/${project.key}.json`, {
+    method: method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(project),
+  });
+};
+
 export async function action({ request }) {
   const data = await request.formData();
-  const projects = data.get("projects");
-  console.log(projects);
 
-  await fetch(`${URL}/projects.json`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: projects,
-  });
+  // updating order of projects
+  if (data.has("projects")) {
+    const projects = JSON.parse(data.get("projects"));
 
-  return "nada";
+    projects.forEach(async (project, i) => {
+      const updatedProject = { ...project, order: `${i}`.padStart(2, "0") };
+      await loadProject(updatedProject);
+    });
 
-  //   const data = await request.formData();
+    return redirect("/architecture");
+  }
 
-  //   const images = await buildImgsArr(data);
-  //   const projectData = {
-  //     location: data.get("location"),
-  //     title: data.get("title"),
-  //     id: data.get("id"),
-  //     role: data.get("role").split(", "),
-  //     tags: data.get("tags").split(", "),
-  //     description: data.get("description"),
-  //     opis: data.get("opis"),
-  //     images: images,
-  //   };
+  // editing project
+  if (data.has("title")) {
+    const images = await buildImgsArr(data);
+    const projectData = {
+      location: data.get("location"),
+      title: data.get("title"),
+      id: data.get("id"),
+      role: data.get("role").split(", "),
+      tags: data.get("tags").split(", "),
+      description: data.get("description"),
+      opis: data.get("opis"),
+      key: data.get("key"),
+      images: images,
+    };
 
-  //   await fetch(`${URL}/projects/${data.get("key")}.json`, {
-  //     method: "PATCH",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(projectData),
-  //   });
+    console.log(request.method);
 
-  //   return redirect(`/architecture/${data.get("id")}`);
+    await loadProject(projectData, request.method);
+
+    return redirect(`/architecture/${projectData.id}`);
+  } else return null;
 }

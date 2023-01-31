@@ -6,7 +6,7 @@ import ContextUI from "../../store/context-ui";
 // import { Link } from "react-router-dom";
 
 function NavElements(props) {
-  const { isEnglish } = useContext(ContextUI);
+  const { isEnglish, editMode } = useContext(ContextUI);
 
   return (
     <ul className={styles.links}>
@@ -29,9 +29,11 @@ function NavElements(props) {
       <NavItem mobile={props.mobile} linkTo="/contact">
         {isEnglish ? "Contact" : "Kontakt"}
       </NavItem>
-      <NavItem mobile={props.mobile} linkTo="/edit-panel">
-        {isEnglish ? "Edit Panel" : "Panel Edycji"}
-      </NavItem>
+      {editMode && (
+        <NavItem mobile={props.mobile} linkTo="/edit-panel">
+          {isEnglish ? "Edit Panel" : "Panel Edycji"}
+        </NavItem>
+      )}
       <ToggleSwitch homeEdition={props.homeEdition} />
     </ul>
   );

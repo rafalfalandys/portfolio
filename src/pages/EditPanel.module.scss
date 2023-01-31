@@ -3,26 +3,27 @@
 .main {
   min-height: calc(100vh - $height-footer);
   display: flex;
-  padding: $height-header auto 2rem auto;
   margin: $height-header auto;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   max-width: $width-main;
   font-size: $font-medium;
+  padding: $grid-gap;
+}
 
-  & h1 {
-    font-size: $font-large;
-    margin: 3rem auto;
+.modes {
+  display: flex;
+  gap: 5rem;
+}
+
+.modebtn {
+  cursor: pointer;
+  font-size: $font-large-very;
+  font-weight: 300;
+  padding-top: 3rem;
+
+  & span {
     font-weight: 700;
-  }
-  & h2 {
-    font-size: $font-large;
-    margin: 3rem auto;
-    font-weight: 300;
-
-    @media (max-width: $break-phone) {
-      margin: 3rem auto 0 auto;
-    }
   }
 }
