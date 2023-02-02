@@ -85,7 +85,9 @@ export async function action({ request }) {
     const projectData = {
       location: data.get("location"),
       title: data.get("title"),
-      id: data.get("id"),
+      tytul: data.get("tytul"),
+      id: data.get("title").replaceAll(" ", "-").toLowerCase(),
+      year: data.get("year"),
       role: data.get("role").split(", "),
       tags: data.get("tags").split(", "),
       description: data.get("description"),
@@ -95,6 +97,7 @@ export async function action({ request }) {
     };
 
     await loadProject(projectData, request.method);
+    console.log("project loaded");
 
     if (request.method === "POST") return null;
     else return redirect(`/architecture/${projectData.id}`);

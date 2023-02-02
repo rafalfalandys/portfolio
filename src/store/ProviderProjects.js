@@ -25,6 +25,7 @@ function ProviderProjects(props) {
   const [bumpRight, setBumpRight] = useState(false);
 
   const [filters, setFilters] = useState([]);
+  const [sorting, setSorting] = useState("default");
 
   // Projects Control
   const curProjectsHandler = useCallback((projects) => {
@@ -101,6 +102,8 @@ function ProviderProjects(props) {
       });
   };
 
+  const sortingHandler = (value) => setSorting(value);
+
   const context = {
     curProjects,
     curProject,
@@ -113,6 +116,7 @@ function ProviderProjects(props) {
     bumpRight,
 
     filters,
+    sorting,
 
     curProjectsHandler,
     curProjectHandler,
@@ -125,6 +129,7 @@ function ProviderProjects(props) {
     prevImg,
 
     filtersHandler,
+    sortingHandler,
   };
 
   return <Context.Provider value={context}>{props.children}</Context.Provider>;

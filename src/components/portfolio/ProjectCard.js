@@ -23,6 +23,10 @@ function ProjectCard(props) {
             <strong>{props.title}</strong>
           </span>
         </h1>
+        <h1>
+          <span>{isEnglish ? "Year:" : "Rok:"}</span>
+          <span>{props.year}</span>
+        </h1>
         <p>{props.description}</p>
         <h2
           className={styles.mobile}

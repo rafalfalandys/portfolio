@@ -23,6 +23,7 @@ const defaultState = {
   bumpRight: false,
 
   filters: [],
+  sorting: "default",
 
   curProjectsHandler: () => {},
   curProjectNoHandler: () => {},
@@ -35,6 +36,7 @@ const defaultState = {
   prevImg: () => {},
 
   filtersHandler: () => {},
+  sortingHandler: () => {},
 };
 
 const ContextProjects = React.createContext(defaultState);

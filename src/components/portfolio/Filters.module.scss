@@ -14,6 +14,7 @@
   margin: 0 auto;
   border-radius: 0 0 $border-radius $border-radius;
   box-shadow: 0 3px 3px $color-shadow;
+  font-size: $font-medium;
 
   @media (max-width: $break-phone) {
     display: grid;
@@ -24,6 +25,15 @@
 
   & h1 {
     grid-column: 1/-1;
+    font-size: $font-large;
+  }
+
+  & select {
+    font-size: inherit;
+    background: none;
+    border: none;
+    border-left: 1px solid $color-grey-dark;
+    padding-left: 2rem;
   }
 }
 

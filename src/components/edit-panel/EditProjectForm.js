@@ -38,7 +38,7 @@ function EditProjectForm() {
 
   return (
     <Form className={styles.form} method={addingProjectMode ? "post" : "patch"}>
-      <label>Location</label>
+      <label>Location:</label>
       {/* need these divs so react updates form when change projects. Why also string? With empty keys errors accured */}
       <div key={`location-${curProject.location}`}>
         <input
@@ -48,7 +48,7 @@ function EditProjectForm() {
           className={styles.text}
         />
       </div>
-      <label>Title</label>
+      <label>Title:</label>
       <div key={`title-${curProject.title}`}>
         <input
           type="text"
@@ -57,7 +57,7 @@ function EditProjectForm() {
           className={styles.text}
         />
       </div>
-      <label>Tytuł</label>
+      <label>Tytuł:</label>
       <div key={`title-${curProject.tytul}`}>
         <input
           type="text"
@@ -66,16 +66,16 @@ function EditProjectForm() {
           className={styles.text}
         />
       </div>
-      <label>ID</label>
+      <label>Year:</label>
       <div key={`id-${curProject.id}`}>
         <input
           type="text"
-          name="id"
-          defaultValue={curProject.id}
+          name="year"
+          defaultValue={curProject.year}
           className={styles.text}
         />
       </div>
-      <label>My role</label>
+      <label>My role:</label>
       <div key={`role-${curProject.role?.join("")}`}>
         <input
           type="text"
@@ -84,7 +84,7 @@ function EditProjectForm() {
           className={styles.text}
         />
       </div>
-      <label>Tags</label>
+      <label>Tags:</label>
       <div key={`tags-${curProject.tags?.join("")}`}>
         <input
           type="text"
@@ -93,7 +93,7 @@ function EditProjectForm() {
           className={styles.text}
         />
       </div>
-      <label>Description</label>
+      <label>Description:</label>
       <div
         key={`description-${curProject.description}`}
         className={styles.wrapper}
@@ -105,7 +105,7 @@ function EditProjectForm() {
           className={`${styles.text} ${styles.description}`}
         />
       </div>
-      <label>Opis</label>
+      <label>Opis:</label>
       <div key={`opis-${curProject.opis}`} className={styles.wrapper}>
         <textarea
           type="text"
@@ -114,7 +114,7 @@ function EditProjectForm() {
           className={`${styles.text} ${styles.description}`}
         />
       </div>
-      <label>Images</label>
+      <label>Images:</label>
       <ImagesPanel />
       <div key={`key-${curProject.key}`}>
         <input

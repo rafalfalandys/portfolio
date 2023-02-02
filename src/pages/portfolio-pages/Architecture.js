@@ -9,23 +9,22 @@ import { URL } from "../../helper";
 import { useCallback } from "react";
 import ContextUI from "../../store/context-ui";
 import ContextProjects from "../../store/context-projects";
+import { useState } from "react";
 
 function Architecture() {
   const { isEnglish } = useContext(ContextUI);
-  const { curImgHandler, curProjects, curProjectsHandler, filters } =
+  const { curImgHandler, curProjects, curProjectsHandler, filters, sorting } =
     useContext(ContextProjects);
   const loadedProjects = useLoaderData();
   const location = useLocation().pathname;
 
-  //////////////// BACKUP LOADER ///////////////////
+  ////////////// BACKUP LOADER ///////////////////
   // const onClickHandler = () => {
-  //   loadedProjects.forEach((project) =>
-  //     fetch(URL + "projects-backup.json", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(project),
-  //     })
-  //   );
+  //   fetch(URL + "projects-backup.json", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(loadedProjects),
+  //   });
   // };
 
   // here comes a function, instead of simple array, because without useCallback VSC was screaming for dependencies in useEffect below
@@ -38,8 +37,12 @@ function Architecture() {
           .map((filter) => project.tags?.some((tag) => tag === filter))
           .reduce((acc, boolean) => acc || boolean);
       })
-      .sort((a, b) => a.order - b.order);
-  }, [filters, loadedProjects]);
+      .sort((a, b) => {
+        if (sorting === "year") return b.year - a.year;
+        if (sorting === "year-reverse") return a.year - b.year;
+        else return a.order - b.order;
+      });
+  }, [filters, loadedProjects, sorting]);
 
   // setting current projects context, so from detailed projects view, I only browse filtered ones
   useEffect(() => {
@@ -56,6 +59,7 @@ function Architecture() {
       <ProjectCard
         url={project.images[0].url}
         title={project.title}
+        year={project.year}
         location={project.location}
         description={(!isEnglish && project.opis) || project.description}
       />

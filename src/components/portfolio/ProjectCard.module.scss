@@ -76,12 +76,12 @@
   }
 
   & p {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     font-size: $font-small;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 7; /* number of lines to show */
-    line-clamp: 7;
+    -webkit-line-clamp: 5; /* number of lines to show */
+    line-clamp: 5;
     -webkit-box-orient: vertical;
 
     @media (max-width: $break-phone) {
