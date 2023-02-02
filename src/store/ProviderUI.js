@@ -32,7 +32,10 @@ function ProviderUI(props) {
 
   // Edit mode control
   const toggleEditMode = () => setEditMode((prev) => !prev);
-  const addingProjectModeHandler = (boolean) => setAddingProjectMode(boolean);
+  const addingProjectModeHandler = useCallback(
+    (boolean) => setAddingProjectMode(boolean),
+    []
+  );
   const toggleDeletingMode = () => setDeletingMode((prev) => !prev);
 
   const context = {

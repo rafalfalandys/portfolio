@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   background-color: $color-white;
-  //   padding: 1rem 1rem;
+  padding: 1rem 0;
   border-radius: 10rem;
   cursor: pointer;
   transition: all 0.3s;
@@ -24,8 +24,8 @@
   align-items: center;
   justify-content: center;
   transition: all 0.1s;
-  width: 6rem;
-  height: 4rem;
+  width: 4rem;
+  // height: 2rem;
 }
 
 .left {

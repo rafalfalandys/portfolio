@@ -10,6 +10,7 @@
   max-width: $width-main;
   font-size: $font-medium;
   padding: $grid-gap;
+  font-size: $font-small;
 
   @media (max-width: $break-phone) {
     padding: 1rem;
@@ -23,7 +24,7 @@
 
 .modebtn {
   cursor: pointer;
-  font-size: $font-large-very;
+  font-size: $font-medium;
   font-weight: 300;
   padding-top: 3rem;
 

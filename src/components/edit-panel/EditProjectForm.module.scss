@@ -4,9 +4,9 @@
   display: grid;
   width: 100%;
   align-items: center;
-  grid-template-columns: 15rem 1fr;
-  font-size: $font-medium;
-  gap: 1rem;
+  grid-template-columns: 7rem 1fr 8rem 1fr;
+  font-size: inherit;
+  gap: 0.5rem;
   background-color: $color-white;
   padding: 2rem 5rem;
   border-radius: $border-radius;
@@ -14,14 +14,9 @@
   font-family: inherit;
   white-space: pre-wrap;
 
-  @media (max-width: 1000px) {
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-    padding: 2rem 2rem;
-  }
   @media (max-width: $break-phone) {
     display: flex;
+    align-items: stretch;
     flex-direction: column;
     padding: 2rem 1rem;
   }
@@ -35,15 +30,19 @@
   border: 1px solid $color-grey;
   background: none;
   resize: none;
-  font-size: $font-medium;
+  font-size: inherit;
 
   @media (max-width: $break-phone) {
     width: 100%;
   }
 }
 
+.wrapper {
+  grid-column: 2 / -1;
+}
+
 .description {
-  height: 30rem;
+  height: 18rem;
 }
 
 .btn {
@@ -52,7 +51,7 @@
   grid-column: 1/3;
   justify-self: center;
 
-  font-size: $font-medium;
+  font-size: inherit;
   font-weight: 700;
   color: $color-grey-light-very;
   padding: 1rem;

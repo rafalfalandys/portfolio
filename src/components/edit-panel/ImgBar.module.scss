@@ -6,17 +6,21 @@
   gap: 1rem;
   padding: 1rem 0;
   border-bottom: 1px solid $color-grey;
+  height: 8rem;
+  padding: 0.7rem;
 
   & input {
-    font-size: $font-medium;
+    font-size: inherit;
     padding: 0.3rem;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: $break-phone) {
+    height: 9rem;
     display: grid;
-    gap: 0.5rem;
+    padding: 0.5rem;
+    gap: 0.2rem;
     column-gap: 1rem;
-    grid-template-columns: auto auto auto 1fr;
+    grid-template-columns: auto auto auto auto 1fr;
     grid-template-rows: auto auto 1fr;
   }
 }
@@ -24,15 +28,15 @@
 .number {
   width: 3rem;
 
-  @media (max-width: 1000px) {
+  @media (max-width: $break-phone) {
     grid-row: 1/-1;
     width: auto;
   }
 }
 
 .image {
-  height: 10rem;
-  width: 16rem;
+  height: 100%;
+  width: 12rem;
   border-radius: $border-radius-small;
   overflow: hidden;
 
@@ -41,49 +45,54 @@
     width: 100%;
     object-fit: cover;
   }
-
-  @media (max-width: 1000px) {
-    grid-row: 1/-1;
-  }
   @media (max-width: $break-phone) {
+    grid-row: 1/-1;
     width: 10rem;
   }
 }
 
 .type {
-  width: 10rem;
-  font-size: $font-medium;
-  margin-right: 3rem;
+  // width: 5rem;
+  font-size: inherit;
+  // margin-right: 3rem;
 }
 
 .url-label {
-  @media (max-width: 1000px) {
-    grid-row: 2 / span 1;
-    grid-column: 3/6;
+  @media (max-width: $break-phone) {
+    grid-column: 5 / span 1;
   }
 }
 
 .url {
   font-family: inherit;
-  font-size: $font-medium;
+  font-size: inherit;
   padding: 0.3rem 1rem;
   flex-grow: 1;
   word-wrap: break-word;
   word-break: break-all;
-  height: 10rem;
+  height: 100%;
   resize: none;
   border-radius: $border-radius-small;
 
-  @media (max-width: 1000px) {
+  @media (max-width: $break-phone) {
     grid-row: 3/-1;
-    grid-column: 3/5;
-    height: 5rem;
+    grid-column: 3/-1;
+    font-size: $font-small-very;
+    // height: 5rem;
   }
 }
 .buttons {
-  @media (max-width: 1000px) {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (max-width: $break-phone) {
     grid-row: 1/-1;
     grid-column: -1;
+  }
+
+  & ion-icon {
+    font-size: 16px;
   }
 }
 

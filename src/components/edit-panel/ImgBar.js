@@ -41,19 +41,19 @@ function ImgBar({
           className={`${styles.icon} ${styles["icon--up"]}`}
           onClick={clickUpHandler}
         >
-          <ion-icon name="chevron-up" size="large"></ion-icon>
+          <ion-icon name="chevron-up"></ion-icon>
         </div>
         <div
           className={`${styles.icon} ${styles["icon--remove"]}`}
           onClick={clickRemoveHandler}
         >
-          <ion-icon name="remove-circle-outline" size="large"></ion-icon>
+          <ion-icon name="remove-circle-outline"></ion-icon>
         </div>
         <div
           className={`${styles.icon} ${styles["icon--down"]}`}
           onClick={clickDownHandler}
         >
-          <ion-icon name="chevron-down" size="large"></ion-icon>
+          <ion-icon name="chevron-down"></ion-icon>
         </div>
       </div>
     </div>

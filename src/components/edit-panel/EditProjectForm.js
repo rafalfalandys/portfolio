@@ -20,12 +20,19 @@ function EditProjectForm() {
 
     curProjectNoHandler(projectIndex);
     curProjectHandler(curProjects[projectIndex]);
-  }, [curProject, projectId]);
+  }, [
+    curProject,
+    projectId,
+    curProjectHandler,
+    curProjectNoHandler,
+    curProjects,
+    loaderData,
+  ]);
 
   useEffect(() => {
     if (projectId === "new-project") addingProjectModeHandler(true);
     else addingProjectModeHandler(false);
-  }, [projectId]);
+  }, [projectId, addingProjectModeHandler]);
 
   if (curProjects.length === 0 || curProject === undefined) return;
 
@@ -47,6 +54,15 @@ function EditProjectForm() {
           type="text"
           name="title"
           defaultValue={curProject.title}
+          className={styles.text}
+        />
+      </div>
+      <label>Tytuł</label>
+      <div key={`title-${curProject.tytul}`}>
+        <input
+          type="text"
+          name="tytul"
+          defaultValue={curProject.tytul}
           className={styles.text}
         />
       </div>
@@ -78,7 +94,10 @@ function EditProjectForm() {
         />
       </div>
       <label>Description</label>
-      <div key={`description-${curProject.description}`}>
+      <div
+        key={`description-${curProject.description}`}
+        className={styles.wrapper}
+      >
         <textarea
           type="text"
           name="description"
@@ -87,7 +106,7 @@ function EditProjectForm() {
         />
       </div>
       <label>Opis</label>
-      <div key={`opis-${curProject.opis}`}>
+      <div key={`opis-${curProject.opis}`} className={styles.wrapper}>
         <textarea
           type="text"
           name="opis"

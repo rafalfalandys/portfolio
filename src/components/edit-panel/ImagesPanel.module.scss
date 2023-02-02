@@ -1,10 +1,14 @@
 @import "../../styles/variables";
 
+.images {
+  grid-column: 2 / -1;
+}
+
 .icon {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: $font-large;
+  font-size: $font-medium;
   grid-column: 1/-1;
   justify-self: center;
   margin-top: 1rem;
@@ -21,7 +25,7 @@
     transform: scale(1.05);
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: $break-phone) {
     align-self: center;
   }
 }

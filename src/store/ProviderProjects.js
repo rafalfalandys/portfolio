@@ -30,8 +30,11 @@ function ProviderProjects(props) {
   const curProjectsHandler = useCallback((projects) => {
     setCurProjects(projects);
   }, []);
-  const curProjectNoHandler = (no) => setCurProjectNo(no);
-  const curProjectHandler = (project) => setCurProject(project);
+  const curProjectNoHandler = useCallback((no) => setCurProjectNo(no), []);
+  const curProjectHandler = useCallback(
+    (project) => setCurProject(project),
+    []
+  );
   const changeProjectsOrder = (i, isRight) => {
     setCurProjects((prev) => {
       // checking extremes first
