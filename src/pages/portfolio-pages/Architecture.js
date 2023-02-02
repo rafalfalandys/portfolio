@@ -59,6 +59,7 @@ function Architecture() {
       <ProjectCard
         url={project.images[0].url}
         title={project.title}
+        tytul={project.tytul}
         year={project.year}
         location={project.location}
         description={(!isEnglish && project.opis) || project.description}

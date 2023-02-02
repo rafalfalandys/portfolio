@@ -20,7 +20,7 @@ function ProjectCard(props) {
         <h1>
           <span>{isEnglish ? "Area:" : "Strefa:"}</span>
           <span>
-            <strong>{props.title}</strong>
+            <strong>{isEnglish ? props.title : props.tytul}</strong>
           </span>
         </h1>
         <h1>
@@ -28,9 +28,9 @@ function ProjectCard(props) {
           <span>{props.year}</span>
         </h1>
         <p>{props.description}</p>
-        <h2
-          className={styles.mobile}
-        >{`${props.location} - ${props.title}`}</h2>
+        <h2 className={styles.mobile}>{`${props.location} - ${
+          isEnglish ? props.title : props.tytul
+        }`}</h2>
       </div>
     </div>
   );

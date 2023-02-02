@@ -6,7 +6,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-auto-rows: 27rem;
   gap: $grid-gap;
-  padding: 1rem;
+  padding: $grid-gap;
 
   @media (max-width: $break-phone) {
     gap: $grid-gap-small;

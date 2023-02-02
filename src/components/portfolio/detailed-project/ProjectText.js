@@ -11,7 +11,9 @@ function ProjectText() {
 
   return (
     <div className={styles.text}>
-      <h1>{`${curProject.location} - ${curProject.title}`}</h1>
+      <h1>{`${curProject.location} - ${
+        isEnglish ? curProject.title : curProject.tytul
+      }`}</h1>
       <p>
         {isEnglish && (
           <Fragment>

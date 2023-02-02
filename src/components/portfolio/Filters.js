@@ -27,9 +27,10 @@ function Filters() {
         <h1>{isEnglish ? "Tags" : "Tagi"}: </h1>
         <Filter label="All" pl="Wszystko" />
         <Filter label="Work" pl="Praca" />
-        <Filter label="School" pl="Szkoła" />
+        <Filter label="Studies" pl="Studia" />
         <Filter label="Bar" pl="Bar" />
         <Filter label="Outdoor" pl="Pole" />
+        <Filter label="Urban planning" pl="Urbanistyka" />
         <Filter label="Algorithmic design" pl="Projektowanie Algorytmiczne" />
         <div className={styles.sorting}>
           {/* <label>Sorting: </label> */}
