@@ -8,7 +8,7 @@ import styles from "./Filters.module.scss";
 function Filters() {
   const { areFiltersVisible, hideFilters, toggleFilters, isEnglish } =
     useContext(ContextUI);
-  const { curProject, sortingHandler } = useContext(ContextProjects);
+  const { curProject, sortingHandler, sorting } = useContext(ContextProjects);
   const sortRef = useRef();
 
   const toggleFiltersElHandler = () => toggleFilters();
@@ -34,7 +34,7 @@ function Filters() {
         <Filter label="Algorithmic design" pl="Projektowanie Algorytmiczne" />
         <div className={styles.sorting}>
           {/* <label>Sorting: </label> */}
-          <select defaultValue="default" onChange={onSortHandler} ref={sortRef}>
+          <select defaultValue={sorting} onChange={onSortHandler} ref={sortRef}>
             <option value="defaut">
               {isEnglish ? "Default order" : "Domyślna kolejność"}
             </option>

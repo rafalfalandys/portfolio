@@ -19,6 +19,7 @@ function Photography() {
       key={photo.img}
       no={i}
       imagesArr={photosData}
+      style={{ borderRadius: "0" }}
     />
   ));
 

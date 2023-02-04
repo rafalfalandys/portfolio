@@ -8,6 +8,10 @@
   gap: $grid-gap;
   padding: $grid-gap;
 
+  gap: 1px;
+  padding: 1px;
+  background-color: $color-black;
+
   @media (max-width: $break-phone) {
     gap: $grid-gap-small;
     grid-template-columns: 1fr;

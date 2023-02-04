@@ -14,6 +14,7 @@ function ProjectImages() {
         imagesArr={curProject.images}
         curImgOnHover
         type={image.type}
+        style={{ borderRadius: "5px" }}
       />
     </div>
   ));

@@ -2,13 +2,9 @@
 
 .container {
   height: 100%;
-  border-radius: 5px;
+  // border-radius: 5px;
   overflow: hidden;
   position: relative;
-
-  @media (max-width: $break-phone) {
-    // height: 10rem;
-  }
 
   &::after {
     content: "";

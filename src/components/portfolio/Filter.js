@@ -14,7 +14,6 @@ function Filter(props) {
     filtersHandler(filterRef.current.value);
   };
   const labelLowerCase = props.label.toLowerCase();
-  console.log(labelLowerCase);
 
   useEffect(() => {
     const checkIfChecked = () => {
