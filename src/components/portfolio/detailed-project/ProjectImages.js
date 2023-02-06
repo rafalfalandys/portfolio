@@ -34,6 +34,14 @@ function ProjectImages() {
               muted
             />
           )}
+          {curImages[curImg].type === "video" && (
+            <video
+              src={curProject.images[curImg].url}
+              alt="architecture"
+              autoPlay
+              muted
+            />
+          )}
         </div>
 
         <div className={styles.thumbnails}>{images}</div>
