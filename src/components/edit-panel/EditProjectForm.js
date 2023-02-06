@@ -114,7 +114,7 @@ function EditProjectForm() {
           className={`${styles.text} ${styles.description}`}
         />
       </div>
-      <label>Images:</label>
+      {/* <label>Images:</label> */}
       <ImagesPanel />
       <div key={`key-${curProject.key}`}>
         <input

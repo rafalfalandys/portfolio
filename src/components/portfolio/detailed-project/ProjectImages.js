@@ -2,6 +2,7 @@ import { Fragment, useContext } from "react";
 import SingleItem from "../SingleItem";
 import styles from "./ProjectImages.module.scss";
 import ContextProjects from "../../../store/context-projects";
+import ReactPlayer from "react-player";
 
 function ProjectImages() {
   const { curProject, curImg, curImages } = useContext(ContextProjects);
@@ -9,7 +10,7 @@ function ProjectImages() {
   const images = curImages.map((image, i) => (
     <div className={styles.thumbnail} key={image.url}>
       <SingleItem
-        url={image.url}
+        url={image.thumbnail ? image.thumbnail : image.url}
         no={i}
         imagesArr={curProject.images}
         curImgOnHover
@@ -23,7 +24,7 @@ function ProjectImages() {
     <Fragment>
       <div className={styles.images}>
         <div className={styles["image-big"]}>
-          {curImages[curImg].type !== "video" && (
+          {curImages[curImg].type === "img" && (
             <img src={curProject.images[curImg].url} alt="architecture" />
           )}
           {curImages[curImg].type === "video" && (
@@ -34,11 +35,10 @@ function ProjectImages() {
               muted
             />
           )}
-          {curImages[curImg].type === "video" && (
-            <video
-              src={curProject.images[curImg].url}
-              alt="architecture"
-              autoPlay
+          {curImages[curImg].type === "youtube" && (
+            <ReactPlayer
+              url={`https://youtube.com/embed/${curImages[curImg].url}`}
+              playing={true}
               muted
             />
           )}

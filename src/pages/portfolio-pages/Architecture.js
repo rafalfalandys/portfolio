@@ -66,6 +66,7 @@ function Architecture() {
     <Link to={project.id} className={styles.tile} key={project.id}>
       <ProjectCard
         url={project.images[0].url}
+        thumbnail={project.images[0].thumbnail}
         title={project.title}
         tytul={project.tytul}
         year={project.year}

@@ -7,7 +7,11 @@ function ProjectCard(props) {
 
   return (
     <div className={styles.card}>
-      <img src={props.url} alt={props.title} />
+      <img
+        // src={props.thumbnail ? props.thumbnail : props.url}
+        src={props.url}
+        alt={props.title}
+      />
       <div className={styles.text}>
         <h1>
           <span className={styles.keys}>

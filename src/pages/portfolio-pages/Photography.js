@@ -14,12 +14,11 @@ function Photography() {
 
   const photos = photosData.map((photo, i) => (
     <SingleItem
-      url={photo.url}
+      url={photo.thumbnail}
       name={photo.img}
       key={photo.img}
       no={i}
       imagesArr={photosData}
-      style={{ borderRadius: "0" }}
     />
   ));
 

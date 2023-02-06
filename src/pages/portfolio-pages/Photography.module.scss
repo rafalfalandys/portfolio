@@ -19,4 +19,8 @@
   @media (max-width: $break-tablet) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  & div {
+    border-radius: 0;
+  }
 }
