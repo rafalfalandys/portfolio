@@ -13,7 +13,7 @@
 }
 
 .close {
-  top: 10%;
+  top: 17rem;
   right: 3%;
 }
 
@@ -47,7 +47,7 @@
 
   @media (max-width: $break-phone) {
     top: auto;
-    bottom: 25%;
+    bottom: 16rem;
   }
 
   & ion-icon {

@@ -13,12 +13,8 @@
 
   @media (max-width: $break-phone) {
     background: none;
-    top: 50%;
     transform: translate(-50%, -55%);
     padding: 0;
-
-    height: 100%;
-    width: 100%;
   }
 
   &--youtube {

@@ -9,7 +9,6 @@ import { URL } from "../../helper";
 import { useCallback } from "react";
 import ContextUI from "../../store/context-ui";
 import ContextProjects from "../../store/context-projects";
-import { useState } from "react";
 
 function Architecture() {
   const { isEnglish } = useContext(ContextUI);
