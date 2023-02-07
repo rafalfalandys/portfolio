@@ -54,7 +54,8 @@
     margin: 0.7rem 0;
 
     display: grid;
-    grid-template-columns: 10rem 1fr;
+    // grid-template-columns: 10rem 1fr;
+    grid-template-columns: 1fr;
 
     &:first-child {
       margin-top: 1.5rem;

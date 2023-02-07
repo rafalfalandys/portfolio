@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useCallback, useState } from "react";
 import Context from "./context-ui";
 
@@ -37,6 +38,12 @@ function ProviderUI(props) {
     []
   );
   const toggleDeletingMode = () => setDeletingMode((prev) => !prev);
+
+  // disabling background scroll while modal window is open
+  useEffect(() => {
+    if (isModalVisible) document.body.style.overflow = "hidden";
+    if (!isModalVisible) document.body.style.overflow = "unset";
+  }, [isModalVisible]);
 
   const context = {
     isNavVisible,

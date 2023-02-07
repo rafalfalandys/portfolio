@@ -25,7 +25,7 @@ function ProjectImages() {
       <div className={styles.images}>
         <div className={styles["image-big"]}>
           {curImages[curImg].type === "img" && (
-            <img src={curProject.images[curImg].url} alt="architecture" />
+            <img src={curProject.images[curImg].thumbnail} alt="architecture" />
           )}
           {curImages[curImg].type === "video" && (
             <video
@@ -36,6 +36,11 @@ function ProjectImages() {
             />
           )}
           {curImages[curImg].type === "youtube" && (
+            // <iframe
+            //   src={`https://youtube.com/embed/${curImages[curImg].url}?autoplay=1&mute=1`}
+            //   allow="autoplay"
+            //   title={curImages[curImg].name}
+            // ></iframe>
             <ReactPlayer
               url={`https://youtube.com/embed/${curImages[curImg].url}`}
               playing={true}

@@ -21,13 +21,12 @@ function SingleItem(props) {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={props.style}>
       <img
         src={props.url}
         alt={props.name}
         onClick={onClickHandler}
         onMouseEnter={onMouseEnterHandler}
-        style={props.style}
       />
     </div>
   );

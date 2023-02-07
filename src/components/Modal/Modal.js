@@ -8,9 +8,6 @@ import Interface from "./Interface";
 import Overlay from "./Overlay";
 
 function Modal() {
-  // if (ctx.isModalVisible) document.body.style.overflow = "hidden";
-  // if (!ctx.isModalVisible) document.body.style.overflow = "unset";
-
   const modalEl = (
     <div className={styles.modal}>
       <Overlay />

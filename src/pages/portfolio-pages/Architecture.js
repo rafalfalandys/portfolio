@@ -11,9 +11,15 @@ import ContextUI from "../../store/context-ui";
 import ContextProjects from "../../store/context-projects";
 
 function Architecture() {
-  const { isEnglish } = useContext(ContextUI);
-  const { curImgHandler, curProjects, curProjectsHandler, filters, sorting } =
-    useContext(ContextProjects);
+  const { isEnglish, hideModal } = useContext(ContextUI);
+  const {
+    curImgHandler,
+    curProject,
+    curProjects,
+    curProjectsHandler,
+    filters,
+    sorting,
+  } = useContext(ContextProjects);
   const loadedProjects = useLoaderData();
   const location = useLocation().pathname;
 
@@ -60,6 +66,11 @@ function Architecture() {
   useEffect(() => {
     curImgHandler(0);
   }, [curImgHandler, location]);
+
+  // hiding modal window because if man enter detailed project, than click back to projects, and than jump to another project - it opens with modal on
+  useEffect(() => {
+    hideModal();
+  }, [curProject, hideModal]);
 
   const projectCards = curProjects.map((project) => (
     <Link to={project.id} className={styles.tile} key={project.id}>

@@ -9,19 +9,27 @@ function ProjectText() {
   const { curProject } = useContext(ContextProjects);
   const params = useParams();
 
+  const locationText = curProject.location ? `${curProject.location} -` : "";
+
   return (
     <div className={styles.text}>
-      <h1>{`${curProject.location} - ${
+      <h1>{`${locationText} ${
         isEnglish ? curProject.title : curProject.tytul
       }`}</h1>
       <p>
         {isEnglish && (
           <Fragment>
-            <span>
-              {`My role: ${curProject.role.map((role) => role).join(", ")}.`}
-            </span>
-            <br />
-            <br />
+            {curProject.role[0] !== "" && (
+              <Fragment>
+                <span>
+                  {`My role: ${curProject.role
+                    .map((role) => role)
+                    .join(", ")}.`}
+                </span>
+                <br />
+                <br />
+              </Fragment>
+            )}
 
             {curProject.tags.includes("work") && (
               <span>
@@ -36,17 +44,22 @@ function ProjectText() {
 
         {!isEnglish && (
           <Fragment>
-            <span>
-              {`Moja rola: ${curProject.role
-                .map((role) => {
-                  if (role === "designer") return "projektant";
-                  if (role === "coordinator") return "koordynator";
-                  else return role;
-                })
-                .join(", ")}.`}
-            </span>
-            <br />
-            <br />
+            {curProject.role[0] !== "" && (
+              <Fragment>
+                <span>
+                  {`Moja rola: ${curProject.role
+                    .map((role) => {
+                      if (role === "designer") return "projektant";
+                      if (role === "coordinator") return "koordynator";
+                      else return role;
+                    })
+                    .join(", ")}.`}
+                </span>
+                <br />
+                <br />
+              </Fragment>
+            )}
+
             {curProject.tags.includes("work") && (
               <span>
                 Nad projektem pracowałem w okresie zatrudnienia w Tillberg

@@ -53,12 +53,15 @@ function ImageBig() {
         </div>
       )}
       {type === "youtube" && (
-        <div
-          className={`${styles.container} ${styles["container--youtube"]}`}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
+        <div className={`${styles.container} ${styles["container--youtube"]}`}>
+          {/* <iframe
+            src={`https://youtube.com/embed/${curImages[curImg].url}?autoplay=1&mute=1`}
+            allow="autoplay"
+            title={curImages[curImg].name}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          ></iframe> */}
           <ReactPlayer
             url={`https://youtube.com/embed/${url}`}
             playing={true}
