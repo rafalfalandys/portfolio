@@ -44,9 +44,6 @@ function DetailedProject() {
     window.scrollTo(0, 0);
   }, [curProjectNo]);
 
-  if (isModalVisible) document.body.style.overflow = "hidden";
-  if (!isModalVisible) document.body.style.overflow = "unset";
-
   return (
     <Fragment>
       {isModalVisible && <Modal />}

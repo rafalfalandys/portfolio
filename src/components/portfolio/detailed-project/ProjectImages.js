@@ -20,12 +20,18 @@ function ProjectImages() {
     </div>
   ));
 
+  const imgThumbnail = curProject.images[curImg].thumbnail;
+  const imgUrl = curProject.images[curImg].url;
+
   return (
     <Fragment>
       <div className={styles.images}>
         <div className={styles["image-big"]}>
           {curImages[curImg].type === "img" && (
-            <img src={curProject.images[curImg].thumbnail} alt="architecture" />
+            <img
+              src={imgThumbnail ? imgThumbnail : imgUrl}
+              alt="architecture"
+            />
           )}
           {curImages[curImg].type === "video" && (
             <video
