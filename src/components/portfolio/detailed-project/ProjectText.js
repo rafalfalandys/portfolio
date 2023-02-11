@@ -38,10 +38,10 @@ function ProjectText() {
             {!noTDText && curProject.tags.includes("work") && (
               <span>
                 Designed while employed at Tillberg Design of Sweden. All
-                renderings, graphics drawings, etc. belong to Tillberg Design of
-                Sweden. The works contained here can’t be utilized, published or
-                worked on by another company/entity without prior agreement with
-                Tillberg Design of Sweden.
+                renderings, graphics, drawings, etc. belong to Tillberg Design
+                of Sweden. The works contained here can’t be utilized, published
+                or worked on by another company/entity without prior agreement
+                with Tillberg Design of Sweden.
                 <br />
                 <br />
               </span>
