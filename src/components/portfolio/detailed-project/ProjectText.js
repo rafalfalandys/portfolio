@@ -11,6 +11,10 @@ function ProjectText() {
 
   const locationText = curProject.location ? `${curProject.location} -` : "";
 
+  const noTDText = curProject.tags.includes("no td text");
+
+  console.log(noTDText);
+
   return (
     <div className={styles.text}>
       <h1>{`${locationText} ${
@@ -31,10 +35,13 @@ function ProjectText() {
               </Fragment>
             )}
 
-            {curProject.tags.includes("work") && (
+            {!noTDText && curProject.tags.includes("work") && (
               <span>
-                I was working on a project as en employee of Tillberg Design of
-                Sweden.
+                Designed while employed at Tillberg Design of Sweden. All
+                renderings, graphics drawings, etc. belong to Tillberg Design of
+                Sweden. The works contained here can’t be utilized, published or
+                worked on by another company/entity without prior agreement with
+                Tillberg Design of Sweden.
                 <br />
                 <br />
               </span>
@@ -60,10 +67,13 @@ function ProjectText() {
               </Fragment>
             )}
 
-            {curProject.tags.includes("work") && (
+            {!noTDText && curProject.tags.includes("work") && (
               <span>
                 Nad projektem pracowałem w okresie zatrudnienia w Tillberg
-                Design of Sweden.
+                Design of Sweden. Wszystkie wizualizacje, grafiki, rysunki
+                techniczne etc. należą do firmy Tillberg Design of Sweden. Prace
+                tu zawarte nie mogą być wykorzystywane, publikowane ani
+                edytowane bez uprzedniej zgody Tillberg Design of Sweden.
                 <br />
                 <br />
               </span>
