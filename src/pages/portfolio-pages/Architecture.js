@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import { Link, Outlet, useLoaderData, useLocation } from "react-router-dom";
 import ProjectCard from "../../components/portfolio/ProjectCard";
 import Filters from "../../components/portfolio/Filters";
-import { URL } from "../../helper";
+import { URL } from "../../config";
 import { useCallback } from "react";
 import ContextUI from "../../store/context-ui";
 import ContextProjects from "../../store/context-projects";

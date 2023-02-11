@@ -6,7 +6,7 @@ import styles from "./Contact.module.scss";
 import ContactForm from "../components/ContactForm";
 import Phone from "../components/UI/ContactData/Phone";
 import Email from "../components/UI/ContactData/Email";
-import { URL } from "../helper";
+import { URL } from "../config";
 import ContextUI from "../store/context-ui";
 
 function Contact() {

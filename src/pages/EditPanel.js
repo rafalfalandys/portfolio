@@ -6,7 +6,7 @@ import { useContext } from "react";
 import ContextProjects from "../store/context-projects";
 import { useState } from "react";
 import EditProjectForm from "../components/edit-panel/EditProjectForm";
-import { URL } from "../helper";
+import { URL } from "../config";
 import ProjectsList from "../components/edit-panel/ProjectsList";
 import ContextUI from "../store/context-ui";
 

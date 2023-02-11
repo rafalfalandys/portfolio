@@ -2,21 +2,23 @@ import { useContext } from "react";
 import ContextUI from "../../store/context-ui";
 import styles from "./ProjectCard.module.scss";
 
-function ProjectCard(props) {
+function ProjectCard({ location, url, title, tytul, year, description }) {
   const { isEnglish } = useContext(ContextUI);
+
+  const locationText = location ? `${location} -` : "";
 
   return (
     <div className={styles.card}>
       <img
-        // src={props.thumbnail ? props.thumbnail : props.url}
-        src={props.url}
-        alt={props.title}
+        // src={thumbnail ? thumbnail : url}
+        src={url}
+        alt={title}
       />
       <div className={styles.text}>
         <h1>
           {/* <span>{isEnglish ? "Area:" : "Strefa:"}</span> */}
           <span>
-            <strong>{isEnglish ? props.title : props.tytul}</strong>
+            <strong>{isEnglish ? title : tytul}</strong>
           </span>
         </h1>
         <h1>
@@ -24,16 +26,16 @@ function ProjectCard(props) {
             {isEnglish ? "Location:" : "Lokalizacja:"}
           </span> */}
           <span>
-            <strong>{props.location}</strong>
+            <strong>{location}</strong>
           </span>
         </h1>
         <h1>
           {/* <span>{isEnglish ? "Year:" : "Rok:"}</span> */}
-          <span>{props.year}</span>
+          <span>{year}</span>
         </h1>
-        <p>{props.description}</p>
-        <h2 className={styles.mobile}>{`${props.location} - ${
-          isEnglish ? props.title : props.tytul
+        <p>{description}</p>
+        <h2 className={styles.mobile}>{`${locationText} ${
+          isEnglish ? title : tytul
         }`}</h2>
       </div>
     </div>
