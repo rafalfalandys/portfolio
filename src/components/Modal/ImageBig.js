@@ -29,8 +29,8 @@ function ImageBig() {
     if (isLeftSwipe || isRightSwipe)
       // add your conditional logic here
       isLeftSwipe
-        ? curImgHandler(curImg === curImages.length ? 0 : curImg + 1)
-        : curImgHandler(curImg === 0 ? curImages.length : curImg - 1);
+        ? curImgHandler(curImg === curImages.length - 1 ? 0 : curImg + 1)
+        : curImgHandler(curImg === 0 ? curImages.length - 1 : curImg - 1);
   };
   //////////////////// slide gesture //////////////////////
 
@@ -53,7 +53,12 @@ function ImageBig() {
         </div>
       )}
       {type === "youtube" && (
-        <div className={`${styles.container} ${styles["container--youtube"]}`}>
+        <div
+          className={`${styles.container} ${styles["container--youtube"]}`}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           {/* <iframe
             src={`https://youtube.com/embed/${curImages[curImg].url}?autoplay=1&mute=1`}
             allow="autoplay"

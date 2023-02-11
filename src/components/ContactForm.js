@@ -64,7 +64,7 @@ function ContactForm() {
       resetMsg();
     }
     setLoadState();
-  }, [actionData]);
+  }, [actionData, resetContact, resetMsg, resetName]);
 
   return (
     <Form method="post" className={styles.form}>

@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { useState } from "react";
 import { useLoaderData, useNavigate, useSubmit } from "react-router-dom";
 import ContextProjects, { emptyProject } from "../../store/context-projects";
-import ContextUI from "../../store/context-ui";
 import ProjectBar from "./ProjectBar";
 import styles from "./ProjectsList.module.scss";
 
@@ -17,7 +16,7 @@ function ProjectsList() {
 
   useEffect(() => {
     curProjectsHandler(loaderData);
-  }, []);
+  }, [curProjectsHandler, loaderData]);
 
   const slideProject = (i, isRight) => {
     setIsOrderChanged(true);
@@ -54,6 +53,7 @@ function ProjectsList() {
       />
     );
   });
+
   return (
     <div className={styles.projects}>
       {projects}
