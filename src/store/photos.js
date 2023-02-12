@@ -110,12 +110,6 @@ export const photosData = [
     url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/photos%2Fstocznia%2003.jpg?alt=media&token=5e362f51-cad2-41a5-b651-07a892dc3bf2",
   },
   {
-    img: "monako 00",
-    thumbnail:
-      "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/photos%2Fthumbnails%2Fmonako%2000.jpeg?alt=media&token=4986dfdb-bbc9-4f0a-8f87-8dbc07e0df84",
-    url: "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/photos%2Fmonako%2000.jpg?alt=media&token=979e97ed-5e73-4b26-b54f-c03e9c94ee3d",
-  },
-  {
     img: "islandia 05",
     thumbnail:
       "https://firebasestorage.googleapis.com/v0/b/portfolio-f338a.appspot.com/o/photos%2Fthumbnails%2Fislandia%2005.jpeg?alt=media&token=2863736e-e715-44be-b2f2-16d2ddb839b7",

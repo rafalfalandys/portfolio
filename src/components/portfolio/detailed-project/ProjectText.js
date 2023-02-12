@@ -13,8 +13,6 @@ function ProjectText() {
 
   const noTDText = curProject.tags.includes("no td text");
 
-  console.log(noTDText);
-
   return (
     <div className={styles.text}>
       <h1>{`${locationText} ${

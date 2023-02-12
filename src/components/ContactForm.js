@@ -104,12 +104,15 @@ function ContactForm() {
         }
       />
       <div className={styles.btn}>
-        {!isNameValid && (
+        {(!isNameValid || !isContactValid || !isMsgValid) && (
           <p className={styles.error}>
-            <span>Please enter all data</span>
+            {isEnglish && <span>Please enter all data</span>}
+            {!isEnglish && <span>Uzupełnij wszystkie pola</span>}
           </p>
         )}
-        {isFormValid && !isSubmitting && !isLoad && <button>Send</button>}
+        {isFormValid && !isSubmitting && !isLoad && (
+          <button>{isEnglish ? "Send" : "Wyślij"}</button>
+        )}
         {isSubmitting && <Spinner />}
         <p>
           {isLoad &&
