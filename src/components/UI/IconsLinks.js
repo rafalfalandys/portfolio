@@ -16,13 +16,13 @@ function IconsLinks(props) {
       >
         <LogoLinkedin />
       </a>
-      <a
+      {/* <a
         href="https://www.instagram.com/rafalfalandys/"
         target="_blank"
         rel="noreferrer"
       >
         <LogoInstagram />
-      </a>
+      </a> */}
       <a
         href="https://github.com/rafalfalandys"
         target="_blank"
