@@ -11,6 +11,7 @@ import ContextUI from "../store/context-ui";
 
 function Contact() {
   const { isEnglish } = useContext(ContextUI);
+
   return (
     <Fragment>
       <Header />
@@ -32,10 +33,23 @@ export default Contact;
 
 export async function action({ request }) {
   const data = await request.formData();
+
+  // generating date
+  const now = new Date();
+  const date = new Intl.DateTimeFormat("pl-PL", {
+    hour: "numeric",
+    minute: "numeric",
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+    weekday: "long",
+  }).format(now);
+
   const formData = {
     name: data.get("name"),
     contact: data.get("contact"),
     msg: data.get("msg"),
+    date,
   };
 
   const response = await fetch(URL + "messages.json", {

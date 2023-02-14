@@ -116,7 +116,7 @@ function ContactForm() {
         {isSubmitting && <Spinner />}
         <p>
           {isLoad &&
-            actionData.ok &&
+            actionData?.ok &&
             (isEnglish ? actionData?.msg : actionData?.pl)}
         </p>
 
