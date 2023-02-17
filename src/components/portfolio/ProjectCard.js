@@ -2,7 +2,15 @@ import { useContext } from "react";
 import ContextUI from "../../store/context-ui";
 import styles from "./ProjectCard.module.scss";
 
-function ProjectCard({ location, url, title, tytul, year, description }) {
+function ProjectCard({
+  location,
+  url,
+  title,
+  tytul,
+  year,
+  description,
+  thumbnail,
+}) {
   const { isEnglish } = useContext(ContextUI);
 
   const locationText = location ? `${location} -` : "";
@@ -10,8 +18,8 @@ function ProjectCard({ location, url, title, tytul, year, description }) {
   return (
     <div className={styles.card}>
       <img
-        // src={thumbnail ? thumbnail : url}
-        src={url}
+        src={thumbnail ? thumbnail : url}
+        // src={url}
         alt={title}
       />
       <div className={styles.text}>
