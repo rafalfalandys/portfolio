@@ -9,13 +9,22 @@ import About from "./pages/About";
 import Contact, { action as sendMessage } from "./pages/Contact";
 import Home from "./pages/Home";
 import Portfolio from "./pages/portfolio-pages/Portfolio";
-import Photography from "./pages/portfolio-pages/Photography";
-import Architecture, {
-  loader as projectsLoader,
-} from "./pages/portfolio-pages/Architecture";
+// import Photography from "./pages/portfolio-pages/Photography";
+// import Architecture, {
+//   loader as projectsLoader,
+// } from "./pages/portfolio-pages/Architecture";
 import DetailedProject from "./pages/portfolio-pages/DetailedProject";
 import EditPanel, { action as editProjects } from "./pages/EditPanel";
 import EditProjectForm from "./components/edit-panel/EditProjectForm";
+import { lazy, Suspense } from "react";
+
+const Photography = lazy(() => import("./pages/portfolio-pages/Photography"));
+const Architecture = lazy(() => import("./pages/portfolio-pages/Architecture"));
+
+const projectsLoader = () =>
+  import("./pages/portfolio-pages/Architecture").then((module) =>
+    module.loader()
+  );
 
 const router = createBrowserRouter([
   {
@@ -27,11 +36,22 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact />, action: sendMessage },
       { path: "portfolio", element: <Portfolio /> },
-      { path: "photography", element: <Photography /> },
+      {
+        path: "photography",
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <Photography />
+          </Suspense>
+        ),
+      },
       {
         path: "architecture",
         id: "architecture",
-        element: <Architecture />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <Architecture />
+          </Suspense>
+        ),
         loader: projectsLoader,
         children: [{ path: ":projectId", element: <DetailedProject /> }],
       },
