@@ -23,24 +23,24 @@ function ProjectCard({
         alt={title}
       />
       <div className={styles.text}>
-        <h1>
+        <h2>
           {/* <span>{isEnglish ? "Area:" : "Strefa:"}</span> */}
           <span>
             <strong>{isEnglish ? title : tytul}</strong>
           </span>
-        </h1>
-        <h1>
+        </h2>
+        <h2>
           {/* <span className={styles.keys}>
             {isEnglish ? "Location:" : "Lokalizacja:"}
           </span> */}
           <span>
             <strong>{location}</strong>
           </span>
-        </h1>
-        <h1>
+        </h2>
+        <h2>
           {/* <span>{isEnglish ? "Year:" : "Rok:"}</span> */}
           <span>{year}</span>
-        </h1>
+        </h2>
         <p>{description}</p>
         <h2 className={styles.mobile}>{`${locationText} ${
           isEnglish ? title : tytul
