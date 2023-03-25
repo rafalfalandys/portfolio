@@ -42,9 +42,9 @@ function ProjectCard({
           <span>{year}</span>
         </h2>
         <p>{description}</p>
-        <h2 className={styles.mobile}>{`${locationText} ${
+        <h3 className={styles.mobile}>{`${locationText} ${
           isEnglish ? title : tytul
-        }`}</h2>
+        }`}</h3>
       </div>
     </div>
   );
