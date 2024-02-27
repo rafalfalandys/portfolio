@@ -1,15 +1,17 @@
 import { useRef } from "react";
-import { Fragment, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import ContextProjects from "../../store/context-projects";
 import ContextUI from "../../store/context-ui";
 import Filter from "./Filter";
 import styles from "./Filters.module.scss";
+import useText from "../../hooks/use-text";
 
 function Filters() {
-  const { areFiltersVisible, hideFilters, toggleFilters, isEnglish } =
+  const { areFiltersVisible, hideFilters, toggleFilters } =
     useContext(ContextUI);
   const { curProject, sortingHandler, sorting } = useContext(ContextProjects);
   const sortRef = useRef();
+  const text = useText();
 
   const toggleFiltersElHandler = () => toggleFilters();
   const onSortHandler = () => sortingHandler(sortRef.current.value);
@@ -18,47 +20,44 @@ function Filters() {
   }, [curProject, hideFilters]);
 
   return (
-    <Fragment>
+    <>
       <div
         className={`${styles.filters} ${
           areFiltersVisible ? "" : styles.hidden
         }`}
       >
-        <h1>{isEnglish ? "Tags" : "Tagi"}: </h1>
-        <Filter label="All" pl="Wszystko" />
-        <Filter label="Work" pl="Praca" />
-        <Filter label="Studies" pl="Studia" />
-        <Filter label="Bar" pl="Bar" />
-        <Filter label="Outdoor" pl="Pole" />
-        <Filter label="Urban planning" pl="Urbanistyka" />
-        <Filter label="Algorithmic design" pl="Projektowanie Algorytmiczne" />
+        <h1>{text.filters.tags}: </h1>
+        <Filter label="All" text={text.filters.all} />
+        <Filter label="Work" text={text.filters.work} />
+        <Filter label="Studies" text={text.filters.studies} />
+        <Filter label="Bar" text={text.filters.bar} />
+        <Filter label="Outdoor" text={text.filters.outdoor} />
+        <Filter label="Urban planning" text={text.filters.urbanPlanning} />
+        <Filter
+          label="Algorithmic design"
+          text={text.filters.algorithmicDesign}
+        />
         <div className={styles.sorting}>
           {/* <label>Sorting: </label> */}
           <select defaultValue={sorting} onChange={onSortHandler} ref={sortRef}>
-            <option value="defaut">
-              {isEnglish ? "Default order" : "Domyślna kolejność"}
-            </option>
-            <option value="year">
-              {isEnglish ? "Newest first" : "Od najnowszych"}
-            </option>
-            <option value="year-reverse">
-              {isEnglish ? "Oldest first" : "Od najstarych"}
-            </option>
+            <option value="defaut">{text.filters.defaultOrder}</option>
+            <option value="year">{text.filters.newFirst}</option>
+            <option value="year-reverse">{text.filters.oldFirst}</option>
           </select>
         </div>
       </div>
       <div className={styles.btn} onClick={toggleFiltersElHandler}>
-        {isEnglish && (
-          <span>{areFiltersVisible ? "Hide filters" : "Filters"}</span>
-        )}
-        {!isEnglish && (
-          <span>{areFiltersVisible ? "Ukryj filtry" : "Filtry"}</span>
-        )}
+        <span>
+          {areFiltersVisible
+            ? text.filters.hideFilters
+            : text.filters.showFilters}
+        </span>
+
         <ion-icon
           name={`chevron-${areFiltersVisible ? "up" : "down"}`}
         ></ion-icon>
       </div>
-    </Fragment>
+    </>
   );
 }
 

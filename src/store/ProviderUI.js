@@ -11,6 +11,7 @@ function ProviderUI(props) {
   const [editMode, setEditMode] = useState(false);
   const [addingProjectMode, setAddingProjectMode] = useState(false);
   const [deletingMode, setDeletingMode] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Navigation controls
   const toggleNav = () => setIsNavVisible((prevState) => !prevState);
@@ -39,6 +40,9 @@ function ProviderUI(props) {
   );
   const toggleDeletingMode = () => setDeletingMode((prev) => !prev);
 
+  const login = () => setIsLoggedIn(true);
+  const logout = () => setIsLoggedIn(false);
+
   // disabling background scroll while modal window is open
   useEffect(() => {
     if (isModalVisible) document.body.style.overflow = "hidden";
@@ -54,6 +58,7 @@ function ProviderUI(props) {
     editMode,
     addingProjectMode,
     deletingMode,
+    isLoggedIn,
 
     toggleNav,
     hideNav,
@@ -72,6 +77,9 @@ function ProviderUI(props) {
     toggleEditMode,
     addingProjectModeHandler,
     toggleDeletingMode,
+
+    login,
+    logout,
   };
 
   return <Context.Provider value={context}>{props.children}</Context.Provider>;

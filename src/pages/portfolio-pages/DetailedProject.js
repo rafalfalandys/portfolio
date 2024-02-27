@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import useKey from "../../hooks/use-key";
@@ -45,7 +45,7 @@ function DetailedProject() {
   }, [curProjectNo]);
 
   return (
-    <Fragment>
+    <>
       {isModalVisible && <Modal />}
       <main className={styles.main}>
         <div className={styles.content}>
@@ -55,7 +55,7 @@ function DetailedProject() {
 
         {isLoad && <ProjectsNavBar />}
       </main>
-    </Fragment>
+    </>
   );
 }
 export default DetailedProject;

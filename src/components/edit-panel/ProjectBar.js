@@ -3,11 +3,13 @@ import { NavLink, useSubmit } from "react-router-dom";
 import ContextProjects from "../../store/context-projects";
 import ContextUI from "../../store/context-ui";
 import styles from "./ProjectBar.module.scss";
+import useFirebase from "../../hooks/use-firebase";
 
 function ProjectBar({ onSlide, id, title, index, keyValue }) {
   const { deletingMode } = useContext(ContextUI);
   const { curProjects, curProjectsHandler } = useContext(ContextProjects);
   const submit = useSubmit();
+  const { user } = useFirebase();
 
   const slideHandler = (isRight) => {
     if (!deletingMode) onSlide(index, isRight);
@@ -20,7 +22,7 @@ function ProjectBar({ onSlide, id, title, index, keyValue }) {
         (project) => project.title !== title
       );
       curProjectsHandler(updatedProjects);
-      submit({ key: keyValue }, { method: "delete" });
+      submit({ key: keyValue, token: user.accessToken }, { method: "delete" });
     }
   };
 

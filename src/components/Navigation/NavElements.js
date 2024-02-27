@@ -3,36 +3,36 @@ import styles from "./NavElements.module.scss";
 import ToggleSwitch from "../UI/ToggleSwitch";
 import { useContext } from "react";
 import ContextUI from "../../store/context-ui";
+import useFirebase from "../../hooks/use-firebase";
+import { logout } from "../../helper/firebase";
+import useText from "../../hooks/use-text";
 // import { Link } from "react-router-dom";
 
 function NavElements(props) {
-  const { isEnglish, editMode } = useContext(ContextUI);
+  const { editMode } = useContext(ContextUI);
+  const { user } = useFirebase();
+  const text = useText();
 
   return (
     <ul className={styles.links}>
       <NavItem mobile={props.mobile} linkTo="/about">
-        {isEnglish ? "About" : "O mnie"}
+        {text.nav.about}
       </NavItem>
       <NavItem mobile={props.mobile} linkTo="/portfolio" hover={props.hover}>
         Porfolio
       </NavItem>
-      {/* {props.mobile && (
-        <div className={styles.sublinks}>
-        <Link to="/portfolio/architecture" className={styles.sublink}>
-        Architecture
-        </Link>
-        <Link to="/portfolio/photography" className={styles.sublink}>
-        Photography
-        </Link>
-        </div>
-      )} */}
       <NavItem mobile={props.mobile} linkTo="/contact">
-        {isEnglish ? "Contact" : "Kontakt"}
+        {text.nav.contact}
       </NavItem>
       {editMode && (
-        <NavItem mobile={props.mobile} linkTo="/edit-panel">
-          {isEnglish ? "Edit" : "Edycja"}
+        <NavItem mobile={props.mobile} linkTo={user ? "/edit" : "/login"}>
+          {text.nav.edit}
         </NavItem>
+      )}
+      {editMode && user && (
+        <span className={styles["nav-item"]} onClick={logout}>
+          {text.nav.logout}
+        </span>
       )}
       <ToggleSwitch homeEdition={props.homeEdition} />
     </ul>

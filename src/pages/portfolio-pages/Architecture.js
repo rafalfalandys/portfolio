@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import styles from "./Architecture.module.scss";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header/Header";
@@ -9,6 +9,8 @@ import { URL } from "../../config";
 import { useCallback } from "react";
 import ContextUI from "../../store/context-ui";
 import ContextProjects from "../../store/context-projects";
+// import useFirebase from "../../hooks/use-firebase";
+// import { photosData } from "../../store/photos";
 
 function Architecture() {
   const { isEnglish, hideModal } = useContext(ContextUI);
@@ -24,12 +26,19 @@ function Architecture() {
   const location = useLocation().pathname;
 
   ////////////// BACKUP LOADER ///////////////////
+  // const { user } = useFirebase();
   // const onClickHandler = () => {
-  //   fetch(URL + "projects-backup.json", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(loadedProjects),
-  //   });
+  //   if (user) {
+  //     photosData.forEach((photo) => {
+  //       fetch(`${URL}/photos.json?auth=${user.accessToken}`, {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(photo),
+  //       });
+  //     });
+  //   }
   // };
 
   // here comes a function, instead of simple array, because without useCallback VSC was screaming for dependencies in useEffect below
@@ -87,7 +96,7 @@ function Architecture() {
   ));
 
   return (
-    <Fragment>
+    <>
       <Header />
       <Outlet />
       {location === "/architecture" && (
@@ -98,7 +107,7 @@ function Architecture() {
         </main>
       )}
       <Footer />
-    </Fragment>
+    </>
   );
 }
 export default Architecture;
@@ -114,5 +123,6 @@ export async function loader() {
   for (const key in data) {
     projectsArr.push({ ...data[key], key });
   }
+
   return projectsArr;
 }

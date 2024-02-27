@@ -1,4 +1,3 @@
-import { Fragment, useContext } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header/Header";
 
@@ -7,25 +6,26 @@ import ContactForm from "../components/ContactForm";
 import Phone from "../components/UI/ContactData/Phone";
 import Email from "../components/UI/ContactData/Email";
 import { URL } from "../config";
-import ContextUI from "../store/context-ui";
+import useText from "../hooks/use-text";
+import { textsEN, textsPL } from "../assets/texts";
 
 function Contact() {
-  const { isEnglish } = useContext(ContextUI);
+  const text = useText();
 
   return (
-    <Fragment>
+    <>
       <Header />
       <main className={styles.main}>
-        <h1>{isEnglish ? "Get in touch!" : "Masz pytania? Napisz:"}</h1>
+        <h1>{text.contactPage.textMe}</h1>
         <ContactForm />
-        <h2>{isEnglish ? "Or reach me at:" : "Albo odezwij się na:"}</h2>
+        <h2>{text.contactPage.reachMeAt}</h2>
         <div className={styles.contact}>
           <Phone />
           <Email />
         </div>
       </main>
       <Footer />
-    </Fragment>
+    </>
   );
 }
 
@@ -59,14 +59,14 @@ export async function action({ request }) {
   });
   if (!response.ok) {
     return {
-      msg: "Something went wrong, try again.",
-      pl: "Coś poszło nie tak, spróbuj ponownie.",
+      msg: textsEN.contactPage.actionError,
+      pl: textsPL.contactPage.actionError,
       ok: response.ok,
     };
   }
   return {
-    msg: "Message sent succesfully.",
-    pl: "Poszło! Dziękuję za kontakt.",
+    msg: textsEN.contactPage.actionOk,
+    pl: textsPL.contactPage.actionOk,
     ok: response.ok,
   };
 }

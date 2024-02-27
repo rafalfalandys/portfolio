@@ -58,7 +58,7 @@ function ProviderProjects(props) {
 
   // Images control
   useEffect(() => {
-    if (curProject && curProject !== {}) setCurImages(curProject.images);
+    if (curProject) setCurImages(curProject.images);
   }, [curProject]);
 
   const curImagesHandler = (arr) => setCurImages(arr);

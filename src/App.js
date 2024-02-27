@@ -9,14 +9,15 @@ import About from "./pages/About";
 import Contact, { action as sendMessage } from "./pages/Contact";
 import Home from "./pages/Home";
 import Portfolio from "./pages/portfolio-pages/Portfolio";
-// import Photography from "./pages/portfolio-pages/Photography";
-// import Architecture, {
-//   loader as projectsLoader,
-// } from "./pages/portfolio-pages/Architecture";
 import DetailedProject from "./pages/portfolio-pages/DetailedProject";
-import EditPanel, { action as editProjects } from "./pages/EditPanel";
+import { action as editProjects } from "./pages/edit-panel/architecture/EditArchitecturePanel";
 import EditProjectForm from "./components/edit-panel/EditProjectForm";
 import { lazy, Suspense } from "react";
+import LoginPage, { action as signIn } from "./pages/LoginPage";
+import EditArchitecturePanel from "./pages/edit-panel/architecture/EditArchitecturePanel";
+import EditPhotographyPanel from "./pages/edit-panel/photography/EditPhotographyPanel";
+import EditPage from "./pages/edit-panel/EditPage";
+import { loadPhotos, updatePhotos } from "./api/api";
 
 const Photography = lazy(() => import("./pages/portfolio-pages/Photography"));
 const Architecture = lazy(() => import("./pages/portfolio-pages/Architecture"));
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
             <Photography />
           </Suspense>
         ),
+        loader: loadPhotos,
       },
       {
         path: "architecture",
@@ -56,8 +58,17 @@ const router = createBrowserRouter([
         children: [{ path: ":projectId", element: <DetailedProject /> }],
       },
       {
-        path: "edit-panel",
-        element: <EditPanel />,
+        path: "login",
+        element: <LoginPage />,
+        action: signIn,
+      },
+      {
+        path: "edit",
+        element: <EditPage />,
+      },
+      {
+        path: "edit/architecture",
+        element: <EditArchitecturePanel />,
         loader: projectsLoader,
         action: editProjects,
         children: [
@@ -68,6 +79,12 @@ const router = createBrowserRouter([
             action: editProjects,
           },
         ],
+      },
+      {
+        path: "edit/photography",
+        element: <EditPhotographyPanel />,
+        loader: loadPhotos,
+        action: updatePhotos,
       },
     ],
   },

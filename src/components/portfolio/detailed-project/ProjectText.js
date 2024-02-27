@@ -3,11 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import ContextProjects from "../../../store/context-projects";
 import ContextUI from "../../../store/context-ui";
 import styles from "./ProjectText.module.scss";
+import useText from "../../../hooks/use-text";
 
 function ProjectText() {
   const { isEnglish, editMode } = useContext(ContextUI);
   const { curProject } = useContext(ContextProjects);
   const params = useParams();
+  const text = useText();
 
   const locationText = curProject.location ? `${curProject.location} -` : "";
 
@@ -35,11 +37,7 @@ function ProjectText() {
 
             {!noTDText && curProject.tags.includes("work") && (
               <span>
-                Designed while employed at Tillberg Design of Sweden. All
-                renderings, graphics, drawings, etc. belong to Tillberg Design
-                of Sweden. The works contained here can’t be utilized, published
-                or worked on by another company/entity without prior agreement
-                with Tillberg Design of Sweden.
+                {text.projText.tdClause}
                 <br />
                 <br />
               </span>
@@ -67,11 +65,7 @@ function ProjectText() {
 
             {!noTDText && curProject.tags.includes("work") && (
               <span>
-                Nad projektem pracowałem w okresie zatrudnienia w Tillberg
-                Design of Sweden. Wszystkie wizualizacje, grafiki, rysunki
-                techniczne etc. należą do firmy Tillberg Design of Sweden. Prace
-                tu zawarte nie mogą być wykorzystywane, publikowane ani
-                edytowane bez uprzedniej zgody Tillberg Design of Sweden.
+                {text.projText.tdClause}
                 <br />
                 <br />
               </span>
@@ -87,7 +81,9 @@ function ProjectText() {
       </p>
       {editMode && (
         <div className={styles["edit-link"]}>
-          <Link to={`/edit-panel/${params.projectId}`}>Edit this project</Link>
+          <Link to={`/edit/architecture/${params.projectId}`}>
+            Edit this project
+          </Link>
         </div>
       )}
     </div>

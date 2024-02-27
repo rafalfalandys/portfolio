@@ -5,6 +5,8 @@ import useInput from "../hooks/use-input";
 import ContextUI from "../store/context-ui";
 import styles from "./ContactForm.module.scss";
 import Spinner from "./UI/Spinner";
+import useFirebase from "../hooks/use-firebase";
+import useText from "../hooks/use-text";
 
 function ContactForm() {
   const { isEnglish } = useContext(ContextUI);
@@ -12,6 +14,8 @@ function ContactForm() {
   const [isLoad, setIsLoad] = useState(false);
   const navigation = useNavigation();
   const actionData = useActionData();
+  const { user } = useFirebase();
+  const text = useText();
 
   const isSubmitting = navigation.state === "submitting";
 
@@ -106,12 +110,11 @@ function ContactForm() {
       <div className={styles.btn}>
         {(!isNameValid || !isContactValid || !isMsgValid) && (
           <p className={styles.error}>
-            {isEnglish && <span>Please enter all data</span>}
-            {!isEnglish && <span>Uzupełnij wszystkie pola</span>}
+            <span>{text.contactPage.fillAllError}</span>
           </p>
         )}
         {isFormValid && !isSubmitting && !isLoad && (
-          <button>{isEnglish ? "Send" : "Wyślij"}</button>
+          <button>{text.contactPage.send}</button>
         )}
         {isSubmitting && <Spinner />}
         <p>
@@ -128,6 +131,7 @@ function ContactForm() {
           </span>
         </p>
       </div>
+      {user && <input name="token" readOnly hidden value={user.accessToken} />}
     </Form>
   );
 }

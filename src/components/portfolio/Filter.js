@@ -1,13 +1,11 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import ContextProjects from "../../store/context-projects";
-import ContextUI from "../../store/context-ui";
 import styles from "./Filter.module.scss";
 
 function Filter(props) {
   const [isChecked, setIsChecked] = useState(false);
   const filterRef = useRef();
 
-  const { isEnglish } = useContext(ContextUI);
   const { filters, filtersHandler } = useContext(ContextProjects);
 
   const changeHandler = () => {
@@ -41,7 +39,7 @@ function Filter(props) {
         onChange={changeHandler}
         checked={isChecked}
       />
-      <label>{`${isEnglish ? props.label : props.pl}`}</label>
+      <label>{props.text}</label>
     </div>
   );
 }

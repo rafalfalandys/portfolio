@@ -1,16 +1,17 @@
 import { Fragment } from "react";
-import styles from "./EditPanel.module.scss";
-import Header from "../components/Header/Header";
+import styles from "./EditArchitecturePanel.module.scss";
+import Header from "../../../components/Header/Header";
 import { Outlet, redirect } from "react-router-dom";
 import { useContext } from "react";
-import ContextProjects from "../store/context-projects";
+import ContextProjects from "../../../store/context-projects";
 import { useState } from "react";
-import EditProjectForm from "../components/edit-panel/EditProjectForm";
-import { URL } from "../config";
-import ProjectsList from "../components/edit-panel/ProjectsList";
-import ContextUI from "../store/context-ui";
+import EditProjectForm from "../../../components/edit-panel/EditProjectForm";
+import { URL } from "../../../config";
+import ProjectsList from "../../../components/edit-panel/ProjectsList";
+import ContextUI from "../../../store/context-ui";
+import { buildImgsArr } from "../../../helper/helper";
 
-function EditPanel() {
+function EditArchitecturePanel() {
   const { curProjectHandler } = useContext(ContextProjects);
   const { editMode, toggleEditMode, deletingMode, toggleDeletingMode } =
     useContext(ContextUI);
@@ -42,29 +43,14 @@ function EditPanel() {
   );
 }
 
-export default EditPanel;
+export default EditArchitecturePanel;
 
 ////////////////////////////////////////////////////////
 /////////////////// action functions ///////////////////
 ////////////////////////////////////////////////////////
 
-const buildImgsArr = async (data) => {
-  const urls = data.getAll("url");
-  const types = data.getAll("type");
-  const thumbnails = data.getAll("thumbnail");
-  const names = data.getAll("name");
-  return urls.map((el, i) => {
-    return {
-      type: types[i],
-      url: el,
-      thumbnail: thumbnails[i],
-      name: names[i],
-    };
-  });
-};
-
-const loadProject = async (project, method = "PATCH") => {
-  await fetch(`${URL}/projects/${project.key}.json`, {
+const loadProject = async (project, token, method = "PATCH") => {
+  await fetch(`${URL}/projects/${project.key}.json?auth=${token}`, {
     method: method,
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(project),
@@ -73,6 +59,7 @@ const loadProject = async (project, method = "PATCH") => {
 
 export async function action({ request }) {
   const data = await request.formData();
+  const token = await data.get("token");
 
   // updating order of projects
   if (data.has("projects")) {
@@ -80,7 +67,7 @@ export async function action({ request }) {
 
     projects.forEach(async (project, i) => {
       const updatedProject = { ...project, order: `${i}`.padStart(2, "0") };
-      await loadProject(updatedProject);
+      await loadProject(updatedProject, token);
     });
 
     return redirect("/architecture");
@@ -103,7 +90,7 @@ export async function action({ request }) {
       images: images,
     };
 
-    await loadProject(projectData, request.method);
+    await loadProject(projectData, token, request.method);
     console.log("project loaded");
 
     if (request.method === "POST") return null;
@@ -112,7 +99,7 @@ export async function action({ request }) {
 
   // deleting projects
   if (request.method === "DELETE") {
-    await fetch(`${URL}/projects/${data.get("key")}.json`, {
+    await fetch(`${URL}/projects/${data.get("key")}.json?auth=${token}`, {
       method: "DELETE",
     });
     return null;

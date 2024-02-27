@@ -1,0 +1,25 @@
+{
+  "uid": "VhYXWKmS96atMPJv3cD4ItJICMm2",
+  "email": "rafalfalandys@gmail.com",
+  "emailVerified": false,
+  "isAnonymous": false,
+  "providerData": [
+    {
+      "providerId": "password",
+      "uid": "rafalfalandys@gmail.com",
+      "displayName": null,
+      "email": "rafalfalandys@gmail.com",
+      "phoneNumber": null,
+      "photoURL": null
+    }
+  ],
+  "stsTokenManager": {
+    "refreshToken": "AMf-vBy8oK2QnDgj29hlzL2nlqBFmdv5tCata0193tQPqVRhaPyc2yw55Roud2VX3X7QkpeddRyiveG3DBdH4YfVF03VIJia1AK5T3Od0AbiEjn2WO1mVcIApXtdlx86GyHCJQ8fyf0b_m6j3bymc7YZ6AGy7xVFe3Ulzf33SIavVnsrxAuucZWqU-eUQ9oO0gxjYPOisue1q9qhea7WTc-aetgpzI_AiAmnXTaoPFQQgh-LR66wjAo",
+    "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjUyNmM2YTg0YWMwNjcwMDVjZTM0Y2VmZjliM2EyZTA4ZTBkZDliY2MiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vd2Vyb25pa2Eta29ndXQtYWFkIiwiYXVkIjoid2Vyb25pa2Eta29ndXQtYWFkIiwiYXV0aF90aW1lIjoxNzA0NDg4NTgwLCJ1c2VyX2lkIjoiVmhZWFdLbVM5NmF0TVBKdjNjRDRJdEpJQ01tMiIsInN1YiI6IlZoWVhXS21TOTZhdE1QSnYzY0Q0SXRKSUNNbTIiLCJpYXQiOjE3MDQ0ODg1ODAsImV4cCI6MTcwNDQ5MjE4MCwiZW1haWwiOiJyYWZhbGZhbGFuZHlzQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJyYWZhbGZhbGFuZHlzQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.c6fAJBoh1_ddzBnjoleec5UO-JxvAwV-vtg28oWg5wSW7qmxwvoSXLvTdp2V-CusW1XoGmVWbss0zT9hiZCDBbce4XIh7yCSO86ehHoj8-3mRsaZGQnqvDdiCt2KYbXyoc17XArHEYwaB4STseG3Ux1mGS7VboX1dnKEKCh57PzAv8HHGnkeWtZ2YDpL7P8HrvizuFDtU6gemVD3k4CbtIVkrgigZlU6Aja3Ex5YzlpSYSC06CIV2jyGuglmFL9Qp3vD3CRRzxUtVRRat4uviiC5B35m1qYBUAemZyaJaN8k2npEVJrfDFL9UKJCyGIJvuSCHZVERF7rhs9bmVsjKw",
+    "expirationTime": 1704492180836
+  },
+  "createdAt": "1704211367696",
+  "lastLoginAt": "1704488580905",
+  "apiKey": "AIzaSyA9dyaHoUFvHiLQXWvZ0UUhUQwe9yU-LGc",
+  "appName": "[DEFAULT]"
+}

@@ -13,6 +13,8 @@ const defaultState = {
   addingProjectMode: false,
   deletingMode: false,
 
+  isLoggedIn: false,
+
   toggleNav: () => {},
   hideNav: () => {},
 
@@ -30,6 +32,9 @@ const defaultState = {
   toggleEditMode: () => {},
   addingProjectModeHandler: () => {},
   toggleDeletingMode: () => {},
+
+  login: () => {},
+  logout: () => {},
 };
 
 const ContextUI = React.createContext(defaultState);

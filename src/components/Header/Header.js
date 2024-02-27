@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import NavElements from "../Navigation/NavElements";
 import ContextUI from "../../store/context-ui";
+import useText from "../../hooks/use-text";
 
 function Header() {
   const { toggleNav, isNavVisible } = useContext(ContextUI);
+  const text = useText();
 
   const toggleNavHandler = () => toggleNav();
 
@@ -15,7 +17,7 @@ function Header() {
       <figure>
         <img src={logo} alt="voronoi" />
       </figure>
-      <h1 className={styles["logo--text"]}>rafa</h1>
+      <h1 className={styles["logo--text"]}>{text.logo}</h1>
     </Link>
   );
 

@@ -1,24 +1,21 @@
-import { Fragment, useContext } from "react";
 import Footer from "../components/Footer";
 import styles from "./About.module.scss";
 import Header from "../components/Header/Header";
 import IconsLinks from "../components/UI/IconsLinks";
-import ContextUI from "../store/context-ui";
+import useText from "../hooks/use-text";
 
 function About() {
-  const { isEnglish } = useContext(ContextUI);
+  const text = useText();
 
   return (
-    <Fragment>
+    <>
       <Header />
       <main className={styles.main}>
         <div className={styles.text}>
           <p>
-            <strong>Rafał Falandys</strong>
+            <strong>{text.aboutPage.name}</strong>
             <br />
-            {isEnglish
-              ? "Master of Architecture, Alghorhythmic Design Specialist, Frontend Developer and Senior Designer."
-              : "Magister architektury, specjalista projektowania parametrycznego i frontend deweloper."}
+            {text.aboutPage.desc}
           </p>
           <IconsLinks height="3rem" />
         </div>
@@ -27,7 +24,7 @@ function About() {
         </figure>
       </main>
       <Footer />
-    </Fragment>
+    </>
   );
 }
 
