@@ -1,0 +1,54 @@
+@import "../../styles/variables";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h3 {
+    margin-bottom: 1rem;
+    font-size: $font-medium;
+  }
+}
+
+.btn {
+  gap: 1rem;
+  font-size: $font-medium;
+  grid-column: 1/-1;
+  justify-self: center;
+  margin-top: 1rem;
+  transition: all 0.3s;
+  border: 1px solid $color-grey;
+  border-radius: 10rem;
+
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: $break-phone) {
+    align-self: center;
+  }
+}
+
+.copy-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.copy {
+  font-size: $font-medium;
+  width: 100%;
+  max-width: 30rem;
+}
+
+.copy-btn {
+  width: auto;
+  margin: 0.5rem;
+}
