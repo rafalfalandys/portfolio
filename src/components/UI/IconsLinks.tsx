@@ -1,7 +1,7 @@
 import styles from "./IconsLinks.module.scss";
 
 import {
-  // LogoGithub,
+  LogoGithub,
   // LogoInstagram,
   LogoLinkedin,
 } from "@swiftcarrot/react-ionicons";
@@ -19,13 +19,9 @@ const IconsLinks: React.FC<{ height?: string }> = (props) => {
       >
         <LogoInstagram />
       </a> */}
-      {/* <a
-        href="https://github.com/rafalfalandys"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href="https://github.com/rafalfalandys" target="_blank" rel="noreferrer">
         <LogoGithub />
-      </a> */}
+      </a>
     </div>
   );
 };

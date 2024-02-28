@@ -26,7 +26,9 @@ const ProjectsNavBar = () => {
         <span>{text.projNav.prev}</span>
       </Link>
       <Link to=".." relative="path" className={styles.btn}>
-        <ChevronLeftIcon />
+        <div className={styles.bigIcon}>
+          <ChevronLeftIcon />
+        </div>
         <span>{text.projNav.back}</span>
       </Link>
       <Link

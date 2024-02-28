@@ -26,13 +26,19 @@ const Interface = () => {
     <Fragment>
       <div className={styles.dots}>{dotEls}</div>
       <div className={btnStyle("left")} onClick={prevImg}>
-        <ChevronLeftIcon />
+        <div className={styles.icon}>
+          <ChevronLeftIcon />
+        </div>
       </div>
       <div className={btnStyle("right")} onClick={nextImg}>
-        <ChevronRightIcon />
+        <div className={styles.icon}>
+          <ChevronRightIcon />
+        </div>
       </div>
       <div className={`${styles.close} ${styles.btn}`} onClick={hideModal}>
-        <XMarkIcon />
+        <div className={styles.icon}>
+          <XMarkIcon />
+        </div>
       </div>
     </Fragment>
   );
