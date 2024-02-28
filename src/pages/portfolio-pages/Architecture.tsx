@@ -27,15 +27,12 @@ const Architecture = () => {
       })
       .sort((a, b) => {
         if (sorting === "year") {
-          return (
-            // if year is xxxx - xxxx then pick the later date
-            b.year.split(" - ")[b.year.split("-").length - 1] - a.year.split(" - ")[a.year.split("-").length - 1]
-          );
+          return b.yearEnd - a.yearEnd;
+        } else if (sorting === "year-reverse") {
+          return a.yearEnd - b.yearEnd;
+        } else {
+          return a.order! - b.order!;
         }
-        if (sorting === "year-reverse")
-          // if year is xxxx - xxxx then pick the earlier date
-          return a.year.split(" - ")[0] - b.year.split(" - ")[0];
-        else return a.order - b.order;
       });
   }, [filters, loadedProjects, sorting]);
 
@@ -61,7 +58,9 @@ const Architecture = () => {
         thumbnail={project.images[0].thumbnail}
         title={project.title}
         tytul={project.tytul}
-        year={project.year}
+        year={
+          project.yearStart === project.yearEnd ? project.yearStart + "" : `${project.yearStart} - ${project.yearEnd}`
+        }
         location={project.location}
         description={(!isEnglish && project.opis) || project.description}
       />

@@ -25,7 +25,7 @@ export const emptyProject: Project = {
   description: "",
   opis: "",
   images: [{ type: "img", url: "", name: "", thumbnail: "" }],
-  key: "",
   tytul: "",
-  year: "",
+  yearStart: 2022,
+  yearEnd: 2022,
 };

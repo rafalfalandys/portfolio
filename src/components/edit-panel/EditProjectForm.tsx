@@ -50,7 +50,7 @@ const EditProjectForm = () => {
         </div>
         <label>Year:</label>
         <div key={`id-${curProject.id}`}>
-          <input type="text" name="year" defaultValue={curProject.year} className={styles.text} />
+          <input type="text" name="year" defaultValue={curProject.yearStart} className={styles.text} />
         </div>
         <label>My role:</label>
         <div key={`role-${curProject.role?.join("")}`}>
@@ -74,8 +74,8 @@ const EditProjectForm = () => {
         </div>
         {/* <label>Images:</label> */}
         <ImagesPanel />
-        <div key={`key-${curProject.key}`}>
-          <input style={{ display: "none" }} type="text" name="key" defaultValue={curProject.key} />
+        <div key={`key-${curProject.id}`}>
+          <input style={{ display: "none" }} type="text" name="key" defaultValue={curProject.id} />
         </div>
         <button className={styles.btn}>{addingProjectMode ? "Add Project" : "Confirm changes"}</button>
         {user && <input name="token" readOnly hidden value={user.accessToken} />}

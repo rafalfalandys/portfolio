@@ -10,6 +10,7 @@ import { ActionFunction, LoaderFunction, redirect } from "react-router-dom";
 
 export const loadPhotos: LoaderFunction = async () => {
   const response = await fetch(`${URL}photos.json`);
+
   if (!response.ok) {
     throw new Error(`Something went wrong (${response.status})`);
   }
@@ -28,20 +29,16 @@ export const loadPhotos: LoaderFunction = async () => {
 
 export const loadProjects: LoaderFunction = async () => {
   try {
-    const response = await fetch(`${URL}projects.json`);
+    const response = await fetch(`${URL}projects`);
     if (!response.ok) {
       throw new Error(`Something went wrong (${response.status})`);
     }
     const data = await response.json();
 
-    const projectsArr = [];
-    for (const key in data) {
-      projectsArr.push({ ...data[key], key });
-    }
-
-    return projectsArr as Project[];
+    return data.data.projects as Project[];
   } catch (error) {
     console.log(error);
+    return null;
   }
 };
 
@@ -115,7 +112,7 @@ export const sendMessage: ActionFunction = async ({ request }) => {
 };
 
 export const patchProject = async (project: Project, method = "PATCH") => {
-  await fetch(`${URL}/projects/${project.key}.json`, {
+  await fetch(`${URL}/projects/${project._id}`, {
     method: method,
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(project),
@@ -147,12 +144,12 @@ export const updateAllProjects: ActionFunction = async ({ request }) => {
       title: data.get("title") as string,
       tytul: data.get("tytul") as string,
       id: (data.get("title") as string).replaceAll(" ", "-").toLowerCase(),
-      year: data.get("year") as string,
+      yearStart: +data.get("year")! as number,
+      yearEnd: +data.get("year")! as number,
       role: (data.get("role") as string).split(", "),
       tags: (data.get("tags") as string).split(", "),
       description: data.get("description") as string,
       opis: data.get("opis") as string,
-      key: data.get("key") as string,
       images: images,
     };
 
