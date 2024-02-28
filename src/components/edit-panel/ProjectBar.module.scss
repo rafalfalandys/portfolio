@@ -25,7 +25,11 @@
   justify-content: center;
   transition: all 0.1s;
   width: 4rem;
-  // height: 2rem;
+
+  & svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
 }
 
 .left {
@@ -62,5 +66,10 @@
   }
   &:active {
     transform: scale(1.03);
+  }
+
+  & svg {
+    width: 2.4rem;
+    height: 2.4rem;
   }
 }

@@ -6,9 +6,7 @@ import styles from "./ImageBig.module.scss";
 
 const ImageBig = () => {
   const { curImages, curImg } = useContext(ContextProjects);
-
-  const url = curImages[curImg].url;
-  const type = curImages[curImg].type;
+  const { url, type } = curImages[curImg];
 
   return (
     <Fragment>

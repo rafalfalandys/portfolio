@@ -12,7 +12,7 @@ import { Photo } from "../../../types";
 const EditPhotographyPanel = () => {
   const { editMode, toggleEditMode, deletingMode, toggleDeletingMode } = useContext(ContextUI);
   const { curImagesHandler } = useContext(ContextProjects);
-  const photosData = useLoaderData() as { photos: Photo[]; photosKey: string };
+  const photosData = useLoaderData() as { photos: Photo[] };
 
   useEffect(() => {
     curImagesHandler(photosData.photos);
@@ -36,7 +36,6 @@ const EditPhotographyPanel = () => {
             <button type="submit" className={styles.btn}>
               Wyślij
             </button>
-            <input name="key" readOnly hidden value={photosData.photosKey} />
           </Form>
           <div className={styles.upload}>
             <UploadImgForm />

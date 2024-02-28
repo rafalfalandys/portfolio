@@ -6,6 +6,7 @@ import styles from "./ImagesPanel.module.scss";
 import ImgBar from "./ImgBar";
 import { Photo } from "../../types";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import { emptyPhoto } from "../../helper/helper";
 
 const ImagesPanel = () => {
   const [images, setImages] = useState<Photo[]>([]);
@@ -58,7 +59,7 @@ const ImagesPanel = () => {
   const addImgHandler = () =>
     setImages((prev) => {
       const updatedImages = prev.slice(0);
-      updatedImages.push({ type: "img", url: "", name: "", thumbnail: "" });
+      updatedImages.push(emptyPhoto);
       return updatedImages;
     });
 

@@ -1,6 +1,5 @@
 import { textsEN, textsPL } from "../assets/texts";
 import { URL } from "../config";
-import { buildImgsArr } from "../helper/helper";
 import { Photo, Project } from "../types";
 import { ActionFunction, LoaderFunction, redirect } from "react-router-dom";
 
@@ -9,22 +8,14 @@ import { ActionFunction, LoaderFunction, redirect } from "react-router-dom";
 ////////////////////////////////////////////////////////
 
 export const loadPhotos: LoaderFunction = async () => {
-  const response = await fetch(`${URL}photos.json`);
+  const response = await fetch(`${URL}photos?limit=200`);
 
   if (!response.ok) {
     throw new Error(`Something went wrong (${response.status})`);
   }
   const data = await response.json();
 
-  let photos;
-  let photosKey;
-
-  for (const key in data) {
-    photosKey = key;
-    photos = data[key];
-  }
-
-  return { photos, photosKey };
+  return data.data;
 };
 
 export const loadProjects: LoaderFunction = async () => {
@@ -37,7 +28,7 @@ export const loadProjects: LoaderFunction = async () => {
 
     return data.data.projects as Project[];
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 };
@@ -46,29 +37,92 @@ export const loadProjects: LoaderFunction = async () => {
 /////////////////// action functions ///////////////////
 ////////////////////////////////////////////////////////
 
-const loadPhotosToStorage = async (photos: Photo[], token: string, key: string) => {
-  const photosData = { [key]: photos };
-  try {
-    await fetch(`${URL}/photos.json?auth=${token}`, {
+// export const loadPhotosToStorage = async (photos: Photo[], token: string, key: string) => {
+//   const photosData = { [key]: photos };
+//   try {
+//     await fetch(`${URL}/photos`, {
+//       method: "PATCH",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(photosData),
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+const buildImgsArr = (data: FormData) => {
+  const urls = data.getAll("url");
+  const types = data.getAll("type");
+  const thumbnails = data.getAll("thumbnail");
+  const names = data.getAll("name");
+  const _ids = data.getAll("_id");
+
+  return urls.map((el, i) => {
+    return {
+      name: names[i],
+      thumbnail: thumbnails[i],
+      type: types[i],
+      url: el,
+      _id: _ids[i] || undefined,
+    };
+  }) as Array<Photo>;
+};
+
+const updatePhoto = (img: Photo, i: number) => {
+  return new Promise((resolve, reject) => {
+    fetch(`${URL}photos/${img._id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(photosData),
-    });
-  } catch (error) {
-    console.log(error);
-  }
+      body: JSON.stringify({ ...img, order: i }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to patch image (${img.url})`);
+        }
+        resolve(`Image patched (${img.url})`);
+      })
+      .catch((error) => {
+        reject(`Failed patching image (${img.url}): ${error.message}`);
+      });
+  });
+};
+
+const createPhoto = (img: Photo, i: number) => {
+  return new Promise((resolve, reject) => {
+    fetch(`${URL}photos`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...img, order: i }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to create image (${img.url})`);
+        }
+        resolve(`Image created (${img.url})`);
+      })
+      .catch((error) => {
+        reject(`Failed creating image (${img.url}): ${error.message}`);
+      });
+  });
 };
 
 export const updatePhotos: ActionFunction = async ({ request }) => {
-  const data = await request.formData();
-  const token = (await data.get("token")) as string;
-  const key = (await data.get("key")) as string;
+  try {
+    const data = await request.formData();
+    const images = await buildImgsArr(data);
 
-  const images = await buildImgsArr(data);
+    const promises = images.map((img, i) => {
+      if (img._id) return updatePhoto(img, i);
+      else return createPhoto(img, i);
+    });
 
-  loadPhotosToStorage(images, token, key);
+    await Promise.all(promises);
 
-  return null;
+    return null;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 };
 
 export const sendMessage: ActionFunction = async ({ request }) => {
@@ -154,7 +208,6 @@ export const updateAllProjects: ActionFunction = async ({ request }) => {
     };
 
     await patchProject(projectData, request.method);
-    console.log("project loaded");
 
     if (request.method === "POST") return null;
     else return redirect(`/architecture/${projectData.id}`);

@@ -3,6 +3,8 @@ export type Photo = {
   thumbnail: string;
   type: string;
   url: string;
+  order: number;
+  _id?: string;
 };
 
 // export type Project = {

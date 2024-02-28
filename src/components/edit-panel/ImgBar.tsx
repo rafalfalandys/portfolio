@@ -49,6 +49,8 @@ const ImgBar: React.FC<Props> = ({ image, i, moveUpHandler, moveDownHandler, rem
         defaultValue={image.thumbnail}
       ></textarea>
 
+      <input name="_id" readOnly hidden value={image._id} />
+
       <div className={styles.buttons}>
         <div className={`${styles.icon} ${styles["icon--up"]}`} onClick={clickUpHandler}>
           <ChevronUpIcon />

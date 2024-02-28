@@ -17,8 +17,9 @@
   border-radius: 10rem;
   padding-left: 2rem;
 
-  & ion-icon {
-    font-size: 32px;
+  & svg {
+    width: 3.2rem;
+    height: 3.2rem;
   }
 
   &:hover {
