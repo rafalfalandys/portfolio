@@ -5,7 +5,6 @@ import { Form, useLoaderData } from "react-router-dom";
 import { useContext } from "react";
 import ContextUI from "../../../store/context-ui";
 import ImagesPanel from "../../../components/edit-panel/ImagesPanel";
-import useFirebase from "../../../hooks/use-firebase";
 import ContextProjects from "../../../store/context-projects";
 import UploadImgForm from "../../../components/edit-panel/UploadImgForm";
 import { Photo } from "../../../types";
@@ -13,7 +12,6 @@ import { Photo } from "../../../types";
 const EditPhotographyPanel = () => {
   const { editMode, toggleEditMode, deletingMode, toggleDeletingMode } = useContext(ContextUI);
   const { curImagesHandler } = useContext(ContextProjects);
-  const { user } = useFirebase();
   const photosData = useLoaderData() as { photos: Photo[]; photosKey: string };
 
   useEffect(() => {
@@ -38,7 +36,6 @@ const EditPhotographyPanel = () => {
             <button type="submit" className={styles.btn}>
               Wyślij
             </button>
-            {user && <input name="token" readOnly hidden value={user.accessToken} />}
             <input name="key" readOnly hidden value={photosData.photosKey} />
           </Form>
           <div className={styles.upload}>

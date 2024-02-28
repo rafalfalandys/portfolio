@@ -31,7 +31,7 @@ const NavElements: React.FC<Props> = (props) => {
         {text.nav.contact}
       </NavItem>
       {editMode && (
-        <NavItem mobile={props.mobile} linkTo={user ? "/edit" : "/login"}>
+        <NavItem mobile={props.mobile} linkTo={"/edit"}>
           {text.nav.edit}
         </NavItem>
       )}

@@ -13,6 +13,7 @@ const ProjectText = () => {
 
   const locationText = curProject.location ? `${curProject.location} -` : "";
 
+  console.log(curProject);
   const noTDText = curProject.tags.includes("no td text");
 
   return (

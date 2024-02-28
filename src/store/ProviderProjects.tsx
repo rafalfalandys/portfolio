@@ -20,7 +20,7 @@ const ProviderProjects: React.FC<{ children: ReactNode | ReactNode[] }> = (props
 
   // Projects Control
   const curProjectsHandler = useCallback((projects: Project[]) => {
-    setCurProjects((prev) => [...prev, ...projects]);
+    setCurProjects(projects);
   }, []);
   const curProjectNoHandler = useCallback((no: number) => setCurProjectNo(no), []);
   const curProjectHandler = useCallback((project: Project) => setCurProject(project), []);
