@@ -5,7 +5,6 @@ import useInput from "../hooks/use-input";
 import ContextUI from "../store/context-ui";
 import styles from "./ContactForm.module.scss";
 import Spinner from "./UI/Spinner";
-import useFirebase from "../hooks/use-firebase";
 import useText from "../hooks/use-text";
 
 const ContactForm = () => {
@@ -14,7 +13,6 @@ const ContactForm = () => {
   const [isLoad, setIsLoad] = useState(false);
   const navigation = useNavigation();
   const actionData = useActionData() as { msg: string; pl: string; ok: boolean };
-  const { user } = useFirebase();
   const text = useText();
 
   const isSubmitting = navigation.state === "submitting";
@@ -110,7 +108,6 @@ const ContactForm = () => {
           <span>{isLoad && !actionData.ok && (isEnglish ? actionData.msg : actionData?.pl)}</span>
         </p>
       </div>
-      {user && <input name="token" readOnly hidden value={user.accessToken} />}
     </Form>
   );
 };

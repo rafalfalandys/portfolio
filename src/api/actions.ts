@@ -1,5 +1,5 @@
 import { textsEN, textsPL } from "../assets/texts";
-import { URL } from "../config";
+import { FIREBASE_CONFIG, URL } from "../config";
 import { buildImgsArr } from "../helper/helper";
 import { Photo, Project } from "../types";
 import { ActionFunction, redirect } from "react-router-dom";
@@ -54,19 +54,6 @@ const createSingleEl = (el: Photo | Project, i: number) => {
 /////////////////// action functions ///////////////////
 ////////////////////////////////////////////////////////
 
-// export const loadPhotosToStorage = async (photos: Photo[], token: string, key: string) => {
-//   const photosData = { [key]: photos };
-//   try {
-//     await fetch(`${URL}/photos`, {
-//       method: "PATCH",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(photosData),
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 ////////////////// Photos //////////////////
 
 export const updatePhotos: ActionFunction = async ({ request }) => {
@@ -86,7 +73,7 @@ export const updatePhotos: ActionFunction = async ({ request }) => {
       return null;
     } else {
       // deleting projects
-      await fetch(`${URL}photos/${data.get("_id")}`, {
+      await fetch(`${URL}/photos/${data.get("_id")}`, {
         method: "DELETE",
       });
 
@@ -119,7 +106,7 @@ export const sendMessage: ActionFunction = async ({ request }) => {
     date,
   };
 
-  const response = await fetch(URL + "messages.json", {
+  const response = await fetch(`${FIREBASE_CONFIG.databaseURL}/messages.json`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),

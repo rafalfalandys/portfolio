@@ -15,12 +15,9 @@ const UploadImgForm = () => {
     const fileInput = targetEl.querySelector("#file-input") as HTMLInputElement;
     const file = fileInput.files ? fileInput.files[0] : null;
 
-    if (!file) {
-      console.error("Please select a file");
-      return;
-    }
-
-    const url = await uploadFile(`architecture/${projectId}/${file.name}`, file);
+    if (!file) return;
+    const path = projectId ? `architecture/${projectId}` : `photos`;
+    const url = await uploadFile(`${path}/${file.name}`, file);
 
     if (url) setTextToCopy(url);
   };

@@ -1,34 +1,7 @@
-import { useState, useEffect } from "react";
-import { auth } from "../helper/firebase";
-import { User, onAuthStateChanged } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { useLocation, useNavigate } from "react-router-dom";
 import { FirebaseError } from "firebase/app";
 
 const useFirebase = () => {
-  const [user, setUser] = useState<User | null>(null);
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) setUser(user);
-      if (!user && location.pathname === "/edit-panel") {
-        navigate("/");
-      }
-    });
-
-    return unsubscribe;
-  }, [location.pathname, navigate]);
-
-  const signOut = async () => {
-    try {
-      await signOut();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   // storage
   const storage = getStorage();
 
@@ -50,7 +23,7 @@ const useFirebase = () => {
     }
   };
 
-  return { user, signOut, uploadFile };
+  return { uploadFile };
 };
 
 export default useFirebase;
