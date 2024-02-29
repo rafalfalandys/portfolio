@@ -9,11 +9,11 @@ This project is my architecture and photography portfolio and at the same time m
 It not only displays static content, but also has a full CRUD edit panel for both architectural projects, and photos.
 
 Features and stack:
-React | Typescript | NodeKS | API | Context | Sass |
+React | Typescript | NodeJS | API | Context | Sass |
 
 ## The core
 
-App is generally based on the loader and action functions (react-router 6.4+), which handle all API calls - CRUD for projects, and CRUD for photos.
+App is generally based on the loader and action functions (react-router 6.4+), which handle all API calls - CRUD for projects, and CRUD for photos. Panel is hidden - to see how it works watch this video: https://www.youtube.com/watch?v=1YsQ8e78WlQ
 All image files are stored in Firebase storage, and you can also upload them there from the edit panel.
 
 ## Photos:
