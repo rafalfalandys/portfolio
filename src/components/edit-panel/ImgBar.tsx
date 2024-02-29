@@ -7,13 +7,13 @@ type Props = {
   i: number;
   moveUpHandler: (i: number) => void;
   moveDownHandler: (i: number) => void;
-  removeImgHandler: (i: number) => void;
+  removeImgHandler: (i: number, _id: string | undefined) => void;
 };
 
 const ImgBar: React.FC<Props> = ({ image, i, moveUpHandler, moveDownHandler, removeImgHandler }) => {
   const clickUpHandler = () => moveUpHandler(i);
   const clickDownHandler = () => moveDownHandler(i);
-  const clickRemoveHandler = () => removeImgHandler(i);
+  const clickRemoveHandler = () => removeImgHandler(i, image._id);
 
   return (
     <div key={image.url} className={styles.bar}>

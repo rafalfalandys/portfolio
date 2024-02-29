@@ -14,9 +14,10 @@ import EditProjectForm from "./components/edit-panel/EditProjectForm";
 import EditArchitecturePanel from "./pages/edit-panel/architecture/EditArchitecturePanel";
 import EditPhotographyPanel from "./pages/edit-panel/photography/EditPhotographyPanel";
 import EditPage from "./pages/edit-panel/EditPage";
-import { loadProjects, loadPhotos, updatePhotos, sendMessage, updateAllProjects } from "./api/api";
+import { updatePhotos, sendMessage, updateAllProjects } from "./api/actions";
 import Photography from "./pages/portfolio-pages/Photography";
 import Architecture from "./pages/portfolio-pages/Architecture";
+import { loadPhotos, loadProjects } from "./api/loaders";
 
 const router = createBrowserRouter([
   {
@@ -49,11 +50,11 @@ const router = createBrowserRouter([
         element: <EditArchitecturePanel />,
         loader: loadProjects,
         action: updateAllProjects,
+        id: "editArch",
         children: [
           {
             path: ":projectId",
             element: <EditProjectForm />,
-            loader: loadProjects,
             action: updateAllProjects,
           },
         ],

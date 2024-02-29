@@ -10,7 +10,7 @@ import { Project } from "../../types";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
 const ProjectsList = () => {
-  const loaderData = (useLoaderData() as Project[]).sort((a, b) => a.order! - b.order!);
+  const loaderData = useLoaderData() as Project[];
   const { curProjects, curProjectsHandler, changeProjectsOrder } = useContext(ContextProjects);
   const [isOrderChanged, setIsOrderChanged] = useState(false);
   const submit = useSubmit();
@@ -32,21 +32,14 @@ const ProjectsList = () => {
   const addProjectHandler = () => {
     const title = "New Project";
     const id = title.replace(" ", "-").toLowerCase();
-    const newProject: Project = { ...emptyProject, title: title, id: id };
-    curProjectsHandler([newProject]);
+    const newProject: Project = { ...emptyProject, title: title, id, order: curProjects.length };
+    curProjectsHandler([...loaderData, newProject]);
     navigate(id);
   };
 
   const projects = curProjects.map((project, i) => {
     return (
-      <ProjectBar
-        id={project.id}
-        title={project.title}
-        index={i}
-        key={project.id}
-        keyValue={project._id!}
-        onSlide={slideProject}
-      />
+      <ProjectBar id={project.id} title={project.title} index={i} key={i} _id={project._id!} onSlide={slideProject} />
     );
   });
 

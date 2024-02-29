@@ -7,16 +7,25 @@ import ImgBar from "./ImgBar";
 import { Photo } from "../../types";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { emptyPhoto } from "../../helper/helper";
+import { useSubmit } from "react-router-dom";
 
 const ImagesPanel = () => {
   const [images, setImages] = useState<Photo[]>([]);
   const { curImages } = useContext(ContextProjects);
+  const submit = useSubmit();
 
   useEffect(() => {
     setImages(curImages);
   }, [curImages]);
 
-  const removeImg = (i: number) => setImages((prev) => prev.filter((_, index) => index !== i));
+  const removeImg = (i: number, _id?: string) => {
+    const proceed = window.confirm(`Are you sure you want to delete this image?`);
+
+    if (proceed) {
+      if (_id) submit({ _id }, { method: "delete" });
+      setImages((prev) => prev.filter((_, index) => index !== i));
+    }
+  };
 
   const moveImgUp = (i: number) => {
     if (i === 0) {

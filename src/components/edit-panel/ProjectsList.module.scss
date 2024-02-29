@@ -21,6 +21,11 @@
   &:active {
     transform: scale(1.02);
   }
+
+  & svg {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
 }
 
 .confirm {

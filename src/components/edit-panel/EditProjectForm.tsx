@@ -1,20 +1,18 @@
 import { useEffect } from "react";
 import { useContext } from "react";
-import { Form, useLoaderData, useParams } from "react-router-dom";
+import { Form, useParams, useRouteLoaderData } from "react-router-dom";
 import ContextProjects from "../../store/context-projects";
 import ContextUI from "../../store/context-ui";
 import styles from "./EditProjectForm.module.scss";
 import ImagesPanel from "./ImagesPanel";
-import useFirebase from "../../hooks/use-firebase";
 import UploadImgForm from "./UploadImgForm";
 import { Project } from "../../types";
 
 const EditProjectForm = () => {
   const { projectId } = useParams();
-  const loaderData = useLoaderData() as Project[];
+  const loaderData = useRouteLoaderData("editArch") as Project[];
   const { curProject, curProjectNoHandler, curProjectHandler, curProjects } = useContext(ContextProjects);
   const { addingProjectMode, addingProjectModeHandler } = useContext(ContextUI);
-  const { user } = useFirebase();
 
   useEffect(() => {
     const projectIndex = (curProjects.length !== 0 ? curProjects : loaderData).findIndex(
@@ -41,11 +39,11 @@ const EditProjectForm = () => {
           <input type="text" name="location" defaultValue={curProject.location} className={styles.text} />
         </div>
         <label>Title:</label>
-        <div key={`title-${curProject.title}`}>
+        <div key={`title-${curProject.title}-en`}>
           <input type="text" name="title" defaultValue={curProject.title} className={styles.text} />
         </div>
         <label>Tytuł:</label>
-        <div key={`title-${curProject.tytul}`}>
+        <div key={`title-${curProject.tytul}-pl`}>
           <input type="text" name="tytul" defaultValue={curProject.tytul} className={styles.text} />
         </div>
         <label>Year:</label>
@@ -78,7 +76,9 @@ const EditProjectForm = () => {
           <input style={{ display: "none" }} type="text" name="key" defaultValue={curProject.id} />
         </div>
         <button className={styles.btn}>{addingProjectMode ? "Add Project" : "Confirm changes"}</button>
-        {user && <input name="token" readOnly hidden value={user.accessToken} />}
+
+        <input name="order" readOnly hidden value={curProject.order} />
+        <input name="projId" readOnly hidden value={curProject._id} />
       </Form>
       <div className={styles.uploadImgForm}>
         <UploadImgForm />
