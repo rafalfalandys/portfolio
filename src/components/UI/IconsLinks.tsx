@@ -9,7 +9,7 @@ import {
 const IconsLinks: React.FC<{ height?: string }> = (props) => {
   return (
     <div className={styles.icons} style={{ height: `${props.height}` }}>
-      <a href="https://www.linkedin.com/in/weronika-kogut-1a52aa182/" target="_blank" rel="noreferrer">
+      <a href="https://www.linkedin.com/in/rafal-falandys/" target="_blank" rel="noreferrer">
         <LogoLinkedin />
       </a>
       {/* <a
